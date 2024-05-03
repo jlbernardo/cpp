@@ -5,7 +5,8 @@ NAME	= phonebook
 CC		= c++
 FLAGS	= -Werror -Wall -Wextra -g3 -std=c++98
 
-INCLUDE	= -I ./includes/
+INCLUDE	+= -I ../includes/
+INCLUDE	+= -I ./includes/
 
 OD		= obj/
 
