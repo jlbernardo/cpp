@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 01:47:54 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/02 15:20:47 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:12:47 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,36 @@
 
 # include <cstring>
 # include <iostream>
-# include "Contact.hpp"
 # include "PhoneBook.hpp"
-
-
-// ************************************************************************** //
-//                              Readabily Macros                              //
-// ************************************************************************** //
-
-# define EMPTY_CNT	1
-# define WRONG_CMD	2
-# define INDEX_OUT	3
 
 
 // ************************************************************************** //
 //                           Main Program Functions                           //
 // ************************************************************************** //
 
-void			goodbye(void);
-void			error(int flag);
-void			prompt(std::string &input, std::string msg);
+/**
+ * Displays a goodbye message to the user. ( ｡◕‿‿◕｡)
+ */
+void	goodbye(void);
+
+/**
+ * Displays an error message to the user.
+ *
+ * #### Parameters:
+ * `EMPTY_CNT`─ No contacts to be shown when trying to 'SEARCH'.
+ * `WRONG_CMD`─ Command input not recognized.
+ * `INDEX_OUT`─ Index out of bounds or wrong when trying to show contact info.
+ */
+void	error(int flag);
+
+/**
+ * Prompts the user for an action to be taken.
+ *
+ * #### Parameters:
+ * `input`─ Retrieves and stores user's input.
+ * `msg`─ Indicates what message should be displayed
+ *		  for the user before prompting for an answer.
+ */
+void	prompt(std::string &input, std::string msg);
 
 #endif

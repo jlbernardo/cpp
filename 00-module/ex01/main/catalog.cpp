@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:22:06 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/02 01:56:02 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:19:46 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main() {
 			phonebook.add();
 		else if (input == "SEARCH")
 			phonebook.search();
-		else if (input == "EXIT" || input.empty())
+		else if (input == "EXIT" || std::cin.eof() == 1)
 			break ;
 		else
 			error(WRONG_CMD);

@@ -6,13 +6,16 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:14:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/02 02:07:21 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:14:16 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "catalog.hpp"
 
+/**
+ * Adds a new contact to the phone book.
+ */
 void	PhoneBook::add(void) {
 
 	static int i = 0;
@@ -22,8 +25,11 @@ void	PhoneBook::add(void) {
 	i++;
 }
 
+/**
+ * Prints a preview of the existing contacts.
+ */
 void	PhoneBook::search(void) {
-	if (!this->_friends[0].is_valid()) {
+	if (!this->_friends[0].isValid()) {
 		error(EMPTY_CNT);
 		return ;
 	}
@@ -34,10 +40,13 @@ void	PhoneBook::search(void) {
 	PhoneBook::_preview();
 	std::cout << "       ╰──────────┴──────────┴──────────┴──────────╯" << std::endl;
 	std::cout << std::endl << DFL;
-	PhoneBook::_select_contact();
+	PhoneBook::_selectContact();
 }
 
-void	PhoneBook::_select_contact(void) {
+/**
+ * Prints the contact's fields for the preview function.
+ */
+void	PhoneBook::_selectContact(void) {
 
 	int			index;
 	std::string	input;
@@ -45,7 +54,7 @@ void	PhoneBook::_select_contact(void) {
 	while (true) {
 		prompt(input, "SEARCH");
 		index = std::atoi(input.c_str()) - 1;
-		if (index >= 0 && index < 8 && this->_friends[index].is_valid()) {
+		if (index >= 0 && index < 8 && this->_friends[index].isValid()) {
 			this->_friends[index].print(index);
 			return ;
 		}

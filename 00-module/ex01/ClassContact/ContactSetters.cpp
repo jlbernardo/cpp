@@ -6,33 +6,45 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:38:34 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/02 00:37:38 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:26:26 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void	Contact::_set_first_name(void) {
-	this->_first_name.clear();
-	while (this->_first_name.empty())
+/**
+ * Sets nickname attribute.
+ */
+void Contact::_setFirstName(void)
+{
+	this->_firstName.clear();
+	while (this->_firstName.empty())
 	{
 		println(WHT << "\n┌ Input contact's first name:");
 		std::cout << "└─➤ " << DFL;
-		std::getline(std::cin, this->_first_name);
+		std::getline(std::cin, this->_firstName);
 	}
 }
 
-void	Contact::_set_last_name(void) {
-	this->_last_name.clear();
-	while (this->_last_name.empty())
+/**
+ * Sets last name attribute.
+ */
+void Contact::_setLastName(void)
+{
+	this->_lastName.clear();
+	while (this->_lastName.empty())
 	{
 		println(WHT << "\n┌ Input contact's last name:");
 		std::cout << "└─➤ " << DFL;
-		std::getline(std::cin, this->_last_name);
+		std::getline(std::cin, this->_lastName);
 	}
 }
 
-void	Contact::_set_nickname(void) {
+/**
+ * Sets nickname attribute.
+ */
+void Contact::_setNickname(void)
+{
 	this->_nickname.clear();
 	while (this->_nickname.empty())
 	{
@@ -42,23 +54,31 @@ void	Contact::_set_nickname(void) {
 	}
 }
 
-void	Contact::_set_phone_number(void) {
-	this->_phone_number.clear();
-	while (this->_phone_number.empty())
+/**
+ * Sets phone number attribute.
+ */
+void Contact::_setPhoneNumber(void)
+{
+	this->_phoneNumber.clear();
+	while (this->_phoneNumber.empty())
 	{
 		println(WHT << "\n┌ Input contact's phone number:");
 		std::cout << "└─➤ " << DFL;
-		std::getline(std::cin, this->_phone_number);
+		std::getline(std::cin, this->_phoneNumber);
 	}
 }
 
-void	Contact::_set_darkest_secret(void) {
-	this->_darkest_secret.clear();
-	while (this->_darkest_secret.empty())
+/**
+ * Sets darkest secret attribute.
+ */
+void Contact::_setDarkestSecret(void)
+{
+	this->_darkestSecret.clear();
+	while (this->_darkestSecret.empty())
 	{
 		println(WHT << "\n┌ Input contact's darkest secret:");
 		std::cout << "└─➤ " << DFL;
-		std::getline(std::cin, this->_darkest_secret);
+		std::getline(std::cin, this->_darkestSecret);
 		std::cout << std::endl;
 	}
 }
