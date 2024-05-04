@@ -1,19 +1,19 @@
 # -*- Makefile -*-
 
-NAME	= phonebook
+NAME	=	phonebook
 
-CC		= c++
-FLAGS	= -Werror -Wall -Wextra -g3 -std=c++98
+CC		=	c++
+FLAGS	=	-Werror -Wall -Wextra -g3 -std=c++98
 
-INCLUDE	+= -I ../includes/
-INCLUDE	+= -I ./includes/
+INCLUDE	+=	-I ../includes/
+INCLUDE	+=	-I ./includes/
 
-OD		= obj/
+OD		=	obj/
 
 SRC		+=	$(addprefix main/, catalog.cpp catalog_utils.cpp)
 SRC		+=	$(addprefix ClassPhoneBook/, PhoneBookMethods.cpp PhoneBookUtils.cpp)
 SRC		+=	$(addprefix ClassContact/, ContactGetters.cpp ContactSetters.cpp ContactMethods.cpp ContactUtils.cpp)
-OBJ		= $(SRC:%.cpp=$(OD)%.o)
+OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
 DFL 	=	\033[0m
