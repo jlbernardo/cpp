@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 21:40:15 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/04 18:04:04 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/04 18:20:04 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 #include <ctime>
 #include <iomanip>
 
+//Initialization of static variables
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
+
+/**
+ * Constructs a new Account object and prints a message to the console
+ *
+ * #### Parameters:
+ * - `int initial_deposit`: the initial deposit to create the account
+ */
 Account::Account(int initial_deposit)
 	: _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
 	_displayTimestamp();
@@ -32,6 +40,9 @@ Account::Account(int initial_deposit)
 	std::cout << ";created" << std::endl;
 }
 
+/**
+ * Destructs an Account object and prints a message to the console
+ */
 Account::~Account(void) {
 	_displayTimestamp();
 
@@ -40,6 +51,12 @@ Account::~Account(void) {
 	std::cout << ";closed" << std::endl;
 }
 
+/**
+ * Makes a deposit to the account and prints a message to the console
+ *
+ * #### Parameters:
+ * - `int deposit`: the amount to deposit
+ */
 void	Account::makeDeposit(int deposit) {
 	_displayTimestamp();
 
@@ -56,6 +73,15 @@ void	Account::makeDeposit(int deposit) {
 	std::cout << ";nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
+/**
+ * Makes a withdrawal from the account and prints a message to the console
+ *
+ * #### Parameters:
+ * - `int withdrawal`: the amount to withdraw
+ *
+ * #### Returns:
+ * - `bool`: `true` if the withdrawal was successful, `false` otherwise
+ */
 bool	Account::makeWithdrawal(int withdrawal) {
 	_displayTimestamp();
 
@@ -77,6 +103,10 @@ bool	Account::makeWithdrawal(int withdrawal) {
 	return (true);
 }
 
+/**
+ * Displays the account information to the console
+ * (total accounts, total amount, total deposits, total withdrawals)
+ */
 void	Account::displayAccountsInfos(void) {
 	_displayTimestamp();
 
@@ -86,26 +116,60 @@ void	Account::displayAccountsInfos(void) {
 	std::cout << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
+/**
+ * Returns the number of accounts created
+ *
+ * #### Returns:
+ * - `int`: total accounts
+ */
 int	Account::getNbAccounts(void) {
 	return (_nbAccounts);
 }
 
+/**
+ * Returns the total balance of all accounts
+ *
+ * #### Returns:
+ * - `int`: amount of money in all of the accounts
+*/
 int	Account::getTotalAmount(void) {
 	return (_totalAmount);
 }
 
+/**
+ * Returns the total number of deposits
+ *
+ * #### Returns:
+ * - `int`: total deposits
+ */
 int	Account::getNbDeposits(void) {
 	return (_totalNbDeposits);
 }
 
+/**
+ * Returns the total number of withdrawals
+ *
+ * #### Returns:
+ * - `int`: total withdrawals
+ */
 int	Account::getNbWithdrawals(void) {
 	return (_totalNbWithdrawals);
 }
 
+/**
+ * Returns the balance of the account
+ *
+ * #### Returns:
+ * - `int`: the amount of money in the account
+ */
 int	Account::checkAmount(void) const { //const because it doesnt modify any value of the class
 	return (this->_amount);
 }
 
+/**
+ * Displays the account status to the console
+ * (index, amount, deposits, withdrawals)
+ */
 void	Account::displayStatus(void) const {
 
 	_displayTimestamp();
@@ -115,6 +179,9 @@ void	Account::displayStatus(void) const {
 	std::cout << ";withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
+/**
+ * Displays the current timestamp to the console
+ */
 void	Account::_displayTimestamp(void) {
 
 	time_t	now = time(0);
