@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:50:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/05 23:07:01 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/05 23:22:04 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "HumanB.hpp"
 
 int main(void) {
-
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
