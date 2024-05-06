@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:51:49 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/05 21:14:48 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/05 22:30:40 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 // ************************************************************************** //
 
 /**
- * A class that represents a zombie.
+ * #### It was a human once.
  * Has a name, can announce itself and has a function to set the name to a new value.
  */
 class Zombie {
