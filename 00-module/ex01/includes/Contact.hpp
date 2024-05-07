@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:15:30 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/02 21:22:19 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:31:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <cstring>
-# include "colors.hpp"
+# include "general.hpp"
 # include "macros.hpp"
 
 

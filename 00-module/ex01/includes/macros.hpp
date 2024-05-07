@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:49:26 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/02 18:51:24 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:33:30 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,5 @@
  * #
  */
 # define HEADER		3
-
-/**
- * Inserts content into the std::cout and adds a new line at the end.
- * #
- */
-# define println(x) std::cout << x << std::endl;
 
 #endif

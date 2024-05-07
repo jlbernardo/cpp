@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.hpp                                         :+:      :+:    :+:   */
+/*   general.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -54,5 +54,9 @@
  */
 # define WHT	"\033[37;1m"
 
+/**
+ * Inserts content into the std::cout and adds a new line at the end.
+ */
+# define println(x) std::cout << x << std::endl;
 
 #endif
