@@ -6,11 +6,11 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:18:15 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/05 21:30:40 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:31:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "colors.hpp"
+#include "general.hpp"
 #include <iostream>
 
 int	main(void) {

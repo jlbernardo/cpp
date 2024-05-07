@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.hpp                                         :+:      :+:    :+:   */
+/*   general.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:47:52 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/05 22:52:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/07 14:22:54 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@
  * Inserts content into the std::cout and adds a new line at the end.
  */
 # define println(x) std::cout << x << std::endl;
+
+/**
+ * Inserts error message into the std::cerr and adds a new line at the end.
+ */
+# define error(x) std::cerr << RED << x << DFL << std::endl;
 
 
 #endif

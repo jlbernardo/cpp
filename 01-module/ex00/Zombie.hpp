@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:51:49 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/05 22:31:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:31:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // ************************************************************************** //
 
 # include <iostream>
-# include "colors.hpp"
+# include "general.hpp"
 
 /**
  * Inserts content into the std::cout and adds a new line at the end.
