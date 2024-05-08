@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:35:05 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/07 17:31:42 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:07:35 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ public:
 				 *
 				 * @return A string describing the type of weapon.
 				 */
-	std::string	getType(void) const;
+	std::string	const getType(void) const;
 
 				/**
 				 * @brief Creates a new weapon.

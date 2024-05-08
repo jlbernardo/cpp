@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:24:07 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/05 22:59:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:07:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	Weapon::setType(std::string type) {
 	this->_type = type;
 }
 
-std::string	Weapon::getType(void) const {
+std::string const	Weapon::getType(void) const {
 	return (this->_type);
 }
