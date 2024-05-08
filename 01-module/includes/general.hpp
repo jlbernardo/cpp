@@ -64,7 +64,7 @@
 /**
  * Inserts error message into the std::cerr and adds a new line at the end.
  */
-# define error(x) std::cerr << RED << x << DFL << std::endl;
+# define errorln(x) std::cerr << RED << x << DFL << std::endl;
 
 
 #endif

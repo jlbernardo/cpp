@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:44:57 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/07 17:29:14 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:53:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 bool	validation(int argc, char **argv, std::ifstream &origin) {
 
 	if (argc != 4) {
-		error("Error:\n" << YLW << "Wrong number of parameters.");
+		errorln("Error:\n" << YLW << "Wrong number of parameters.");
 		return (false);
 	}
 
 	origin.open(argv[1], std::fstream::in);
 
 	if (!origin.is_open()) {
-		error("Error:\n" << YLW << "Failed to open file for reading.");
+		errorln("Error:\n" << YLW << "Failed to open file for reading.");
 		return (false);
 	}
 
