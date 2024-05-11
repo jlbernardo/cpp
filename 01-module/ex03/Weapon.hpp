@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 21:35:05 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/08 12:07:35 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:17:19 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ public:
 				 *
 				 * @param type A string describing the type of weapon.
 				 */
-				Weapon(std::string type);
+				Weapon(std::string type = "hands");
 
 				/**
 				 * @brief Destroys the weapon. It is no longer needed.
