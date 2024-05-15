@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:25:32 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/15 15:50:43 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:37:24 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
 			 * @brief Overloaded assignment operator. Copies the value from one object to the other.
 			 * @param copy the object from which to copy from.
 			 */
-	void	operator=(Fixed &copy);
+	void	operator=(const Fixed &copy);
 
 			/**
 			 * @brief Sets the the raw bits of the Fixed class object.
@@ -60,7 +60,7 @@ public:
 			 * @brief Gets the raw bits of the Fixed class object.
 			 * @return int - the raw value.
 			 */
-	int		getRawBits(void);
+	int		getRawBits(void) const;
 
 };
 
