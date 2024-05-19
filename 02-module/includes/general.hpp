@@ -59,7 +59,7 @@
 /**
  * Inserts content into the std::cout and adds a new line at the end.
  */
-# define println(x) std::cout << x << std::endl;
+# define println(x) std::cout << x << DFL << std::endl;
 
 /**
  * Inserts error message into the std::cerr and adds a new line at the end.
