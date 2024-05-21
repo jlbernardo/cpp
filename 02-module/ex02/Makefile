@@ -10,7 +10,7 @@ INCLUDE	+=	-I ../includes/
 
 OD		=	obj/
 
-SRC		=	main.cpp Fixed.cpp
+SRC		=	main.cpp Fixed.cpp tests.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
