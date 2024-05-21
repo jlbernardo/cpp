@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:58:57 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/20 22:49:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:57:49 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	pdf_tests(void) {
 
 	println("\n  First, let's run the tests from the PDF:\n");
 	println(WHT << "        Fixed a;\n        Fixed const b(Fixed(5.05f) * Fixed(2));\n");
-	println("      ╭───────────────────────────╮")
-	println("      │          a = " << a << "            │");
-	println("      │        ++a = " << ++a << "   │");
-	println("      │          a = " << a << "   │");
-	println("      │        a++ = " << a++ << "   │");
-	println("      │          a = " << a << "    │");
-	println("      │          b = " << b << "      │");
-	println("      │  max(a, b) = " << Fixed::max( a, b ) << "      │");
-	println("      │  min(a, b) = " << Fixed::min( a, b ) << "    │");
-	println("      ╰───────────────────────────╯")
-	println("            ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
+	println("      ╭───────────────────────────────────╮")
+	println("      │               a = " << a << "               │");
+	println("      │             ++a = " << ++a << "      │");
+	println("      │               a = " << a << "      │");
+	println("      │             a++ = " << a++ << "      │");
+	println("      │               a = " << a << "       │");
+	println("      │               b = " << b << "         │");
+	println("      │       max(a, b) = " << Fixed::max( a, b ) << "         │");
+	println("      │       min(a, b) = " << Fixed::min( a, b ) << "       │");
+	println("      ╰───────────────────────────────────╯")
+	println("                    ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
 
 	std::string	input("not empty");
 	while (!input.empty())
@@ -45,24 +45,24 @@ void	comparison_tests(void) {
 	println("  Now we can run some other tests. Let's try some comparisons:\n")
 	println(WHT << "        Fixed a(42.4"<< GRN << "3" << WHT << ");");
 	println(WHT << "        Fixed b(42.4"<< RED << "2" << WHT << ");\n");
-	println("      ╭───────────────────────────╮")
-	println("      │        a < b = " << ((a < b) ? TRUE : FALSE) << "      │");
-	println("      │        a > b = " << ((a > b) ? TRUE : FALSE) << "       │");
-	println("      │       a == b = " << ((a == b) ? TRUE : FALSE) << "      │");
-	println("      │       a != b = " << ((a != b) ? TRUE : FALSE) << "       │");
-	println("      │       a >= b = " << ((a >= b) ? TRUE : FALSE) << "       │");
-	println("      │       a <= b = " << ((a <= b) ? TRUE : FALSE) << "      │");
-	println("      │                           │")
-	println("      │           " << WHT << " b + 1 " << DFL << "         │"); b = b + 1;
-	println("      │                           │")
-	println("      │        a < b = " << ((a < b) ? TRUE : FALSE) << "       │");
-	println("      │        a > b = " << ((a > b) ? TRUE : FALSE) << "      │");
-	println("      │       a == b = " << ((a == b) ? TRUE : FALSE) << "      │");
-	println("      │       a != b = " << ((a != b) ? TRUE : FALSE) << "       │");
-	println("      │       a >= b = " << ((a >= b) ? TRUE : FALSE) << "      │");
-	println("      │       a <= b = " << ((a <= b) ? TRUE : FALSE) << "       │");
-	println("      ╰───────────────────────────╯")
-	println("            ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
+	println("      ╭───────────────────────────────────╮")
+	println("      │             a < b = " << ((a < b) ? TRUE : FALSE) << "         │");
+	println("      │             a > b = " << ((a > b) ? TRUE : FALSE) << "          │");
+	println("      │            a == b = " << ((a == b) ? TRUE : FALSE) << "         │");
+	println("      │            a != b = " << ((a != b) ? TRUE : FALSE) << "          │");
+	println("      │            a >= b = " << ((a >= b) ? TRUE : FALSE) << "          │");
+	println("      │            a <= b = " << ((a <= b) ? TRUE : FALSE) << "         │");
+	println("      │                                   │")
+	println("      │                " << WHT << " b + 1 " << DFL << "            │"); b = b + 1;
+	println("      │                                   │")
+	println("      │             a < b = " << ((a < b) ? TRUE : FALSE) << "          │");
+	println("      │             a > b = " << ((a > b) ? TRUE : FALSE) << "         │");
+	println("      │            a == b = " << ((a == b) ? TRUE : FALSE) << "         │");
+	println("      │            a != b = " << ((a != b) ? TRUE : FALSE) << "          │");
+	println("      │            a >= b = " << ((a >= b) ? TRUE : FALSE) << "         │");
+	println("      │            a <= b = " << ((a <= b) ? TRUE : FALSE) << "          │");
+	println("      ╰───────────────────────────────────╯")
+	println("                    ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
 
 	std::string	input("not empty");
 	while (!input.empty())
