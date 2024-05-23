@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:10:04 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/23 19:59:17 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:32:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # include "Fixed.hpp"
 
-class Point {
-
 /**
  * #### Point class
  * Represents a point in a 2D space.
  */
+class Point {
+
 private:
 	Fixed const _x;			// x coordinate of the point
 	Fixed const _y;			// y coordinate of the point
@@ -50,40 +50,40 @@ public:
 			~Point(void);
 
 			/**
-			 * @brief Assignation operator overload.
+			 * @brief Overloaded assignment operator. Copies the value from one object to the other.
 			 * @param operand the object to assign.
 			 */
 	void	operator=(const Point &operand);
 
 			/**
-			 * @brief Get the x coordinate of the point.
-			 * @return the x coordinate of the point.
+			 * @brief Gets the x coordinate of the point.
+			 * @return float – the x coordinate.
 			 */
 	float	getX(void) const;
 
 			/**
-			 * @brief Get the y coordinate of the point.
-			 * @return the y coordinate of the point.
+			 * @brief Gets the y coordinate of the point.
+			 * @return float – the y coordinate.
 			 */
 	float	getY(void) const;
 };
 
 			/**
-			 * @brief Check if a point is inside a triangle.
-			 * @param a the first point of the triangle.
-			 * @param b the second point of the triangle.
-			 * @param c the third point of the triangle.
-			 * @param point the point to check.
-			 * @return true if the point is inside the triangle, false otherwise.
+			 * @brief Checks if a point is inside a triangle.
+			 * @param a the first vertex of the triangle.
+			 * @param b the second vertex of the triangle.
+			 * @param c the third vertex of the triangle.
+			 * @param point the point to be checked.
+			 * @return true if the point is inside the triangle; false if it's outside the triangle, on the edge or if it's a vertex.
 			 */
 bool		bsp( Point const a, Point const b, Point const c, Point const point);
 
 			/**
-			 * @brief Calculate the area of a triangle.
-			 * @param a the first point of the triangle.
-			 * @param b the second point of the triangle.
-			 * @param c the third point of the triangle.
-			 * @return the area of the triangle.
+			 * @brief Calculates the area of a triangle.
+			 * @param a the first vertex of the triangle.
+			 * @param b the second vertex of the triangle.
+			 * @param c the third vertex of the triangle.
+			 * @return float – the area of the triangle.
 			 */
 float		area(Point const a, Point const b, Point const c);
 
