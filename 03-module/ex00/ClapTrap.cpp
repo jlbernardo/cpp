@@ -6,27 +6,27 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:09:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/24 19:17:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/25 18:43:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _attackDamage(0), _energyPoints(10) {
-	println(GRN << "Constructor called for " << this->_name << ".");
+	println(GRN << "     Constructor called for " << this->_name << ".");
 }
 
 ClapTrap::ClapTrap(void) : _name("Unknown"), _hitPoints(10), _attackDamage(0), _energyPoints(10) {
-	println(GRN << "Constructor called for " << this->_name << ".");
+	println(GRN << "     Constructor called for " << this->_name << ".");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy) {
-	println(GRN << "Copy constructor called for " << copy._name << ".");
+	println(GRN << "     Copy constructor called for " << copy._name << ".");
 	*this = copy;
 }
 
 ClapTrap::~ClapTrap(void) {
-	println(RED << "Destructor called for " << this->_name << ".");
+	println(RED << "     Destructor called for " << this->_name << ".");
 }
 
 void	ClapTrap::operator=(const ClapTrap &copy) {

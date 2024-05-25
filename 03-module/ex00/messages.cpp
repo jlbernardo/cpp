@@ -6,28 +6,28 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/24 20:48:06 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/25 18:45:11 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
 void	constructionMessage(void) {
-	println(WHT << "\nLet's first create some ClapTrap instances and see how they behave.\n");
+	println(WHT << "\n  Let's first create some ClapTrap instances and see how they behave.\n");
 
-	println("ClapTrap unknown;");
-	println("ClapTrap marvin(\"Marvin\");");
-	println("ClapTrap hactar(\"Hactar\");");
-	println("ClapTrap copy(hactar);\n");
+	println("     ClapTrap unknown;");
+	println("     ClapTrap marvin(\"Marvin\");");
+	println("     ClapTrap hactar(\"Hactar\");");
+	println("     ClapTrap copy(hactar);\n");
 }
 
 void	destructionMessage(void) {
 	println("\033c");
-	println(WHT << "In the end, the destructors are called.\n");
+	println(WHT << "  In the end, the destructors are called.\n");
 }
 
 void	waitAndClean(void) {
-	println("\nPress enter to continue.");
+	println(WHT << "\n  Press enter to continue.");
 	std::string	input("not empty");
 	while (!input.empty())
 		getline(std::cin, input);
