@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:40:18 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/20 21:07:48 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:44:58 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ std::ostream &operator<<(std::ostream &os, Fixed const &obj) {
 void Fixed::operator=(const Fixed &copy) {
 	this->_value = copy.getRawBits();
 }
-
-// epsilon
-// fabs of floats and check if smaller than epsilon
 
 bool Fixed::operator>(const Fixed &operand) {
 	if (this->getRawBits() > operand.getRawBits())
