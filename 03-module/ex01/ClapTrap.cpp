@@ -6,17 +6,17 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:09:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/25 20:00:15 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:05:40 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("Unknown"), _hitPoints(100), _attackDamage(20), _energyPoints(50) {
+ClapTrap::ClapTrap(void) : _name("Unknown") {
 	println(GRN << "     ClapTrap constructor called for " << this->_name << ".");
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _attackDamage(20), _energyPoints(50) {
+ClapTrap::ClapTrap(std::string name) : _name(name) {
 	println(GRN << "     ClapTrap constructor called for " << this->_name << ".");
 }
 

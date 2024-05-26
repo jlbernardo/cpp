@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:45:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/25 20:02:30 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:07:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap() {
 	this->_keeperMode = false;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 	println(CYN << "     ScavTrap constructor called for " << this->_name << ".");
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	this->_keeperMode = false;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 	println(CYN << "     ScavTrap constructor called for " << this->_name << ".");
 }
 
