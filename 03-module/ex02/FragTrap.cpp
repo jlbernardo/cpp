@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:13:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/25 22:15:57 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:20:43 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	FragTrap::highFivesGuys(void) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
 		println("\033c");
 		println(WHT << "\n       Huh?! Looks like " << this->_name << " wants a high five. What do you say?\n\n\n");
+		this->_energyPoints--;
 	}
 	else if (this->_energyPoints <= 0) {
 		println(WHT << "\n       " << this->_name << " cannot raise its hand, despite all efforts.\n\n\n");
@@ -76,4 +77,8 @@ void	FragTrap::highFivesGuys(void) {
 	else if (this->_hitPoints <= 0) {
 		println(WHT << "\n       " << this->_name << " just wanted to make some friends... Look at the poor thing now.\n\n\n");
 	}
+}
+
+void	FragTrap::setEnergyCorrection(unsigned int bonus) {
+	this->_energyPoints += bonus;
 }

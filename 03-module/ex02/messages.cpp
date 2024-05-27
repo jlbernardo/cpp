@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/25 22:32:25 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:22:49 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	action(FragTrap &attacker, FragTrap &defender) {
 			attacker.highFivesGuys();
 			if (attacker.getEnergyPoints() <= 0 || attacker.getHitPoints() <= 0)
 				break ;
-			input = printHighFive(attacker, defender);
+			input = printHighFive(defender, attacker);
 			if (input == "a" || input == "A") {
 				int buff = rand() % 2;
 				println("");
@@ -114,6 +114,7 @@ void	action(FragTrap &attacker, FragTrap &defender) {
 						attacker.upgrade();
 						break ;
 				}
+				attacker.setEnergyCorrection(1);
 				buff = rand() % 2;
 				switch (buff) {
 					case 0:
@@ -123,19 +124,20 @@ void	action(FragTrap &attacker, FragTrap &defender) {
 						defender.upgrade();
 						break ;
 				}
+				defender.setEnergyCorrection(1);
 				println("\n")
 			}
 			else {
 				attacker.upgrade();
 				attacker.beRepaired((rand() % 20) + 15);
 				attacker.attack(defender);
+				attacker.setEnergyCorrection(3);
 				println("");
 				break ;
 			}
 			break ;
 		case 1:
 			int fight = rand() % 3;
-
 			switch (fight) {
 				case 0:
 					println("");

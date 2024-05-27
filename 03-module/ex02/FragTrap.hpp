@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:13:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/25 20:26:20 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:16:57 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public:
 	void	attack(FragTrap &target);
 	void	attack(const std::string &target);
 	void	highFivesGuys(void);
+	void	setEnergyCorrection(unsigned int bonus);
+
 };
 
 #endif
