@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 16:45:52 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 22:40:03 by julberna         ###   ########.fr       */
+/*   Created: 2024/05/30 16:45:49 by julberna          #+#    #+#             */
+/*   Updated: 2024/05/30 21:20:53 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 
 private:
-	bool	_keeperMode;
+	std::string	_name;
 
 public:
-			ScavTrap(void);
-			~ScavTrap(void);
-			ScavTrap(ScavTrap &copy);
-			ScavTrap(std::string name);
-	void	attack(ScavTrap &target);
+			DiamondTrap(void);
+			~DiamondTrap(void);
+			DiamondTrap(DiamondTrap &copy);
+			DiamondTrap(std::string name);
+	void	whoAmI(void);
+	void	attack(DiamondTrap &target);
 	void	attack(const std::string &target);
-	void	guardGate(void);
-	bool	getKeeperMode(void);
-	void	setKeeperMode(bool mode);
+	std::string	getDiamondName(void);
 };
 
 #endif

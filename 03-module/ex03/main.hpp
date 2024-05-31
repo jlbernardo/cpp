@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 16:45:52 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 22:40:03 by julberna         ###   ########.fr       */
+/*   Created: 2024/05/24 16:40:50 by julberna          #+#    #+#             */
+/*   Updated: 2024/05/30 21:18:33 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-# include "ClapTrap.hpp"
+# include "DiamondTrap.hpp"
 
-class ScavTrap : public ClapTrap {
-
-private:
-	bool	_keeperMode;
-
-public:
-			ScavTrap(void);
-			~ScavTrap(void);
-			ScavTrap(ScavTrap &copy);
-			ScavTrap(std::string name);
-	void	attack(ScavTrap &target);
-	void	attack(const std::string &target);
-	void	guardGate(void);
-	bool	getKeeperMode(void);
-	void	setKeeperMode(bool mode);
-};
+void		waitAndClean(void);
+void		destructionMessage(void);
+void		constructionMessage(void);
+void		fight(DiamondTrap &attacker, DiamondTrap &defender);
+void		action(DiamondTrap &attacker, DiamondTrap &defender);
+void		printScreen(DiamondTrap &attacker, DiamondTrap &defender);
+std::string	printHighFive(DiamondTrap &attacker, DiamondTrap &defender);
 
 #endif

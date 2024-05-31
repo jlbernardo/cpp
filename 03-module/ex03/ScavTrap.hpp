@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:45:52 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 22:40:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:04:22 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
-private:
+protected:
 	bool	_keeperMode;
 
 public:

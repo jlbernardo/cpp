@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:45:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 22:40:27 by julberna         ###   ########.fr       */
+/*   Updated: 2024/05/30 21:13:10 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ ScavTrap::ScavTrap(void) : ClapTrap(), _keeperMode(false) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	println(CYN << "     ScavTrap constructor called for " << this->_name << ".\n");
+	println(CYN << "     ScavTrap constructor called for " << this->_name << ".");
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _keeperMode(false) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	println(CYN << "     ScavTrap constructor called for " << this->_name << ".\n");
+	println(CYN << "     ScavTrap constructor called for " << this->_name << ".");
 }
 
 ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap(copy) {
 	this->_keeperMode = false;
-	println(CYN << "     ScavTrap copy constructor called for " << this->_name << ".\n");
+	println(CYN << "     ScavTrap copy constructor called for " << this->_name << ".");
 }
 
 ScavTrap::~ScavTrap(void) {
-	println(PRP << "\n     ScavTrap destructor called for " << this->_name << ".");
+	println(PRP << "     ScavTrap destructor called for " << this->_name << ".");
 }
 
 void	ScavTrap::attack(const std::string &target) {
