@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:45:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 22:08:52 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 20:14:06 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,14 @@ DiamondTrap::~DiamondTrap(void) {
 }
 
 void	DiamondTrap::whoAmI(void) {
-	println(WHT << "       Ì̷͙ ̴̨̇ā̵̟" << RED << "m̵͔̈́ " << WHT << this->_name << " ̷̫̅a̸͉͛n̴̟̕d̴͙̋ ̷͔̈́" << RED << " ̸͔̎m̶̘̄y ̴͕̕C̶̲̊" << WHT << "l̸͖͝ḁ̶̉p" << RED << "Tr̷̛͔ä̴̳́p̸͓̃ ̷̖͌n̵̡̕a̶̮̋" << WHT << "m̴͇̅e" << RED << " ̸̩̒i̶͓̐s̴͍͊ ̵͖̔" << WHT << this->ClapTrap::_name << ".");
-	println(RED << "              A̶͖̐ ̵̤̎R̷̰͊ ̷͇̆Ĕ̷̲" << WHT << " ̵̛̠ ̷̙́ ̷͙͠Ÿ̴̧" << RED << " ̴̘͊O̵̟͘ ̸͉͆U̴̱̾ ̸̞̉ ̵͕͑ ̸̝̇M̷̪̃ ̷̤̈́Y̶̰̓ ̵̠̑ ̴͋ͅ ̵̼̀" << WHT << "M̶̛̤ ̸̮̋O̸̹͂ ̴͈͛" << RED << "M̴̹͋ ̸̾ͅM̷̫͝ ̵̭̓Ȳ̶̧ ̷͉̓ ̸̮͝?̴͉̾ ̴̝̊" << WHT << "?̵̘̈́" << RED << "");
+	println(WHT << "       Ì̷͙ ̴̨̇ā̵̟" << RED << "m̵͔̈́ " << WHT << this->_name
+				<< " ̷̫̅a̸͉͛n̴̟̕d̴͙̋ ̷͔̈́" << RED << " ̸͔̎m̶̘̄y ̴͕̕C̶̲̊" << WHT
+				<< "l̸͖͝ḁ̶̉p" << RED << "Tr̷̛͔ä̴̳́p̸͓̃ ̷̖͌n̵̡̕a̶̮̋" << WHT << "m̴͇̅e" << RED
+				<< " ̸̩̒i̶͓̐s̴͍͊ ̵͖̔" << WHT << this->ClapTrap::_name << ".");
+				
+	println(RED << "              A̶͖̐ ̵̤̎R̷̰͊ ̷͇̆Ĕ̷̲" << WHT << " ̵̛̠ ̷̙́ ̷͙͠Ÿ̴̧" << RED
+				<< " ̴̘͊O̵̟͘ ̸͉͆U̴̱̾ ̸̞̉ ̵͕͑ ̸̝̇M̷̪̃ ̷̤̈́Y̶̰̓ ̵̠̑ ̴͋ͅ ̵̼̀" << WHT << "M̶̛̤ ̸̮̋O̸̹͂ ̴͈͛" << RED
+				<< "M̴̹͋ ̸̾ͅM̷̫͝ ̵̭̓Ȳ̶̧ ̷͉̓ ̸̮͝?̴͉̾ ̴̝̊" << WHT << "?̵̘̈́" << RED << "");
 }
 
 std::string	DiamondTrap::getDiamondName(void) {

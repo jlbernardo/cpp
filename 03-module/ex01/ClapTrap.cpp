@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:09:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 16:04:55 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 20:12:03 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,12 @@ void	ClapTrap::attack(const std::string &target) {
 
 void	ClapTrap::attack(ClapTrap &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0 && target.getHitPoints() > 0) {
-		println(WHT << "       " << this->_name << " attacks " << target._name
-					<< ", causing " << this->_attackDamage << " points of damage!");
+		this->attack(target._name);
 		target.takeDamage(this->_attackDamage);
-		this->_energyPoints--;
-	}
-	else if (this->_energyPoints <= 0) {
-		println(WHT << "       " << this->_name << " doesn't has enough energy points to attack.\n");
 	}
 	else if (target.getHitPoints() <= 0) {
 		println(WHT << "       " << target._name << " is already dead. Let's not violate the corpse.\n");
 		this->_energyPoints--;
-	}
-	else if (this->_hitPoints <= 0) {
-		println(WHT << "       " << this->_name << " is already dead and cannot attack.\n");
 	}
 }
 
