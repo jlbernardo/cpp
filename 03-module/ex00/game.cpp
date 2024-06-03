@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 15:25:08 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:03:19 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ void	fight(ClapTrap &attacker, ClapTrap &defender) {
 		}
 		else if (input == "A") {
 			attacker.attack(defender);
-			println("");
 		}
 		else if (input == "H") {
 			attacker.beRepaired(rand() % 3);
-			println("\n");
+			println("");
 		}
 		else if (input == "U") {
 			attacker.upgrade();
-			println("\n");
+			println("");
 		}
 		else {
-			println(RED << "          Invalid input.\n\n");
+			println(RED << "          Invalid input.\n");
 		}
+		println("");
 
 		opponentsTurn(attacker, defender, input);
 		if (input != "E")
