@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:08:37 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 14:18:04 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:18:35 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ public:
 	void			upgrade(void);
 
 					/**
+					 * @brief Attacks the given target name, only for display purposes.
+					 * @param target the enemy's name.
+					 */
+	void			attack(const std::string &target);
+
+					/**
 					 * @brief Attacks the target, dealing damage and reducing its hit points.
 					 * @param target the enemy.
 					 */
@@ -81,12 +87,6 @@ public:
 					 * @param amount the total health to recover.
 					 */
 	void			beRepaired(unsigned int amount);
-
-					/**
-					 * @brief Attacks the given target name, only for display purposes.
-					 * @param target the enemy's name.
-					 */
-	void			attack(const std::string &target);
 
 					/**
 					 * @brief Gets the name of the robot.
