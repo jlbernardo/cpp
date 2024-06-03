@@ -6,15 +6,14 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:02:12 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 17:42:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:01:13 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "game.hpp"
 
 int	main(void) {
 
-	srand(time(NULL));
 	constructionMessage();
 
 	DiamondTrap unknown;

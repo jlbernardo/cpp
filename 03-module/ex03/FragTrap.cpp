@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:13:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 22:13:07 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 19:53:59 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	println(CYN << "     FragTrap constructor called for " << this->_name << ".");
 }
 
-FragTrap::FragTrap(FragTrap &copy) : ClapTrap(copy) {
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy) {
 	println(CYN << "     FragTrap copy constructor called for " << this->_name << ".");
 	*this = copy;
 }
@@ -46,13 +46,13 @@ void	FragTrap::highFivesGuys(void) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
 		this->_energyPoints--;
 		println("\033c");
-		println(WHT << "\n       Huh?! Looks like " << this->_name << " wants a high five. What do you say?\n");
+		println(WHT << "\n       Huh?! Looks like " << this->_name << " wants a high five. What do you say?");
 	}
 	else if (this->_energyPoints <= 0) {
-		println(WHT << "\n       " << this->_name << " cannot raise its hand, despite all efforts.\n");
+		println(WHT << "       " << this->_name << " cannot raise its hand, despite all efforts.");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "\n       " << this->_name << " just wanted to make some friends... Look at the poor thing now.\n");
+		println(WHT << "       " << this->_name << " just wanted to make some friends... Look at the poor thing now.");
 	}
 }
 

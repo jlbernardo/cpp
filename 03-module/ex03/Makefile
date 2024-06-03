@@ -10,7 +10,7 @@ INCLUDE	+=	-I ../includes/
 
 OD		=	obj/
 
-SRC		=	main.cpp ClapTrap.cpp messages.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC		=	main.cpp game.cpp ClapTrap.cpp messages.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
