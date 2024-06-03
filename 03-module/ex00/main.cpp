@@ -6,15 +6,14 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:02:12 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/24 17:06:42 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:27:29 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "game.hpp"
 
 int	main(void) {
 
-	srand(time(NULL));
 	constructionMessage();
 
 	ClapTrap unknown;

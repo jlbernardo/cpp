@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 21:17:26 by julberna         ###   ########.fr       */
+/*   Created: 2024/06/03 14:19:57 by julberna          #+#    #+#             */
+/*   Updated: 2024/06/03 15:27:44 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "game.hpp"
 
 void	constructionMessage(void) {
+	
+	srand(time(NULL));
+
 	println(WHT << "\n  Let's first create some ClapTrap instances and see how they behave.\n");
 
 	println("     ClapTrap unknown;");
@@ -26,91 +29,47 @@ void	destructionMessage(void) {
 	println(WHT << "  In the end, the destructors are called.\n");
 }
 
-void	waitAndClean(void) {
-	println(WHT << "\n  Press enter to continue.");
-	std::string	input("not empty");
-	while (!input.empty())
-		getline(std::cin, input);
+void	attack(ClapTrap &attacker, ClapTrap &defender, std::string &input) {
+
+	printScreen(attacker, defender);
+
+	println(WHT << "\n  What should " << attacker.getName() << " do? (" << RED << "A"
+					<< WHT << ")ttack, (" << GRN << "H" << WHT << ")eal, (" << CYN << "U"
+					<< WHT << ")pgrade or (" << PRP << "E" << WHT << ")xit.")
+	println(WHT << "╭──────────────────────────────────────────────────────────────╯")
+	std::cout << WHT << "╰─➤ " << DFL;
+
+	std::getline(std::cin, input);
+	for (std::string::iterator it = input.begin(); it != input.end(); it++)
+		*it = (char)toupper(*it);
+
 	println("\033c");
 }
 
-void	fight(ClapTrap &attacker, ClapTrap &defender) {
+void	opponentsTurn(ClapTrap &attacker, ClapTrap &defender, std::string &input) {
 
-	std::string	input;
-	waitAndClean();
-	println(WHT << "                  Now let's make them " << RED << "fight" << WHT << ".\n\n");
+	printScreen(attacker, defender);
 
-	while (input != "E") {
-		printScreen(attacker, defender);
-		println(WHT << "\n  What should " << attacker.getName() << " do? (" << RED << "A"
-					<< WHT << ")ttack, (" << GRN << "H" << WHT << ")eal, (" << CYN << "U"
-					<< WHT << ")pgrade or (" << PRP << "E" << WHT << ")xit.")
-		println(WHT << "╭──────────────────────────────────────────────────────────────╯")
-		std::cout << WHT << "╰─➤ " << DFL;
-		std::getline(std::cin, input);
-		for (std::string::iterator it = input.begin(); it != input.end(); it++)
-			*it = (char)toupper(*it);
-		println("\033c");
-		if (input == "E") {
-			break;
-		}
-		else if (input == "A") {
-			attacker.attack(defender);
-			println("");
-		}
-		else if (input == "H") {
-			attacker.beRepaired(rand() % 3);
-			println("\n");
-		}
-		else if (input == "U") {
-			attacker.upgrade();
-			println("\n");
-		}
-		else {
-			println(RED << "          Invalid input.\n\n");
-		}
-		printScreen(attacker, defender);
-		println(RED << "\n  " << defender.getName() << "'s time to act!" << WHT
+	println(RED << "\n  " << defender.getName() << "'s time to act!" << WHT
 					<< " Press enter to continue or 'E' to exit.");
-		println(WHT << "╭──────────────────────────────────────────────────────────────╯")
-		std::cout << WHT << "╰─➤ " << DFL;
-		input = "not empty";
-		while (!input.empty() && input != "e")
-			getline(std::cin, input);
-		if (input == "E" || input == "e") {
-			break;
-		}
-		println("\033c");
-		action(defender, attacker);
-	}
+	println(WHT << "╭──────────────────────────────────────────────────────────────╯")
+	std::cout << WHT << "╰─➤ " << DFL;
+
+	std::getline(std::cin, input);
+	for (std::string::iterator it = input.begin(); it != input.end(); it++)
+		*it = (char)toupper(*it);
+
+	println("\033c");
 }
 
-void	action(ClapTrap &attacker, ClapTrap &defender) {
-	if (attacker.getAttackDamage() >= 5) {
-		attacker.attack(defender);
-		println("");
-	}
-	else if (attacker.getHitPoints() <= 3) {
-		attacker.beRepaired(rand() % 3);
-		println("\n");
-	}
-	else if (attacker.getAttackDamage() == 0) {
-		attacker.upgrade();
-		println("\n");
-	}
-	else {
-		int	choice = rand() % 2;
-		switch (choice) {
-			case 0:
-				attacker.attack(defender);
-				println("");
-				break;
-			case 1:
-				attacker.upgrade();
-				println("\n");
-				break;
-		}
-	}
+void	waitAndClean(void) {
+	println(WHT << "\n  Press enter to continue.");
+
+	std::string	input("not empty");
+	while (!input.empty())
+		getline(std::cin, input);
+
+	println("\033c");
 }
 
 void	printScreen(ClapTrap &attacker, ClapTrap &defender) {

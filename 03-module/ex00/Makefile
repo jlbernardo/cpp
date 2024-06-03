@@ -3,14 +3,14 @@
 NAME	=	ClapTrap
 
 CC		=	c++
-FLAGS	=	-Werror -Wall -Wextra -g3 -std=c++98
+FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I .
 INCLUDE	+=	-I ../includes/
 
 OD		=	obj/
 
-SRC		=	main.cpp ClapTrap.cpp messages.cpp
+SRC		=	main.cpp ClapTrap.cpp game.cpp messages.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
