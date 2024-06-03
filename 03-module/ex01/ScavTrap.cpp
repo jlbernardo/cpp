@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:45:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 22:40:27 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:31:05 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,45 +26,49 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _keeperMode(false) {
 	println(CYN << "     ScavTrap constructor called for " << this->_name << ".\n");
 }
 
-ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap(copy) {
-	this->_keeperMode = false;
+ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap(copy), _keeperMode(false) {
 	println(CYN << "     ScavTrap copy constructor called for " << this->_name << ".\n");
+	*this = copy;
 }
 
 ScavTrap::~ScavTrap(void) {
 	println(PRP << "\n     ScavTrap destructor called for " << this->_name << ".");
 }
 
+void	ScavTrap::operator=(const ScavTrap &copy) {
+	this->_name = copy._name;
+	this->_hitPoints = copy._hitPoints;
+	this->_energyPoints = copy._energyPoints;
+	this->_attackDamage = copy._attackDamage;
+}
+
 void	ScavTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "       " << this->_name << " strikes " << target << ", " << this->_attackDamage << " points of damage dealt.");
+		println(WHT << "       " << this->_name << " strikes "
+					<< target << ", " << this->_attackDamage << " points of damage dealt.");
 		this->_energyPoints--;
 	}
 	if (this->_energyPoints <= 0) {
-		println(WHT << "       " << this->_name << " is too tired to attack, there's no energy left.");
+		println(WHT << "       " << this->_name << " is too tired to attack, there's no energy left.\n");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "       " << this->_name << " is unresponsive. Cannot attack.");
+		println(WHT << "       " << this->_name << " is unresponsive. Cannot attack.\n");
 	}
 }
 
 void	ScavTrap::attack(ScavTrap &target) {
-	if (this->_energyPoints > 0 && this->_hitPoints > 0 && target.getHitPoints() > 0) {
-		println(WHT << "       " << this->_name << " strikes " << target._name << ", " << this->_attackDamage << " points of damage dealt.");
-		target.takeDamage(this->_attackDamage);
+	if (target.getHitPoints() > 0) {
+		this->attack(target._name);
+		if (this->_energyPoints > 0 && this->_hitPoints > 0) {
+			target.takeDamage(this->_attackDamage);
+			if (target._keeperMode)
+				this->takeDamage(this->_attackDamage);
+		}
+	}
+	else {
+		println(WHT << "       " << target._name << " is not moving anymore. It's best to not touch it, "
+					<< this->_name << ".\n");
 		this->_energyPoints--;
-		if (target._keeperMode)
-			this->takeDamage(this->_attackDamage);
-	}
-	else if (this->_energyPoints <= 0) {
-		println(WHT << "       " << this->_name << " is too tired to attack, there's no energy left.\n");
-	}
-	else if (target.getHitPoints() <= 0) {
-		println(WHT << "       " << target._name << " is not moving anymore. It's best to not touch it, " << this->_name << ".\n");
-		this->_energyPoints--;
-	}
-	else if (this->_hitPoints <= 0) {
-		println(WHT << "       " << this->_name << " is unresponsive. Cannot attack.\n");
 	}
 }
 

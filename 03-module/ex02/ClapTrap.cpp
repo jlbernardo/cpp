@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:09:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 20:33:21 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:53:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ClapTrap::operator=(const ClapTrap &copy) {
 
 void	ClapTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "       " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!");
+		println(WHT << "       " << this->_name << " attacks " << target
+					<< ", causing " << this->_attackDamage << " points of damage!");
 		this->_energyPoints--;
 	}
 	if (this->_energyPoints <= 0) {
@@ -52,7 +53,8 @@ void	ClapTrap::attack(const std::string &target) {
 
 void	ClapTrap::attack(ClapTrap &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0 && target.getHitPoints() > 0) {
-		println(WHT << "       " << this->_name << " attacks " << target._name << ", causing " << this->_attackDamage << " points of damage!");
+		println(WHT << "       " << this->_name << " attacks " << target._name
+					<< ", causing " << this->_attackDamage << " points of damage!");
 		target.takeDamage(this->_attackDamage);
 		this->_energyPoints--;
 	}

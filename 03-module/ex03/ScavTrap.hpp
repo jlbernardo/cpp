@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:45:52 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 19:04:22 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:39:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ScavTrap : virtual public ClapTrap {
 
-protected:
+private:
 	bool	_keeperMode;
 
 public:
@@ -25,6 +25,7 @@ public:
 			~ScavTrap(void);
 			ScavTrap(ScavTrap &copy);
 			ScavTrap(std::string name);
+	void	operator=(const ScavTrap &copy);
 	void	attack(ScavTrap &target);
 	void	attack(const std::string &target);
 	void	guardGate(void);

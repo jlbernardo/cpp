@@ -6,27 +6,27 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:09:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 21:06:57 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:48:57 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _name("Unknown"), _hitPoints(10), _attackDamage(0), _energyPoints(10) {
-	println(GRN << "     Constructor called for " << this->_name << ".\n");
+	println(GRN << "     ClapTrap constructor called for " << this->_name << ".\n");
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _attackDamage(0), _energyPoints(10) {
-	println(GRN << "     Constructor called for " << this->_name << ".\n");
+	println(GRN << "     ClapTrap constructor called for " << this->_name << ".\n");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy) {
-	println(GRN << "     Copy constructor called for " << copy._name << ".\n");
+	println(GRN << "     ClapTrap copy constructor called for " << copy._name << ".\n");
 	*this = copy;
 }
 
 ClapTrap::~ClapTrap(void) {
-	println(RED << "\n     Destructor called for " << this->_name << ".");
+	println(RED << "\n     ClapTrap destructor called for " << this->_name << ".");
 }
 
 void	ClapTrap::operator=(const ClapTrap &copy) {
@@ -38,33 +38,35 @@ void	ClapTrap::operator=(const ClapTrap &copy) {
 
 void	ClapTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "          " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!");
+		println(WHT << "       " << this->_name << " attacks " << target
+					<< ", causing " << this->_attackDamage << " points of damage!");
 		this->_energyPoints--;
 	}
 	if (this->_energyPoints <= 0) {
-		println(WHT << "          " << this->_name << " doesn't has enough energy points to attack.");
+		println(WHT << "       " << this->_name << " doesn't has enough energy points to attack.");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "          " << this->_name << " is already dead and cannot attack.");
+		println(WHT << "       " << this->_name << " is already dead and cannot attack.");
 	}
 
 }
 
 void	ClapTrap::attack(ClapTrap &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0 && target.getHitPoints() > 0) {
-		println(WHT << "          " << this->_name << " attacks " << target._name << ", causing " << this->_attackDamage << " points of damage!");
+		println(WHT << "       " << this->_name << " attacks " << target._name
+					<< ", causing " << this->_attackDamage << " points of damage!");
 		target.takeDamage(this->_attackDamage);
 		this->_energyPoints--;
 	}
 	else if (this->_energyPoints <= 0) {
-		println(WHT << "          " << this->_name << " doesn't has enough energy points to attack.\n");
+		println(WHT << "       " << this->_name << " doesn't has enough energy points to attack.\n");
 	}
 	else if (target.getHitPoints() <= 0) {
-		println(WHT << "          " << target._name << " is already dead. Let's not violate the corpse.\n");
+		println(WHT << "       " << target._name << " is already dead. Let's not violate the corpse.\n");
 		this->_energyPoints--;
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "          " << this->_name << " is already dead and cannot attack.\n");
+		println(WHT << "       " << this->_name << " is already dead and cannot attack.\n");
 	}
 }
 
@@ -76,38 +78,38 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 			amount--;
 			total++;
 		}
-		println(WHT << "          " << this->_name << " takes " << total << " points of damage!");
+		println(WHT << "       " << this->_name << " takes " << total << " points of damage!");
 	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "          " << this->_name << " repaires " << amount << " points to its health.");
+		println(WHT << "       " << this->_name << " repaires " << amount << " points to its health.");
 		this->_energyPoints--;
 		this->_hitPoints += amount;
 	}
 	else if (this->_energyPoints <= 0) {
-		println(WHT << "          " << this->_name << " doesn't has enough energy points to repair itself.");
+		println(WHT << "       " << this->_name << " doesn't has enough energy points to repair itself.");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "          " << this->_name << " is already dead. Too late to try and heal.");
+		println(WHT << "       " << this->_name << " is already dead. Too late to try and heal.");
 	}
 }
 
 void	ClapTrap::upgrade(void) {
 
-	int		points= rand() % 3;
+	int		points= rand() % 20;
 
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "          " << "Engaging... " << this->_name << " gains " << points << " points of damage.");
+		println(WHT << "       " << "Engaging... " << this->_name << " gains " << points << " points of damage.");
 		this->_energyPoints--;
 		this->_attackDamage += points;
 	}
 	else if (this->_energyPoints <= 0) {
-		println(WHT << "          " << this->_name << " doesn't has enough energy points to upgrade itself.");
+		println(WHT << "       " << this->_name << " doesn't has enough energy points to upgrade itself.");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "          " << this->_name << " is already dead. It is just a pile of rust now.");
+		println(WHT << "       " << this->_name << " is already dead. It is just a pile of rust now.");
 	}
 }
 

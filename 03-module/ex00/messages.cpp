@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/25 18:45:11 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:17:26 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	fight(ClapTrap &attacker, ClapTrap &defender) {
 
 	while (input != "E") {
 		printScreen(attacker, defender);
-		println(WHT << "\n  What should " << attacker.getName() << " do? (" << RED << "A" << WHT << ")ttack, (" << GRN << "H" << WHT << ")eal, (" << CYN << "U" << WHT << ")pgrade or (" << PRP << "E" << WHT << ")xit.")
+		println(WHT << "\n  What should " << attacker.getName() << " do? (" << RED << "A"
+					<< WHT << ")ttack, (" << GRN << "H" << WHT << ")eal, (" << CYN << "U"
+					<< WHT << ")pgrade or (" << PRP << "E" << WHT << ")xit.")
 		println(WHT << "╭──────────────────────────────────────────────────────────────╯")
 		std::cout << WHT << "╰─➤ " << DFL;
 		std::getline(std::cin, input);
@@ -68,7 +70,8 @@ void	fight(ClapTrap &attacker, ClapTrap &defender) {
 			println(RED << "          Invalid input.\n\n");
 		}
 		printScreen(attacker, defender);
-		println(RED << "\n  " << defender.getName() << "'s time to act!" << WHT << " Press enter to continue or 'E' to exit.");
+		println(RED << "\n  " << defender.getName() << "'s time to act!" << WHT
+					<< " Press enter to continue or 'E' to exit.");
 		println(WHT << "╭──────────────────────────────────────────────────────────────╯")
 		std::cout << WHT << "╰─➤ " << DFL;
 		input = "not empty";

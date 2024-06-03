@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:45:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 21:36:34 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 22:08:52 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,34 +26,25 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _nam
 	println(GRN << "     DiamondTrap constructor called for " << this->_name << ".\n");
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &copy) {
+DiamondTrap::DiamondTrap(DiamondTrap &copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy) {
 	println(GRN << "     DiamondTrap copy constructor called for " << copy._name << ".\n");
 	*this = copy;
 }
 
+void	DiamondTrap::operator=(const DiamondTrap &copy) {
+	this->_name = copy._name;
+	this->_hitPoints = copy._hitPoints;
+	this->_energyPoints = copy._energyPoints;
+	this->_attackDamage = copy._attackDamage;
+}
+
 DiamondTrap::~DiamondTrap(void) {
-	println(this->_hitPoints);
 	println(RED << "\n     DiamondTrap destructor called for " << this->_name << ".");
 }
 
 void	DiamondTrap::whoAmI(void) {
-	println(WHT << "       I am " << this->_name << " and my ClapTrap name is " << this->ClapTrap::_name << ".");
-}
-
-void	DiamondTrap::attack(const std::string &target) {
-	this->ScavTrap::attack(target);
-}
-
-void	DiamondTrap::attack(DiamondTrap &target) {
-	this->ScavTrap::attack(target._name);
-	if (this->_energyPoints > 0 && this->_hitPoints > 0 && target.getHitPoints() > 0) {
-		target.takeDamage(this->_attackDamage);
-		if (target._keeperMode)
-			this->takeDamage(this->_attackDamage);
-	}
-	else if (target.getHitPoints() <= 0) {
-		this->_energyPoints--;
-	}
+	println(WHT << "       Ì̷͙ ̴̨̇ā̵̟" << RED << "m̵͔̈́ " << WHT << this->_name << " ̷̫̅a̸͉͛n̴̟̕d̴͙̋ ̷͔̈́" << RED << " ̸͔̎m̶̘̄y ̴͕̕C̶̲̊" << WHT << "l̸͖͝ḁ̶̉p" << RED << "Tr̷̛͔ä̴̳́p̸͓̃ ̷̖͌n̵̡̕a̶̮̋" << WHT << "m̴͇̅e" << RED << " ̸̩̒i̶͓̐s̴͍͊ ̵͖̔" << WHT << this->ClapTrap::_name << ".");
+	println(RED << "              A̶͖̐ ̵̤̎R̷̰͊ ̷͇̆Ĕ̷̲" << WHT << " ̵̛̠ ̷̙́ ̷͙͠Ÿ̴̧" << RED << " ̴̘͊O̵̟͘ ̸͉͆U̴̱̾ ̸̞̉ ̵͕͑ ̸̝̇M̷̪̃ ̷̤̈́Y̶̰̓ ̵̠̑ ̴͋ͅ ̵̼̀" << WHT << "M̶̛̤ ̸̮̋O̸̹͂ ̴͈͛" << RED << "M̴̹͋ ̸̾ͅM̷̫͝ ̵̭̓Ȳ̶̧ ̷͉̓ ̸̮͝?̴͉̾ ̴̝̊" << WHT << "?̵̘̈́" << RED << "");
 }
 
 std::string	DiamondTrap::getDiamondName(void) {

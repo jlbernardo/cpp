@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:45:49 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 21:20:53 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 22:08:58 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ public:
 			~DiamondTrap(void);
 			DiamondTrap(DiamondTrap &copy);
 			DiamondTrap(std::string name);
+	void	operator=(const DiamondTrap &copy);
 	void	whoAmI(void);
-	void	attack(DiamondTrap &target);
-	void	attack(const std::string &target);
 	std::string	getDiamondName(void);
 };
 

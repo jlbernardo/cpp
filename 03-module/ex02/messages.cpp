@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/27 17:22:49 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:54:46 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	fight(FragTrap &attacker, FragTrap &defender) {
 			println("\n\n");
 		}
 		else {
-			println(RED << "\n\n          Invalid input.\n\n");
+			println(RED << "\n          Invalid input.\n\n\n");
 		}
 		printScreen(attacker, defender);
 		println(RED << "\n  " << defender.getName() << "'s time to act!" << WHT

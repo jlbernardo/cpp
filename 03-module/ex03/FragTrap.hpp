@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:13:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/05/30 16:50:05 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/02 22:07:17 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ public:
 			~FragTrap(void);
 			FragTrap(FragTrap &copy);
 			FragTrap(std::string name);
-	void	attack(FragTrap &target);
-	void	attack(const std::string &target);
+	void	operator=(const FragTrap &copy);
 	void	highFivesGuys(void);
+	void	setEnergyCorrection(unsigned int bonus);
+
 };
 
 #endif
