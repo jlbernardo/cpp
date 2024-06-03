@@ -3,7 +3,7 @@
 NAME	=	ScavTrap
 
 CC		=	c++
-FLAGS	=	-Werror -Wall -Wextra -g3 -std=c++98
+FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I .
 INCLUDE	+=	-I ../includes/
