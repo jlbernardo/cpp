@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:40:50 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 16:44:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:51:04 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,18 @@ void		opponentsTurn(FragTrap &attacker, FragTrap &defender, std::string &input);
 			 */
 std::string	printHighFive(FragTrap &attacker, FragTrap &defender);
 
+			/**
+			 * @brief Buffs only the defender, if the attacker refuses to be friends.
+			 * @param attacker Attacking robot.
+			 * @param defender Defending robot.
+			 */
 void		enemiesBuff(FragTrap &attacker, FragTrap &defender);
+
+			/**
+			 * @brief Buffs both robots, if the attacker accepts to be friends.
+			 * @param attacker Attacking robot.
+			 * @param defender Defending robot.
+			 */
 void		friendsBuff(FragTrap &attacker, FragTrap &defender);
 
 #endif
