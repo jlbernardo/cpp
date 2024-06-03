@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:13:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 22:07:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:31:38 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class FragTrap : public ClapTrap {
 public:
 			FragTrap(void);
 			~FragTrap(void);
-			FragTrap(FragTrap &copy);
+			FragTrap(const FragTrap &copy);
 			FragTrap(std::string name);
 	void	operator=(const FragTrap &copy);
 	void	highFivesGuys(void);

@@ -3,14 +3,14 @@
 NAME	=	FragTrap
 
 CC		=	c++
-FLAGS	=	-Werror -Wall -Wextra -g3 -std=c++98
+FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I .
 INCLUDE	+=	-I ../includes/
 
 OD		=	obj/
 
-SRC		=	main.cpp ClapTrap.cpp messages.cpp ScavTrap.cpp FragTrap.cpp
+SRC		=	main.cpp game.cpp ClapTrap.cpp messages.cpp ScavTrap.cpp FragTrap.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
