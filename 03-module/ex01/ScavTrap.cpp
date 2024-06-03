@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:45:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 21:31:05 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:56:43 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _keeperMode(false) {
 	println(CYN << "     ScavTrap constructor called for " << this->_name << ".\n");
 }
 
-ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap(copy), _keeperMode(false) {
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy), _keeperMode(false) {
 	println(CYN << "     ScavTrap copy constructor called for " << this->_name << ".\n");
 	*this = copy;
 }

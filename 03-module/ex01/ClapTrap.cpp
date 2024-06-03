@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:09:19 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/02 21:54:34 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:04:55 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _attackDamag
 ClapTrap::ClapTrap(const ClapTrap &copy) {
 	println(GRN << "     ClapTrap copy constructor called for " << copy._name << ".");
 	*this = copy;
-}\n
+}
 
 ClapTrap::~ClapTrap(void) {
 	println(RED << "     ClapTrap destructor called for " << this->_name << ".");
