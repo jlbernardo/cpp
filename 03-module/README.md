@@ -15,7 +15,7 @@ C++ uses the [virtual](https://learn.microsoft.com/en-us/cpp/cpp/virtual-cpp?vie
 
 ### This exercise aims to demonstrate the diamond problem in C++
 
-Here, we create a base class called $ClapTrap$ and two derived classes, $FragTrap$ and $ScavTrap$, which both inherit from $ClapTrap$. Finally, we create a class called DiamondTrap, which inherits from both $FragTrap$ and $ScavTrap$.
+Here, we create a base class called $ClapTrap$ and two derived classes, $FragTrap$ and $ScavTrap$, which both inherit from $ClapTrap$. Finally, we create a class called $DiamondTrap$, which inherits from both $FragTrap$ and $ScavTrap$.
 
 Diamond is able to access the members of both Frag and Scav classes, as well as the members of the Clap. This is possible because the Frag and Scav classes inherit from Clap using the `virtual` keyword, whichmakes so Diamond only receives one instance of Clap.
 <br><br>
