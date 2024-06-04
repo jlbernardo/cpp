@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:29:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 16:47:54 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 23:23:51 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	fight(FragTrap &attacker, FragTrap &defender) {
 
 	std::string	input;
 	waitAndClean();
-	println(WHT << "\n     Yup... That's our life now. You need to finish them\n     so "
-				<< "I can " << GRN << "continue" << WHT << " with the explanation.\n\n");
+	println(WHT << "\n                    Yup... That's our life now. You need to finish them"
+				<< "\n                    so I can " << GRN << "continue" << WHT << " with the explanation.\n\n");
 
 	while (input != "E") {
 
@@ -38,7 +38,7 @@ void	fight(FragTrap &attacker, FragTrap &defender) {
 			println("");
 		}
 		else {
-			println(RED << "          Invalid input.\n");
+			println(RED << "                         Invalid input.\n");
 		}
 		println("\n");
 

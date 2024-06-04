@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+               /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
@@ -16,23 +16,23 @@ ScavTrap::ScavTrap(void) : ClapTrap(), _keeperMode(false) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	println(CYN << "     ScavTrap constructor called for " << this->_name << ".\n");
+	println(CYN << "                    ScavTrap constructor called for " << this->_name << ".\n");
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _keeperMode(false) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	println(CYN << "     ScavTrap constructor called for " << this->_name << ".\n");
+	println(CYN << "                    ScavTrap constructor called for " << this->_name << ".\n");
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy), _keeperMode(false) {
-	println(CYN << "     ScavTrap copy constructor called for " << this->_name << ".\n");
+	println(CYN << "                    ScavTrap copy constructor called for " << this->_name << ".\n");
 	*this = copy;
 }
 
 ScavTrap::~ScavTrap(void) {
-	println(PRP << "\n     ScavTrap destructor called for " << this->_name << ".");
+	println(PRP << "\n                    ScavTrap destructor called for " << this->_name << ".");
 }
 
 void	ScavTrap::operator=(const ScavTrap &copy) {
@@ -44,15 +44,15 @@ void	ScavTrap::operator=(const ScavTrap &copy) {
 
 void	ScavTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "       " << this->_name << " strikes "
+		println(WHT << "                      " << this->_name << " strikes "
 					<< target << ", " << this->_attackDamage << " points of damage dealt.");
 		this->_energyPoints--;
 	}
 	if (this->_energyPoints <= 0) {
-		println(WHT << "       " << this->_name << " is too tired to attack, there's no energy left.\n");
+		println(WHT << "\n                      " << this->_name << " is too tired to attack, there's no energy left.");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "       " << this->_name << " is unresponsive. Cannot attack.\n");
+		println(WHT << "\n                      " << this->_name << " is unresponsive. Cannot attack.");
 	}
 }
 
@@ -66,23 +66,23 @@ void	ScavTrap::attack(ScavTrap &target) {
 		}
 	}
 	else {
-		println(WHT << "       " << target._name << " is not moving anymore. It's best to not touch it, "
-					<< this->_name << ".\n");
+		println(WHT << "\n                      " << target._name << " is not moving anymore. It's best to not touch it, "
+					<< this->_name << ".");
 		this->_energyPoints--;
 	}
 }
 
 void	ScavTrap::guardGate(void) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		println(WHT << "       " << this->_name << " activates gate keeper mode.\n       Be careful when attacking.");
+		println(WHT << "                      " << this->_name << " activates gate keeper mode.\n                      Be careful when attacking.");
 		this->_energyPoints--;
 		this->_keeperMode = true;
 	}
 	else if (this->_energyPoints <= 0) {
-		println(WHT << "       " << this->_name << " is so weak now... He can't guard the gate anymore.\n");
+		println(WHT << "\n                      " << this->_name << " is so weak now... He can't guard the gate anymore.");
 	}
 	else if (this->_hitPoints <= 0) {
-		println(WHT << "       " << this->_name << " perished trying to protect the vault's entrance.\n");
+		println(WHT << "\n                      " << this->_name << " perished trying to protect the vault's entrance.");
 	}
 }
 

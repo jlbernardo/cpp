@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:02:43 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 19:58:48 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 23:27:18 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	fight(DiamondTrap &attacker, DiamondTrap &defender) {
 			println("\n");
 		}
 		else {
-			println(RED << "\n          Invalid input.\n");
+			println(RED << "\n                         Invalid input.\n");
 		}
 		println("");
 

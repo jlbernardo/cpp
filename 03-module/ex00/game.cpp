@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 16:03:19 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:52:54 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	fight(ClapTrap &attacker, ClapTrap &defender) {
 
 	std::string	input;
 	waitAndClean();
-	println(WHT << "                  Now let's make them " << RED << "fight" << WHT << ".\n\n");
+	println(WHT << "                                 Now let's make them " << RED << "fight" << WHT << ".\n\n");
 
 	while (input != "E") {
 
@@ -36,7 +36,7 @@ void	fight(ClapTrap &attacker, ClapTrap &defender) {
 			println("");
 		}
 		else {
-			println(RED << "          Invalid input.\n");
+			println(RED << "                         Invalid input.\n");
 		}
 		println("");
 

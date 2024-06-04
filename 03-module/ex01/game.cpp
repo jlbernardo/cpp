@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:39:35 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/03 16:06:41 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/03 23:17:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	fight(ScavTrap &attacker, ScavTrap &defender) {
 
 	std::string	input;
 	waitAndClean();
-	println(WHT << "     Oh no, another interruption... Can you deal with it "
-				<< YLW << "AGAIN" << WHT << "?\n\n\n");
+	println(WHT << "\n                    Oh no, another interruption... Can you deal with it "
+				<< YLW << "AGAIN" << WHT << "?\n\n");
 
 	while (input != "E") {
 
@@ -39,7 +39,7 @@ void	fight(ScavTrap &attacker, ScavTrap &defender) {
 			println("\n");
 		}
 		else {
-			println(RED << "          Invalid input.\n\n");
+			println(RED << "\n                         Invalid input.\n");
 		}
 		println("");
 
@@ -55,7 +55,7 @@ void	retaliation(ScavTrap &attacker, ScavTrap &defender) {
 
 	if (attacker.getEnergyPoints() == 50)
 		choice = 0;
-		
+
 	switch (choice) {
 		case 0:
 			attacker.guardGate();
@@ -68,12 +68,12 @@ void	retaliation(ScavTrap &attacker, ScavTrap &defender) {
 					attacker.attack(defender);
 					break ;
 				case 1:
-					attacker.beRepaired(rand() % 20);
 					println("");
+					attacker.beRepaired(rand() % 20);
 					break ;
 				case 2:
-					attacker.upgrade();
 					println("");
+					attacker.upgrade();
 					break ;
 				case 3:
 					attacker.attack(defender);
