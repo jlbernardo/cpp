@@ -13,7 +13,7 @@ Different languages ​​solve this problem in different ways. Python, for exam
 C++ uses the [virtual](https://learn.microsoft.com/en-us/cpp/cpp/virtual-cpp?view=msvc-170) keyword before the class inheritance declaration, meaning that child classes receive only one instance of the common base class. In other words, instead of `Class D` receiving two instances of `Class A` (one from `Class B` and one from `Class C`), it only receives it once, eliminating any hierarchical conflict.
 <br><br>
 
-### This exercise aims to demonstrate the diamond problem in C++.
+### This exercise aims to demonstrate the diamond problem in C++
 
 Here, we create a base class called $ClapTrap$ and two derived classes, $FragTrap$ and $ScavTrap$, which both inherit from $ClapTrap$. Finally, we create a class called DiamondTrap, which inherits from both $FragTrap$ and $ScavTrap$.
 
