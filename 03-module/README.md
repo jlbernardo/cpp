@@ -2,7 +2,7 @@
 
 Multiple inheritance is a feature of some object-oriented programming languages in which an object or class can inherit features from more than one parent object or parent class.
 
-The "**diamond problem**" (sometimes referred to as the "Deadly Diamond of Death") is an ambiguity that arises when two classes B and C inherit from A, and class D inherits from both B and C. If there is a method in A that B and C have inherited and passed over to D, which version of the method does D uses: that of B, or that of C?
+The "**[diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)**" (sometimes referred to as the "Deadly Diamond of Death") is an ambiguity that arises when two classes B and C inherit from A, and class D inherits from both B and C. If there is a method in A that B and C have inherited and passed over to D, which version of the method does D uses: that of B, or that of C?
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/819418940987670558/1247399108231299123/diamond_problem_1.png?ex=665fe272&is=665e90f2&hm=e0318fb3bb5b2a0d3d9ad2aee0a3eae1ddbb8827d3b421fc71d1d6f143037da3&" />
