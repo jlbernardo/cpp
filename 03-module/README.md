@@ -43,7 +43,7 @@ Navigate to `03-module` folder (you can check the other modules too, if you want
 
 `ex01` All previous actions are available, but your enemy can also enter gate keeping mode, where it will deal the same amount of damage it receives on that turn.
 
-`ex02` The new mechanic is that your opponent may offer you a high five (check gif above). If you accept it, both of you will receive a random buff; but if you refuse it, they will only buff themselves and attack you.
+`ex02` The new mechanic here is that your opponent may offer you a high five (check gif above). If you accept it, both of you will receive a random buff; but if you refuse it, they will only buff themselves and attack you.
 
 `ex03` This is the final battle! Your opponent has access to every mechanic implemented so far, as is inherits from all of the existing classes. It is also scared and quite strong, but I trust your ability to defeat it!
 
