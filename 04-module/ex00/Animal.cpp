@@ -6,13 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 18:03:14 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:20:22 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : _type("Unknown") {
+Animal::Animal(void) : _type("Ditto") {
 	println(WHT << "     Animal constructor called for " << GRN << this->_type << WHT << ".");
 }
 
@@ -35,7 +35,7 @@ void	Animal::operator=(const Animal &copy) {
 }
 
 void	Animal::makeSound(void) const {
-	println(BLU << "          ( ☉ ‿ ⚆) ?");
+	println(PRP << "          ( ☉ ‿ ⚆) ?");
 }
 
 const std::string	&Animal::getType(void) const {
