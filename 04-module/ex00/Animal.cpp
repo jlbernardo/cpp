@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 18:20:22 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:45:44 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Animal::Animal(const Animal &copy) {
 }
 
 Animal::~Animal(void) {
-	println(WHT << "     Animal destructor called for " << RED << this->_type << WHT << ".");
+	println(WHT << "     Animal destructor called for " << GRN << this->_type << WHT << ".");
 }
 
 void	Animal::operator=(const Animal &copy) {
