@@ -5,12 +5,14 @@ NAME	=	animal
 CC		=	c++
 FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
-INCLUDE	+=	-I .
 INCLUDE	+=	-I ../includes/
+INCLUDE += $(addprefix -I ./classes/, Animal/ Cat/ Dog/ WrongAnimal/ WrongCat/)
 
 OD		=	obj/
 
-SRC		=	main.cpp tests.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC		+=	main.cpp tests.cpp
+SRC		+=	$(addprefix classes/, Animal/Animal.cpp Cat/Cat.cpp Dog/Dog.cpp \
+						WrongAnimal/WrongAnimal.cpp WrongCat/WrongCat.cpp)
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
