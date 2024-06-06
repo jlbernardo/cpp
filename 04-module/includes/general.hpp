@@ -66,5 +66,7 @@
  */
 # define errorln(x) std::cerr << RED << x << DFL << std::endl;
 
+# define clear std::cout << "\033c" << std::endl;
+
 
 #endif
