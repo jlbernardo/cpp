@@ -6,12 +6,12 @@ CC		=	c++
 FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I ../includes/
-INCLUDE += $(addprefix -I ./classes/, AAnimal/ Brain/ Cat/ Dog/ WrongAnimal/ WrongCat/)
+INCLUDE += $(addprefix -I ./classes/, Animal/ Brain/ Cat/ Dog/ WrongAnimal/ WrongCat/)
 
 OD		=	obj/
 
 SRC		+=	main.cpp tests.cpp
-SRC		+=	$(addprefix classes/, AAnimal/AAnimal.cpp Cat/Cat.cpp Dog/Dog.cpp \
+SRC		+=	$(addprefix classes/, Animal/AAnimal.cpp Cat/Cat.cpp Dog/Dog.cpp \
 						WrongAnimal/WrongAnimal.cpp WrongCat/WrongCat.cpp \
 						Brain/Brain.cpp)
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
