@@ -66,7 +66,9 @@
  */
 # define errorln(x) std::cerr << RED << x << DFL << std::endl;
 
+/**
+ * Clears the terminal.
+ */
 # define clear std::cout << "\033c" << std::endl;
-
 
 #endif
