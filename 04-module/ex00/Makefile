@@ -10,7 +10,7 @@ INCLUDE	+=	-I ../includes/
 
 OD		=	obj/
 
-SRC		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC		=	main.cpp tests.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m

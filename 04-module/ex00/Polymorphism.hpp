@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Polymorphism.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 17:19:10 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 21:15:02 by julberna         ###   ########.fr       */
+/*   Created: 2024/06/05 20:20:40 by julberna          #+#    #+#             */
+/*   Updated: 2024/06/05 21:09:30 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Polymorphism.hpp"
+#pragma once
+#ifndef POLYMORPHISM_HPP
+# define POLYMORPHISM_HPP
 
-int main(void) {
+# include "Cat.hpp"
+# include "Dog.hpp"
+# include "WrongCat.hpp"
+# include <limits>
 
-	testAnimalBaseClass();
-	testCatClass();
-	testDogClass();
-	testWrongAnimalClass();
-	testWrongCatClass();
+void	next(void);
+void	testCatClass(void);
+void	testDogClass(void);
+void	testWrongCatClass(void);
+void	testAnimalBaseClass(void);
+void	testWrongAnimalClass(void);
 
-	return (EXIT_SUCCESS);
-}
+#endif
