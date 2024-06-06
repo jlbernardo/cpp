@@ -1,0 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/05 16:24:31 by julberna          #+#    #+#             */
+/*   Updated: 2024/06/06 17:29:32 by julberna         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
+
+# include <iostream>
+# include "Brain.hpp"
+
+
+/**
+ * #### Animal abstract base class
+ * It has a type attribute and a makeSound method.
+ */
+class AAnimal {
+
+protected:
+	Brain		*_brain;	// The animal's brain, it thinks.
+	std::string	_type;		// Animal type.
+	std::string	_name;		// Animal name.
+
+public:
+						/**
+						 * @brief Constructs a new Animal object with unknown type.
+						 */
+						AAnimal(void);
+
+						/**
+						 * @brief Destroys the Animal object. It is virtual to allow polymorphism.
+						 */
+	virtual				~AAnimal(void);
+
+						/**
+						 * @brief Constructs a new Animal object with the given type.
+						 * @param type The type of the animal.
+						 */
+						AAnimal(std::string type);
+
+						/**
+						 * @brief Constructs a new Animal object from the copy received.
+						 * @param copy The Animal to copy from.
+						 */
+						AAnimal(const AAnimal &copy);
+
+						/**
+						 * @brief Copies everything from the Animal received.
+						 * @param copy The Animal to copy from.
+						 */
+	void				operator=(const AAnimal &copy);
+
+						/**
+						 * @brief Pure virtual method that makes the animal sound.
+						 *  It must be implemented in the derived classes.
+						 *  It makes the class abstract and cannot be instantiated.
+						 */
+	virtual void		makeSound(void) const = 0;
+
+						/**
+						 * @brief Gets the animal type.
+						 * @return The type of the animal.
+						 */
+	const std::string	&getType(void) const;
+
+						/**
+						 * @brief Gets the animal name.
+						 * @return The name of the animal.
+						 */
+	const std::string	&getName(void) const;
+
+						/**
+						 * @brief Gets the animal's brain.
+						 * @return The brain of the animal.
+						 */
+	Brain				&getBrain(void) const;
+};
+
+#endif
