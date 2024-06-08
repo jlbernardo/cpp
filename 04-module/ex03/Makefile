@@ -8,15 +8,14 @@ FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 INCLUDE	+=	-I ../includes/
 INCLUDE	+=	-I .
 INCLUDE +=	$(addprefix -I ./classes/, Materia/ Character/ MateriaSource/ \
-						Ice/ Cure/ Fire/ Thunder/)
-
+						Ice/ Cure/ Fire/ Thunder/ Dark/)
 
 OD		=	obj/
 
-SRC		+=	main.cpp rpg.cpp messages.cpp
+SRC		+=	main.cpp rpg.cpp messages.cpp dialogues.cpp internal.cpp battle.cpp
 SRC		+=	$(addprefix classes/, Materia/AMateria.cpp Character/Character.cpp \
 						MateriaSource/MateriaSource.cpp Ice/Ice.cpp Cure/Cure.cpp \
-						Fire/Fire.cpp Thunder/Thunder.cpp)
+						Fire/Fire.cpp Thunder/Thunder.cpp Dark/Dark.cpp)
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m

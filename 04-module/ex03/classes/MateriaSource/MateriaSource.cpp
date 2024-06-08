@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:53:20 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 20:49:33 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:36:45 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ void	MateriaSource::learnMateria(AMateria *m) {
 		if (!this->_materia[i]) {
 			this->_materia[i] = m;
 			break ;
+		}
+	}
+}
+
+void	MateriaSource::forgetMateria(int idx) {
+	if (idx >= 0 && idx < MAX_MATERIA) {
+		if (this->_materia[idx]) {
+			delete this->_materia[idx];
+			this->_materia[idx] = NULL;
 		}
 	}
 }

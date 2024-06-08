@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:37:38 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 00:25:52 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:06:41 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ public:
 	unsigned int const	&getHealth(void) const;
 	std::string const	getMateriaGem(int idx) const;
 	std::string const	getMateriaType(int idx) const;
+	AMateria			*getMateria(int idx) const;
 
 	void				modHealth(int amount);
+	void				setHealth(unsigned int amount);
 };
 
 #endif

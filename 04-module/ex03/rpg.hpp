@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:54:29 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 23:59:45 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:29:27 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "Ice.hpp"
 # include "Cure.hpp"
 # include "Fire.hpp"
+# include "Dark.hpp"
 # include "Thunder.hpp"
 # include "Character.hpp"
 # include "general.hpp"
@@ -28,13 +29,30 @@
 # include <string>
 # include <iomanip>
 
+struct game {
+	ICharacter		*ghidorah;
+	ICharacter		*evanora;
+	ICharacter		*azrael;
+	ICharacter		*me;
+	IMateriaSource	*src;
+};
 
-std::string	name(void);
-void		next(void);
-void		attack(ICharacter &player, ICharacter &enemy, std::string &input);
-void		opponentsTurn(ICharacter &player, ICharacter &enemy, std::string &input);
-void		printScreen(ICharacter &player, ICharacter &enemy);
-void		retaliation(ICharacter &player, ICharacter &enemy);
-void		fight(ICharacter &player, ICharacter &enemy);
+void	next(void);
+void	getName(game &game);
+void	getType(game &game);
+void	loadGame(game &game);
+void	giveGift(game &game);
+void	gameOver(game &game);
+void	gameStart(game &game);
+void	introduction(game &game);
+void	firstEnemyType(game &game);
+void	retry(game &game, ICharacter &enemy);
+void	reward(game &game, ICharacter &enemy);
+void	aftermath(game &game, ICharacter &enemy);
+void	fight(ICharacter &player, ICharacter &enemy);
+void	printScreen(ICharacter &player, ICharacter &enemy);
+void	retaliation(ICharacter &player, ICharacter &enemy);
+void	attack(ICharacter &player, ICharacter &enemy, std::string &input);
+void	opponentsTurn(ICharacter &player, ICharacter &enemy, std::string &input);
 
 #endif

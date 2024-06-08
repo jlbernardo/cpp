@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:40:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 00:49:50 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:06:53 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,12 @@ std::string const	Character::getMateriaType(int idx) const {
 	return (this->_materia[idx]->getType());
 }
 
+AMateria	*Character::getMateria(int idx) const {
+	if (idx < 0 || idx >= MAX_MATERIA || !this->_materia[idx])
+		return (NULL);
+	return (this->_materia[idx]);
+}
+
 void	Character::modHealth(int amount) {
 	if (amount < 0) {
 		for (int i = amount; i <= 0; i++) {
@@ -98,7 +104,10 @@ void	Character::modHealth(int amount) {
 			this->_health--;
 		}
 	}
-	else {
+	else
 		this->_health += amount;
-	}
+}
+
+void	Character::setHealth(unsigned int amount) {
+	this->_health = amount;
 }

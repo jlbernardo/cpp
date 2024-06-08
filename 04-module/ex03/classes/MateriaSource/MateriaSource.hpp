@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:51:44 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 21:30:33 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:36:31 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	MateriaSource	&operator=(MateriaSource const &other);
 
 	void			learnMateria(AMateria *m);
+	void			forgetMateria(int idx);
 	AMateria		*createMateria(std::string const &type);
 };
 

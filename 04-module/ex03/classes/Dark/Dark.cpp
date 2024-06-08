@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fire.cpp                                           :+:      :+:    :+:   */
+/*   Dark.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 15:21:09 by julberna         ###   ########.fr       */
+/*   Created: 2024/06/06 19:13:07 by julberna          #+#    #+#             */
+/*   Updated: 2024/06/07 14:58:34 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fire.hpp"
+#include "Dark.hpp"
 
-Fire::Fire(void) : AMateria("Fire") {
-	this->_gem = "🔥";
+Dark::Dark(void) : AMateria("Dark") {
+	this->_gem = "🌑";
 }
 
-Fire::Fire(Fire const &other) : AMateria(other) {
+Dark::Dark(Dark const &other) : AMateria(other) {
 }
 
-Fire::~Fire(void) {
+Dark::~Dark(void) {
 }
 
-#include "ICharacter.hpp"
-
-Fire	&Fire::operator=(Fire const &other) {
+Dark	&Dark::operator=(Dark const &other) {
 	if (this != &other)
 		this->_type = other._type;
 	return (*this);
 }
 
-AMateria	*Fire::clone(void) const {
-	return (new Fire(*this));
+AMateria	*Dark::clone(void) const {
+	return (new Dark(*this));
 }
 
-void	Fire::use(ICharacter &target) {
+void	Dark::use(ICharacter &target) {
 
-	println(RED << "* casts a fire ball in " << target.getName() << "'s direction *");
+	println(PRP << "* sucks life out of " << target.getName() << "'s body *");
 
 	srand(time(NULL));
-	int	amount = rand() % 20 + 5;
-	target.modHealth(-amount);
+	int	amount = rand() % 20 + 10;
+	target.modHealth(amount);
 }
