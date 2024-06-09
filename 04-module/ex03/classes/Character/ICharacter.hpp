@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:26:43 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:06:22 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/09 00:00:22 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include "general.hpp"
 
 # define	MAX_MATERIA	4
-# define	TOTAL_HP	100
+# define	PHASE1_HP	100
+# define	PHASE2_HP	150
+# define	PHASE3_HP	200
 
 #include "AMateria.hpp"
 

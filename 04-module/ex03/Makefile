@@ -12,7 +12,7 @@ INCLUDE +=	$(addprefix -I ./classes/, Materia/ Character/ MateriaSource/ \
 
 OD		=	obj/
 
-SRC		+=	main.cpp rpg.cpp messages.cpp dialogues.cpp internal.cpp battle.cpp
+SRC		+=	main.cpp rpg.cpp messages.cpp dialogues.cpp internal.cpp battle.cpp characters.cpp
 SRC		+=	$(addprefix classes/, Materia/AMateria.cpp Character/Character.cpp \
 						MateriaSource/MateriaSource.cpp Ice/Ice.cpp Cure/Cure.cpp \
 						Fire/Fire.cpp Thunder/Thunder.cpp Dark/Dark.cpp)

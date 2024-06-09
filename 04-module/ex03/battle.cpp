@@ -6,13 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:07:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 20:42:10 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/08 23:55:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rpg.hpp"
 
-void	fight(ICharacter &player, ICharacter &enemy) {
+void	fight(game &game, ICharacter &player, ICharacter &enemy) {
 
 	std::string	input;
 	int			slot;
@@ -21,7 +21,7 @@ void	fight(ICharacter &player, ICharacter &enemy) {
 
 		attack(player, enemy, input);
 		if (input == "E")
-			break ;
+			gameOver(game);
 		println("");
 		if (input == "1" || input == "2" || input == "3" || input == "4") {
 			slot = std::atoi(input.c_str()) - 1;
@@ -46,12 +46,14 @@ void	fight(ICharacter &player, ICharacter &enemy) {
 
 		opponentsTurn(player, enemy, input);
 		println("");
-		if (input != "E")
-			retaliation(player, enemy);
+		if (input == "E")
+			gameOver(game);
+		retaliation(player, enemy);
 		if (player.getHealth() <= 0) {
 			clear;
 			println("");
-			println(RED << "                               Ouch! " << enemy.getName() << " hit you pretty bad...");
+			println(RED << "                               Ouch! "
+						<< enemy.getName() << " hit you pretty bad...");
 			break ;
 		}
 	}

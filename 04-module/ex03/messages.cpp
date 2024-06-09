@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:21:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/08 23:46:41 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,15 @@ void	printScreen(ICharacter &player, ICharacter &enemy) {
 
 	std::string color;
 
-	if (enemy.getHealth() >= TOTAL_HP * 0.8)
+	if (enemy.getHealth() >= PHASE1_HP * 0.8)
 		color = GRN;
-	else if (enemy.getHealth() >= TOTAL_HP * 0.4)
+	else if (enemy.getHealth() >= PHASE1_HP * 0.4)
 		color = YLW;
 	else
 		color = RED;
 
-	println(WHT << "                                                         " << color << "                 /\\");
-	println(WHT << "                                                         " << color << "                 ||");
-	println(WHT << "                                   /^\\                  " << color << "    ____ (((+))) _||_");
-	println(WHT << "                              /\\   \"V\"                " << color << "     /.--.\\  .-.  /.||.\\");
-	println(WHT << "                             /__\\   I                   " << color << "  /.,   \\\\(0.0)// || \\\\");
-	println(WHT << "                            //..\\\\  I                  " << color << "  /;`\";/\\ \\\\|m|//  ||  ;\\");
-	println(WHT << "                            \\].`[/  I                   " << color << " |:   \\ \\__`:`____||__:|");
-	println(WHT << "                            /l\\/j\\  (]                 " << color << "  |:    \\__ \\T/ (@~)(~@)|");
-	println(WHT << "                           /. ~~ ,\\/I                   " << color << " |:    _/|     |\\_\\/  :|");
-	println(WHT << "                           \\\\L__j^\\/I                 " << color << "   |:   /  |     |  \\   :|");
-	println(WHT << "                            \\/--v}  I                   " << color << " |'  /   |     |   \\  '|");
-	println(WHT << "                            |    |  I                    " << color << " \\_/    |     |    \\_/");
-	println(WHT << "                            |    |  I                    " << color << "        |     |");
-	println(WHT << "                            |    l  I                    " << color << "        |_____|");
-	println(WHT << "                          _/j  L l\\_!                   " << color << "         |_____|");
-	println("");
+	battle(enemy, color);
+	println("                                                                           HP " << enemy.getHealth());
 	println("                   ╭────────────────────────╮");
 	println("                   │         " << std::setw(3) << player.getHealth() << "  HP        │");
 	println("                   │                        │");

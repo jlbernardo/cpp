@@ -6,18 +6,18 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:40:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:06:53 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/08 23:30:21 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(std::string const &name) : _name(name), _health(TOTAL_HP) {
+Character::Character(std::string const &name) : _name(name), _health(PHASE1_HP) {
 	for (int i = 0; i < MAX_MATERIA; i++)
 		this->_materia[i] = NULL;
 }
 
-Character::Character(void) : _name("Lone Wolf"), _health(TOTAL_HP) {
+Character::Character(void) : _name("Lone Wolf"), _health(PHASE1_HP) {
 	for (int i = 0; i < MAX_MATERIA; i++)
 		this->_materia[i] = NULL;
 }

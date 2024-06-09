@@ -6,13 +6,16 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:08:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:38:02 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/08 23:59:58 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rpg.hpp"
 
 void	loadGame(game &game) {
+
+	//Sets victory condition to false
+	game.victory = false;
 
 	//It's the template for types of materia, so then we can create using the names
 	game.src = new MateriaSource();
@@ -28,10 +31,10 @@ void	loadGame(game &game) {
 
 	//Actually creates the materia from the templates made before
 	//And equips them to the characters
-	game.evanora->equip(game.src->createMateria("Cure"));
-	game.evanora->equip(game.src->createMateria("Cure"));
 	game.evanora->equip(game.src->createMateria("Thunder"));
 	game.evanora->equip(game.src->createMateria("Thunder"));
+	game.evanora->equip(game.src->createMateria("Cure"));
+	game.evanora->equip(game.src->createMateria("Cure"));
 }
 
 void	firstEnemyType(game &game) {
@@ -49,10 +52,10 @@ void	firstEnemyType(game &game) {
 	game.src->forgetMateria(0);
 	game.src->learnMateria(new Dark());
 
+	game.ghidorah->equip(game.src->createMateria("Dark"));
+	game.ghidorah->equip(game.src->createMateria("Dark"));
 	game.ghidorah->equip(game.src->createMateria("Cure"));
-	game.ghidorah->equip(game.src->createMateria("Dark"));
-	game.ghidorah->equip(game.src->createMateria("Dark"));
-	game.ghidorah->equip(game.src->createMateria("Thunder"));
+	game.ghidorah->equip(game.src->createMateria("Cure"));
 }
 
 void	gameOver(game &game) {
@@ -61,4 +64,5 @@ void	gameOver(game &game) {
 	delete game.azrael;
 	delete game.evanora;
 	delete game.ghidorah;
+	exit(EXIT_SUCCESS);
 }

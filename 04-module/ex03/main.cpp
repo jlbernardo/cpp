@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:00:23 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 15:57:58 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/09 00:02:16 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int main(void)
 	loadGame(game);
 	introduction(game);
 	gameStart(game);
-	gameOver(game);
+	ending(game);
 	return (EXIT_SUCCESS);
 }
