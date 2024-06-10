@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 22:29:38 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/09 00:10:07 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:11:37 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	villager(void) {
 	println(GRN << "                                           *$$$$$$$$$*\n\n");
 }
 
-void	battle(ICharacter &enemy, std::string color) {
+void	enemyScreen(ICharacter &enemy, std::string color) {
 	if (enemy.getName() == "Azrael") {
 		println(WHT << "                                                         " << color << "                 /\\");
 		println(WHT << "                                                         " << color << "                 ||");
@@ -55,7 +55,7 @@ void	battle(ICharacter &enemy, std::string color) {
 		println(WHT << "                              /\\   \"V\"                " << color << "        / /  )   (  \\ \\");
 		println(WHT << "                             /__\\   I                   " << color << "      \\ \\_/\\_//\\_/ / ");
 		println(WHT << "                            //..\\\\  I                  " << color << "        \\/_) '*' (_\\/");
-		println(WHT << "                            \\].`[/  I                   " << color << "        |       |");
+		println(WHT << "                            \\].`[/  I                   " << color << "         |       |");
 		println(WHT << "                            /l\\/j\\  (]                 " << color << "          |       |");
 		println(WHT << "                           /. ~~ ,\\/I                   " << color << "         |       |");
 		println(WHT << "                           \\\\L__j^\\/I                 " << color << "           |       |");

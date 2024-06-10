@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   internal.cpp                                       :+:      :+:    :+:   */
+/*   load.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 15:08:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/08 23:59:58 by julberna         ###   ########.fr       */
+/*   Created: 2024/06/10 15:35:20 by julberna          #+#    #+#             */
+/*   Updated: 2024/06/10 15:36:07 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	loadGame(game &game) {
 	game.evanora = new Character("Evanora");
 	game.ghidorah = new Character("Ghidorah");
 
+	//Set custom enemies HP
+	game.azrael->setHealth(AZRAEL_HP);
+	game.ghidorah->setHealth(GHIDORAH_HP);
+
 	//Actually creates the materia from the templates made before
 	//And equips them to the characters
 	game.evanora->equip(game.src->createMateria("Thunder"));
@@ -49,6 +53,10 @@ void	firstEnemyType(game &game) {
 	game.azrael->equip(game.src->createMateria("Cure"));
 	game.azrael->equip(game.src->createMateria("Cure"));
 
+}
+
+void	equipDark(game &game) {
+
 	game.src->forgetMateria(0);
 	game.src->learnMateria(new Dark());
 
@@ -56,13 +64,4 @@ void	firstEnemyType(game &game) {
 	game.ghidorah->equip(game.src->createMateria("Dark"));
 	game.ghidorah->equip(game.src->createMateria("Cure"));
 	game.ghidorah->equip(game.src->createMateria("Cure"));
-}
-
-void	gameOver(game &game) {
-	delete game.me;
-	delete game.src;
-	delete game.azrael;
-	delete game.evanora;
-	delete game.ghidorah;
-	exit(EXIT_SUCCESS);
 }

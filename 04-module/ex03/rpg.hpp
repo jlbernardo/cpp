@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:54:29 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/09 00:08:48 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:27:16 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # include <string>
 # include <iomanip>
 
+# define GHIDORAH_HP	300
+# define EVANORA_HP		100
+# define AZRAEL_HP		80
+
 struct game {
 	bool			victory;
 	ICharacter		*ghidorah;
@@ -38,25 +42,37 @@ struct game {
 	IMateriaSource	*src;
 };
 
-void	next(void);
-void	villager(void);
-void	ending(game &game);
+//Setup
+void	introduction(game &game);
+void	loadGame(game &game);
 void	getName(game &game);
 void	getType(game &game);
-void	loadGame(game &game);
 void	giveGift(game &game);
-void	gameOver(game &game);
-void	gameStart(game &game);
-void	introduction(game &game);
 void	firstEnemyType(game &game);
+void	equipDark(game &game);
+
+//Messages
+void	retryMessage(game &game, std::string &input);
+void	rewardMessage(game &game, ICharacter &enemy, std::string &input);
+void	gemReward(std::string type);
+void	battleScreen(ICharacter &player, ICharacter &enemy);
+void	attackMessage(ICharacter &player, ICharacter &enemy, std::string &input);
+void	retaliationMessage(ICharacter &player, ICharacter &enemy, std::string &input);
+void	enemyScreen(ICharacter &enemy, std::string color);
+void	enemyScream(ICharacter &enemy);
+void	next(void);
+void	villager(void);
+
+//Gameplay
+void	battle(game &game);
 void	retry(game &game, ICharacter &enemy);
 void	reward(game &game, ICharacter &enemy);
 void	aftermath(game &game, ICharacter &enemy);
-void	battle(ICharacter &enemy, std::string color);
-void	printScreen(ICharacter &player, ICharacter &enemy);
 void	retaliation(ICharacter &player, ICharacter &enemy);
 void	fight(game &game, ICharacter &player, ICharacter &enemy);
-void	attack(ICharacter &player, ICharacter &enemy, std::string &input);
-void	opponentsTurn(ICharacter &player, ICharacter &enemy, std::string &input);
+
+//Ending
+void	ending(game &game);
+void	gameOver(game &game);
 
 #endif

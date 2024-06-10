@@ -1,42 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rpg.cpp                                            :+:      :+:    :+:   */
+/*   finish.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 21:07:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/09 00:23:34 by julberna         ###   ########.fr       */
+/*   Created: 2024/06/07 15:08:40 by julberna          #+#    #+#             */
+/*   Updated: 2024/06/10 15:37:03 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rpg.hpp"
-
-void	introduction(game &game) {
-	getName(game);
-	getType(game);
-}
-
-void	gameStart(game &game) {
-
-	while (!game.victory) {
-		println(RED << "\n                            YOU'LL NEVER WIN, PEASANT!!! MWAHAHAHAHAHAHAHA\n");
-		fight(game, *game.me, *game.azrael);
-		aftermath(game, *game.azrael);
-	}
-	game.victory = false;
-	while (!game.victory) {
-		println(RED << "\n                            AZRAAAAA!!!   NOOOOO!!!   YOU'LL PAY, DWARF!!!!\n");
-		fight(game, *game.me, *game.evanora);
-		aftermath(game, *game.evanora);
-	}
-	game.victory = false;
-	while (!game.victory) {
-		println(RED << "\n                            RRRAAAAAAGRRWWWWWRWRWRWWW!!!!!!!!!!!!!!!!!!!!\n");
-		fight(game, *game.me, *game.ghidorah);
-		aftermath(game, *game.ghidorah);
-	}
-}
 
 void	ending(game &game) {
 	println(WHT << "\n            ╭──────────────────────────────────────────────────────────────────────────╮");
@@ -56,4 +30,13 @@ void	ending(game &game) {
 
 	next();
 	gameOver(game);
+}
+
+void	gameOver(game &game) {
+	delete game.me;
+	delete game.src;
+	delete game.azrael;
+	delete game.evanora;
+	delete game.ghidorah;
+	exit(EXIT_SUCCESS);
 }
