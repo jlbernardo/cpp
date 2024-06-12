@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:16:54 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:26:32 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Fire::Fire(void) : AMateria("Fire") {
 	this->_gem = "🔥";
 }
 
-Fire::Fire(Fire const &other) : AMateria(other) {
+Fire::Fire(Fire const &copy) : AMateria(copy) {
 }
 
 Fire::~Fire(void) {
@@ -24,9 +24,9 @@ Fire::~Fire(void) {
 
 #include "ICharacter.hpp"
 
-Fire	&Fire::operator=(Fire const &other) {
-	if (this != &other)
-		this->_type = other._type;
+Fire	&Fire::operator=(Fire const &rhs) {
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 

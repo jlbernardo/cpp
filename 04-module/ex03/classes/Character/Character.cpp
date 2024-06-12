@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:40:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:17:36 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:23:59 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Character::Character(void) : _name("Lone Wolf"), _health(PHASE1_HP) {
 		this->_materia[i] = NULL;
 }
 
-Character::Character(Character const &other) {
-	*this = other;
+Character::Character(Character const &copy) {
+	*this = copy;
 }
 
 Character::~Character(void) {
@@ -32,14 +32,14 @@ Character::~Character(void) {
 			delete this->_materia[i];
 }
 
-Character	&Character::operator=(Character const &other) {
-	if (this != &other) {
-		this->_name = other._name;
+Character	&Character::operator=(Character const &rhs) {
+	if (this != &rhs) {
+		this->_name = rhs._name;
 		for (int i = 0; i < MAX_MATERIA; i++) {
 			if (this->_materia[i])
 				delete this->_materia[i];
-			if (other._materia[i])
-				this->_materia[i] = other._materia[i]->clone();
+			if (rhs._materia[i])
+				this->_materia[i] = rhs._materia[i]->clone();
 			else
 				this->_materia[i] = NULL;
 		}

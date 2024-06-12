@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:08:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 13:35:06 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:13:00 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	Game::ending(void) {
 
 void	Game::gameOver(void) {
 	delete _player;
-	delete _src;
 	delete _azrael;
 	delete _evanora;
 	delete _ghidorah;
+	delete _src;
 	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:07 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:17:07 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:26:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ Dark::Dark(void) : AMateria("Dark") {
 	this->_gem = "🌑";
 }
 
-Dark::Dark(Dark const &other) : AMateria(other) {
+Dark::Dark(Dark const &copy) : AMateria(copy) {
 }
 
 Dark::~Dark(void) {
 }
 
-Dark	&Dark::operator=(Dark const &other) {
-	if (this != &other)
-		this->_type = other._type;
+Dark	&Dark::operator=(Dark const &rhs) {
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 

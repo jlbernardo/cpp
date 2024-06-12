@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:07 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:17:20 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:22:37 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ Cure::Cure(void) : AMateria("Cure") {
 	this->_gem = "💓";
 }
 
-Cure::Cure(Cure const &other) : AMateria(other) {
+Cure::Cure(Cure const &copy) : AMateria(copy) {
 }
 
 Cure::~Cure(void) {
 }
 
-Cure	&Cure::operator=(Cure const &other) {
-	if (this != &other)
-		this->_type = other._type;
+Cure	&Cure::operator=(Cure const &rhs) {
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 

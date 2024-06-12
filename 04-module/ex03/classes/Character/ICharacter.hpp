@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:26:43 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 20:37:47 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:35:32 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,45 @@
 # include <iostream>
 # include "general.hpp"
 
-# define	MAX_MATERIA	4
-# define	PHASE1_HP	100
-# define	PHASE2_HP	150
-# define	PHASE3_HP	200
-
 #include "AMateria.hpp"
 
+/**
+ * #### Character Interface class
+ * It is used to create a new Character.
+ * It is a "contract" class that defines the methods that a
+ * derived class must implement to be considered a Character.
+ */
 class ICharacter
 {
 public:
+								/**
+								 * @brief Virtual destructor to allow deleting derived classes.
+								 */
 	virtual 					~ICharacter() {}
+
+								/**
+								 * @brief Pure virtual unequip method. Must be implemented by derived classes.
+								 * @param idx The index of the materia to unequip.
+								 */
 	virtual void				unequip(int idx) = 0;
+
+								/**
+								 * @brief Pure virtual equip method. Must be implemented by derived classes.
+								 * @param m The materia to equip.
+								 */
 	virtual void				equip(AMateria* m) = 0;
+
+								/**
+								 * @brief Pure virtual getName method. Must be implemented by derived classes.
+								 * @return The name of the character.
+								 */
 	virtual std::string const	&getName(void) const = 0;
+
+								/**
+								 * @brief Pure virtual use method. Must be implemented by derived classes.
+								 * @param idx The index of the materia to use.
+								 * @param target The target to use the materia on.
+								 */
 	virtual void				use(int idx, ICharacter& target) = 0;
 };
 

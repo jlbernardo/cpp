@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:16:44 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:28:51 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Ice::Ice(void) : AMateria("Ice") {
 	this->_gem = "❄️ ";
 }
 
-Ice::Ice(Ice const &other) : AMateria(other) {
+Ice::Ice(Ice const &copy) : AMateria(copy) {
 }
 
 Ice::~Ice(void) {
@@ -24,9 +24,9 @@ Ice::~Ice(void) {
 
 #include "ICharacter.hpp"
 
-Ice	&Ice::operator=(Ice const &other) {
-	if (this != &other)
-		this->_type = other._type;
+Ice	&Ice::operator=(Ice const &rhs) {
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 

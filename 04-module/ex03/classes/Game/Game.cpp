@@ -33,7 +33,6 @@ void	Game::run(void) {
 	this->getName();
 	this->getType();
 	this->giveGift();
-	this->equipDark();
 	this->battle();
 	this->ending();
 }

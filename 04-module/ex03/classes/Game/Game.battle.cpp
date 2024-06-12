@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:07:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 13:35:54 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:13:43 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,10 @@ void	Game::reward(Character &enemy) {
 		_player->equip(_src->createMateria(enemy.getMateriaType(0)));
 	}
 
-	if (enemy.getName() == "Azrael")
+	if (enemy.getName() == "Azrael") {
 		_player->setHealth(PHASE2_HP);
+		equipDark();
+	}
 	else
 		_player->setHealth(PHASE3_HP);
 

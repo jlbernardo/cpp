@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:47 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:16:27 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:05:28 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 						AMateria(void);
 	virtual				~AMateria(void);
 						AMateria(std::string const &type);
+	AMateria			&operator=(const AMateria &copy);
 
 	std::string const	&getType() const;
 	std::string const	&getGem() const;

@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:16:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:32:52 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Thunder::Thunder(void) : AMateria("Thunder") {
 	this->_gem = "⚡";
 }
 
-Thunder::Thunder(Thunder const &other) : AMateria(other) {
+Thunder::Thunder(Thunder const &copy) : AMateria(copy) {
 }
 
 Thunder::~Thunder(void) {
@@ -24,9 +24,9 @@ Thunder::~Thunder(void) {
 
 #include "ICharacter.hpp"
 
-Thunder	&Thunder::operator=(Thunder const &other) {
-	if (this != &other)
-		this->_type = other._type;
+Thunder	&Thunder::operator=(Thunder const &rhs) {
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 

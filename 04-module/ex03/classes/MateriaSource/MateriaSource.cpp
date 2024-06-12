@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:53:20 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:36:45 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:37:17 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ MateriaSource::MateriaSource(void) {
 		this->_materia[i] = NULL;
 }
 
-MateriaSource::MateriaSource(MateriaSource const &other) {
-	*this = other;
+MateriaSource::MateriaSource(MateriaSource const &copy) {
+	*this = copy;
 }
 
 MateriaSource::~MateriaSource(void) {
@@ -28,13 +28,13 @@ MateriaSource::~MateriaSource(void) {
 	}
 }
 
-MateriaSource	&MateriaSource::operator=(MateriaSource const &other) {
-	if (this != &other) {
+MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs) {
+	if (this != &rhs) {
 		for (int i = 0; i < MAX_MATERIA; i++) {
 			if (this->_materia[i])
 				delete this->_materia[i];
-			if (other._materia[i])
-				this->_materia[i] = other._materia[i]->clone();
+			if (rhs._materia[i])
+				this->_materia[i] = rhs._materia[i]->clone();
 			else
 				this->_materia[i] = NULL;
 		}

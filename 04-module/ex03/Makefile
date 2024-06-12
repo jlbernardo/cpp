@@ -6,17 +6,18 @@ CC		=	c++
 FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I ../includes/
-INCLUDE	+=	-I .
 INCLUDE +=	$(addprefix -I ./classes/, Materia/ Character/ MateriaSource/ \
-						Ice/ Cure/ Fire/ Thunder/ Dark/)
+						Ice/ Cure/ Fire/ Thunder/ Dark/ Game/)
 
 OD		=	obj/
 
-SRC		+=	main.cpp Game.introduction.cpp Game.setup.cpp Game.messages.cpp Game.battle.cpp \
-			characters.cpp Game.finish.cpp Game.cpp
+SRC		+=	main.cpp
 SRC		+=	$(addprefix classes/, Materia/AMateria.cpp Character/Character.cpp \
 						MateriaSource/MateriaSource.cpp Ice/Ice.cpp Cure/Cure.cpp \
-						Fire/Fire.cpp Thunder/Thunder.cpp Dark/Dark.cpp)
+						Fire/Fire.cpp Thunder/Thunder.cpp Dark/Dark.cpp \
+						Game/Game.cpp Game/Game.battle.cpp Game/Game.characters.cpp \
+						Game/Game.finish.cpp Game/Game.introduction.cpp \
+						Game/Game.messages.cpp Game/Game.setup.cpp)
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
