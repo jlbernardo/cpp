@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:31 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 22:01:20 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:55:59 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ public:
 						 * @brief Copies everything from the WrongAnimal received.
 						 * @param copy The WrongAnimal to copy from.
 						 */
-	void				operator=(const WrongAnimal &copy);
+	WrongAnimal			&operator=(const WrongAnimal &copy);
 
 						/**
 						 * @brief Animal makes a sound. It is not virtual, so derived classes cannot override it.
