@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:34:44 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 14:49:47 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:49:15 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ Brain::Brain(const Brain &copy) {
 	*this = copy;
 }
 
-void	Brain::operator=(const Brain &copy) {
+Brain	&Brain::operator=(const Brain &copy) {
 	if (this != &copy) {
 		for (int i = 0; i < 100; i++)
 			this->_ideas[i].assign(copy._ideas[i]);
 	}
+	return (*this);
 }
 
 void	Brain::print(void) const {

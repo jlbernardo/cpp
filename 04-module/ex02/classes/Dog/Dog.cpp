@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:58:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 20:26:49 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:47:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ Dog::~Dog(void) {
 				<< ". Good bye, " << CYN << this->_name << WHT << "!");
 }
 
-void	Dog::operator=(const Dog &copy) {
+Dog	&Dog::operator=(const Dog &copy) {
 	if (this != &copy) {
 		this->_name = copy._name;
 		this->_type = copy._type;
 		this->_brain = new Brain(*copy._brain);
 	}
+	return (*this);
 }
 
 void	Dog::makeSound(void) const {

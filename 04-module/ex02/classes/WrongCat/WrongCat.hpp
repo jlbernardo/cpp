@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:23:32 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 22:02:15 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:46:55 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ public:
 				 * @brief Copies everything from the WrongCat received.
 				 * @param copy The WrongCat to copy from.
 				 */
-	void		operator=(const WrongCat &copy);
+	WrongCat	&operator=(const WrongCat &copy);
 
 
 				/**

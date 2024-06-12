@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:23:32 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 20:25:57 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:45:12 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ public:
 				 * @brief Copies everything from the Cat received.
 				 * @param copy The Cat to copy from.
 				 */
-	void		operator=(const Cat &copy);
+	Cat			&operator=(const Cat &copy);
 
 				/**
 				 * @brief It meows.

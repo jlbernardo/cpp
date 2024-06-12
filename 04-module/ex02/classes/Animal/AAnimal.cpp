@@ -29,9 +29,10 @@ AAnimal::~AAnimal(void) {
 	println(WHT << "     Animal destructor called for " << GRN << this->_type << WHT << ".");
 }
 
-void	AAnimal::operator=(const AAnimal &copy) {
+AAnimal	&AAnimal::operator=(const AAnimal &copy) {
 	if (this != &copy)
 		this->_type = copy.getType();
+	return (*this);
 }
 
 const std::string	&AAnimal::getType(void) const {

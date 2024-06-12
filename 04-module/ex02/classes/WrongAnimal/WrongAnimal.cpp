@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 19:07:05 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:47:19 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ WrongAnimal::~WrongAnimal(void) {
 	println(WHT << "     Wrong animal destructor called for " << GRN << this->_type << WHT << ".");
 }
 
-void	WrongAnimal::operator=(const WrongAnimal &copy) {
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &copy) {
 	if (this != &copy)
 		this->_type = copy.getType();
+	return (*this);
 }
 
 void	WrongAnimal::makeSound(void) const {
