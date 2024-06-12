@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:54:29 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 22:35:59 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:38:20 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 # include <string>
 # include <iomanip>
 
-# define GHIDORAH_HP	300
-# define EVANORA_HP		100
 # define AZRAEL_HP		80
+# define EVANORA_HP		100
+# define GHIDORAH_HP	300
 
 struct Game {
 private:
@@ -40,44 +40,47 @@ private:
 	Character		*_player;
 	MateriaSource	*_src;
 
+protected:
+					Game();
+					Game(Game const &rhs);
+	Game 			&operator=(Game const &rhs);
+
 public:
-	Game();
-	Game(Game const &rhs);
-	Game &operator=(Game const &rhs);
-	~Game();
+					~Game();
+	static Game		&getInstance();
+	void			run();
 
 	//Setup
-	void	introduction();
-	void	loadGame();
-	void	getName();
-	void	getType();
-	void	giveGift();
-	void	firstEnemyType();
-	void	equipDark();
+	void			getName();
+	void			getType();
+	void			loadGame();
+	void			giveGift();
+	void			equipDark();
+	void			firstEnemyType();
 
 	//Messages
-	void	retryMessage(std::string &input);
-	void	rewardMessage(Character &enemy, std::string &input);
-	void	gemReward(std::string type);
-	void	battleScreen(Character &enemy);
-	void	attackMessage(Character &enemy, std::string &input);
-	void	retaliationMessage(Character &enemy, std::string &input);
-	void	enemyScreen(Character &enemy, std::string color);
-	void	enemyScream(Character &enemy);
-	void	next(void);
-	void	villager(void);
+	void			next(void);
+	void			villager(void);
+	void			gemReward(std::string type);
+	void			enemyScream(Character &enemy);
+	void			battleScreen(Character &enemy);
+	void			retryMessage(std::string &input);
+	void			enemyScreen(Character &enemy, std::string color);
+	void			attackMessage(Character &enemy, std::string &input);
+	void			rewardMessage(Character &enemy, std::string &input);
+	void			retaliationMessage(Character &enemy, std::string &input);
 
 	//Gameplay
-	void	battle();
-	void	retry(Character &enemy);
-	void	reward(Character &enemy);
-	void	aftermath(Character &enemy);
-	void	retaliation(Character &enemy);
-	void	fight(Character &enemy);
+	void			battle();
+	void			retry(Character &enemy);
+	void			fight(Character &enemy);
+	void			reward(Character &enemy);
+	void			aftermath(Character &enemy);
+	void			retaliation(Character &enemy);
 
 	//Ending
-	void	ending();
-	void	gameOver();
+	void			ending();
+	void			gameOver();
 };
 
 

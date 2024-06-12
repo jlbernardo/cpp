@@ -6,22 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:37:45 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 21:35:08 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:35:37 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 
-void	Game::introduction() {
-
-	loadGame();
-	getName();
-	getType();
-	giveGift();
-	equipDark();
-}
-
-void	Game::getName() {
+void	Game::getName(void) {
 	std::string	name;
 
 	println("\n                 Finally, you have arrived!!!\n");
@@ -39,7 +30,7 @@ void	Game::getName() {
 	_player = new Character(name);
 }
 
-void	Game::getType() {
+void	Game::getType(void) {
 	std::string	type;
 
 	println("\n                 Great! Nice to meet you, " << _player->getName() << ".\n");
@@ -71,7 +62,7 @@ void	Game::getType() {
 	firstEnemyType();
 }
 
-void	Game::giveGift() {
+void	Game::giveGift(void) {
 
 	println("                 Ugh, you are perfect for the job!\n");
 	println("                 Azrael uses " << _azrael->getMateriaType(0) << " magic, so you might have a chance. Before you go,");

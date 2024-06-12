@@ -3,11 +3,11 @@
 Game::Game(void) {
 }
 
-Game::Game(Game const &src) {
-	*this = src;
+Game::~Game(void) {
 }
 
-Game::~Game(void) {
+Game::Game(Game const &rhs) {
+	*this = rhs;
 }
 
 Game	&Game::operator=(Game const &rhs) {
@@ -20,4 +20,20 @@ Game	&Game::operator=(Game const &rhs) {
 		this->_src = rhs._src;
 	}
 	return (*this);
+}
+
+Game	&Game::getInstance() {
+	static Game instance;
+	return (instance);
+}
+
+void	Game::run(void) {
+
+	this->loadGame();
+	this->getName();
+	this->getType();
+	this->giveGift();
+	this->equipDark();
+	this->battle();
+	this->ending();
 }

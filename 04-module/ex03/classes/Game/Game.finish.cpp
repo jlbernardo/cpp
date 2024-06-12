@@ -6,13 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:08:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 21:35:08 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:35:06 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 
-void	Game::ending() {
+void	Game::ending(void) {
 	println(WHT << "\n            ╭──────────────────────────────────────────────────────────────────────────╮");
 	println(WHT << "            │                         " << GRN << "You've saved the village!" << WHT << "                        │");
 	println(WHT << "            │                                                                          │");
@@ -32,7 +32,7 @@ void	Game::ending() {
 	gameOver();
 }
 
-void	Game::gameOver() {
+void	Game::gameOver(void) {
 	delete _player;
 	delete _src;
 	delete _azrael;

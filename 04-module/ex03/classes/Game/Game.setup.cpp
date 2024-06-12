@@ -6,13 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:35:20 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 21:40:37 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:35:21 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 
-void	Game::loadGame() {
+void	Game::loadGame(void) {
 
 	//Sets _victory condition to false
 	_victory = false;
@@ -41,7 +41,7 @@ void	Game::loadGame() {
 	_evanora->equip(_src->createMateria("Cure"));
 }
 
-void	Game::firstEnemyType() {
+void	Game::firstEnemyType(void) {
 
 	std::string	type = "Fire";
 
@@ -55,7 +55,7 @@ void	Game::firstEnemyType() {
 
 }
 
-void	Game::equipDark() {
+void	Game::equipDark(void) {
 
 	((MateriaSource *)_src)->forgetMateria(0);
 	_src->learnMateria(new Dark());

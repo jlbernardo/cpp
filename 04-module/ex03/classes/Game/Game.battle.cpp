@@ -6,13 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:07:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 21:35:08 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:35:54 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 
-void	Game::battle() {
+void	Game::battle(void) {
 
 	Character	*enemy[3] = {_azrael, _evanora, _ghidorah};
 

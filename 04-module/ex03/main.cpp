@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:00:23 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 22:36:27 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:33:02 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int main(void)
 {
-	Game	game;
-
-	game.introduction();
-	game.battle();
-	game.ending();
-
+	Game::getInstance().run();
 	return (EXIT_SUCCESS);
 }
