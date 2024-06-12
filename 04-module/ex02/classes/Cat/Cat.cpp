@@ -6,23 +6,23 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:58:26 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 17:21:31 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:26:55 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(void) : AAnimal("Cat") {
-	this->_brain = new Brain();
 	println(WHT << "     Constructor called for " << CYN << this->_type << WHT
 				<< ". Its name is " << CYN << this->_name << WHT << ".");
+	this->_brain = new Brain();
 }
 
 Cat::Cat(std::string name) : AAnimal("Cat") {
-	this->_name = name;
-	this->_brain = new Brain();
 	println(WHT << "     Constructor called for " << CYN << this->_type << WHT
 				<< ". Its name is " << CYN << this->_name << WHT << ".");
+	this->_brain = new Brain();
+	this->_name = name;
 }
 
 Cat::Cat(const Cat &copy) : AAnimal("Cat") {
@@ -32,9 +32,9 @@ Cat::Cat(const Cat &copy) : AAnimal("Cat") {
 }
 
 Cat::~Cat(void) {
+	delete this->_brain;
 	println(WHT << "     Destructor called for " << CYN << this->_type << WHT
 				<< ". Good bye, " << CYN << this->_name << WHT << "!");
-	delete this->_brain;
 }
 
 void	Cat::operator=(const Cat &copy) {
@@ -47,4 +47,12 @@ void	Cat::operator=(const Cat &copy) {
 
 void	Cat::makeSound(void) const {
 	println(WHT << "          /ᐠ - ˕ -マ  " << CYN << "*meow*");
+}
+
+void	Cat::think(std::string idea) {
+	this->_brain->think(idea);
+}
+
+void	Cat::print(void) const {
+	this->_brain->print();
 }

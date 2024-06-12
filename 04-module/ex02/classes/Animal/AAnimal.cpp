@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                        :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 17:26:19 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:56:12 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,4 @@ const std::string	&AAnimal::getType(void) const {
 
 const std::string	&AAnimal::getName(void) const {
 	return (this->_name);
-}
-
-Brain			&AAnimal::getBrain(void) const {
-	return (*this->_brain);
 }

@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 13:49:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:56:12 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,4 @@ const std::string	&Animal::getType(void) const {
 
 const std::string	&Animal::getName(void) const {
 	return (this->_name);
-}
-
-Brain			&Animal::getBrain(void) const {
-	return (*this->_brain);
 }

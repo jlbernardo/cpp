@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:31 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 17:29:32 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:31:00 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 
 
 /**
- * #### Animal abstract base class
+ * #### Animal base class
  * It has a type attribute and a makeSound method.
  */
 class AAnimal {
 
 protected:
-	Brain		*_brain;	// The animal's brain, it thinks.
 	std::string	_type;		// Animal type.
 	std::string	_name;		// Animal name.
 
@@ -59,9 +58,7 @@ public:
 	void				operator=(const AAnimal &copy);
 
 						/**
-						 * @brief Pure virtual method that makes the animal sound.
-						 *  It must be implemented in the derived classes.
-						 *  It makes the class abstract and cannot be instantiated.
+						 * @brief Animal makes a sound. It is virtual to allow polymorphism.
 						 */
 	virtual void		makeSound(void) const = 0;
 
@@ -77,11 +74,17 @@ public:
 						 */
 	const std::string	&getName(void) const;
 
-						/**
-						 * @brief Gets the animal's brain.
-						 * @return The brain of the animal.
+
+							/**
+						 * @brief Thinks about a new idea.
+						 * @param idea The thought.
 						 */
-	Brain				&getBrain(void) const;
+	virtual void		think(std::string idea) = 0;
+
+						/**
+						 * @brief Prints the Brain's ideas.
+						 */
+	virtual void		print(void) const = 0;
 };
 
 #endif

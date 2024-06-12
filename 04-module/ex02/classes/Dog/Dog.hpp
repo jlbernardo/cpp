@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:27:57 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 17:33:51 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:28:53 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 # include "AAnimal.hpp"
 
 /**
- * #### Dog class, derived from abstract Animal
+ * #### Dog class, derived from Animal
  * It overrides the makeSound method to make a dog sound
  */
 class Dog : public AAnimal {
+
+private:
+	Brain		*_brain;	// The Dog's brain, it thinks.
 
 public:
 				/**
@@ -55,6 +58,17 @@ public:
 				 * @brief It barks.
 				 */
 	void		makeSound(void) const;
+
+					/**
+				 * @brief Thinks about a new idea.
+				 * @param idea The thought.
+				 */
+	void		think(std::string idea);
+
+				/**
+				 * @brief Prints the Brain's ideas.
+				 */
+	void		print(void) const;
 };
 
 #endif

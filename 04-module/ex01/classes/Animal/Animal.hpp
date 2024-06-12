@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:31 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 13:49:29 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:56:30 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 class Animal {
 
 protected:
-	Brain		*_brain;	// The animal's brain, it thinks.
 	std::string	_type;		// Animal type.
 	std::string	_name;		// Animal name.
 
@@ -74,12 +73,6 @@ public:
 						 * @return The name of the animal.
 						 */
 	const std::string	&getName(void) const;
-
-						/**
-						 * @brief Gets the animal's brain.
-						 * @return The brain of the animal.
-						 */
-	Brain				&getBrain(void) const;
 };
 
 #endif

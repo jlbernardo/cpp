@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:23:32 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 13:16:29 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:06:26 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
  * It overrides the makeSound method to make a cat sound
  */
 class Cat : public Animal {
+
+private:
+	Brain		*_brain;	// The Cat's brain, it thinks.
 
 public:
 				/**
@@ -55,6 +58,19 @@ public:
 				 * @brief It meows.
 				 */
 	void		makeSound(void) const;
+
+					/**
+				 * @brief Thinks about a new idea.
+				 * @param idea The thought.
+				 */
+	void		think(std::string idea);
+
+				/**
+				 * @brief Prints the Brain's ideas.
+				 */
+	void		print(void) const;
+
+	Brain		&brain(void);
 
 };
 

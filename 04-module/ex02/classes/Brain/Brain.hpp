@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:34:46 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/06 17:16:19 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:06:29 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  */
 class Brain {
 
-protected:
+private:
 	std::string	_ideas[100];	// Brain's ideas.
 
 public:
