@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:07 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 15:15:36 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:17:07 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ AMateria	*Dark::clone(void) const {
 }
 
 void	Dark::use(ICharacter &target) {
-
 	println(PRP << "* sucks life out of " << target.getName() << "'s body *");
+}
 
+void	Dark::use(Character &target) {
+	println(PRP << "* sucks life out of " << target.getName() << "'s body *");
 	srand(time(NULL));
 	int	amount = rand() % 20 + 30;
 	target.modHealth(-amount);

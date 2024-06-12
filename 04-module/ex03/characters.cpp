@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 22:29:38 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 16:11:37 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:15:03 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	villager(void) {
 	println(GRN << "                                           *$$$$$$$$$*\n\n");
 }
 
-void	enemyScreen(ICharacter &enemy, std::string color) {
+void	enemyScreen(Character &enemy, std::string color) {
 	if (enemy.getName() == "Azrael") {
 		println(WHT << "                                                         " << color << "                 /\\");
 		println(WHT << "                                                         " << color << "                 ||");

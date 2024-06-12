@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:54:29 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 16:27:16 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:58:49 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #ifndef RPG_HPP
 # define RPG_HPP
 
-# include "IMateriaSource.hpp"
-# include "ICharacter.hpp"
+# include "Character.hpp"
 # include "AMateria.hpp"
 # include "MateriaSource.hpp"
 # include "Ice.hpp"
@@ -23,7 +22,6 @@
 # include "Fire.hpp"
 # include "Dark.hpp"
 # include "Thunder.hpp"
-# include "Character.hpp"
 # include "general.hpp"
 # include <limits>
 # include <string>
@@ -35,11 +33,11 @@
 
 struct game {
 	bool			victory;
-	ICharacter		*ghidorah;
-	ICharacter		*evanora;
-	ICharacter		*azrael;
-	ICharacter		*me;
-	IMateriaSource	*src;
+	Character		*ghidorah;
+	Character		*evanora;
+	Character		*azrael;
+	Character		*me;
+	MateriaSource	*src;
 };
 
 //Setup
@@ -53,23 +51,23 @@ void	equipDark(game &game);
 
 //Messages
 void	retryMessage(game &game, std::string &input);
-void	rewardMessage(game &game, ICharacter &enemy, std::string &input);
+void	rewardMessage(game &game, Character &enemy, std::string &input);
 void	gemReward(std::string type);
-void	battleScreen(ICharacter &player, ICharacter &enemy);
-void	attackMessage(ICharacter &player, ICharacter &enemy, std::string &input);
-void	retaliationMessage(ICharacter &player, ICharacter &enemy, std::string &input);
-void	enemyScreen(ICharacter &enemy, std::string color);
-void	enemyScream(ICharacter &enemy);
+void	battleScreen(Character &player, Character &enemy);
+void	attackMessage(Character &player, Character &enemy, std::string &input);
+void	retaliationMessage(Character &player, Character &enemy, std::string &input);
+void	enemyScreen(Character &enemy, std::string color);
+void	enemyScream(Character &enemy);
 void	next(void);
 void	villager(void);
 
 //Gameplay
 void	battle(game &game);
-void	retry(game &game, ICharacter &enemy);
-void	reward(game &game, ICharacter &enemy);
-void	aftermath(game &game, ICharacter &enemy);
-void	retaliation(ICharacter &player, ICharacter &enemy);
-void	fight(game &game, ICharacter &player, ICharacter &enemy);
+void	retry(game &game, Character &enemy);
+void	reward(game &game, Character &enemy);
+void	aftermath(game &game, Character &enemy);
+void	retaliation(Character &player, Character &enemy);
+void	fight(game &game, Character &player, Character &enemy);
 
 //Ending
 void	ending(game &game);

@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:37:38 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:06:41 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:17:32 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 	void				unequip(int idx);
 	void				equip(AMateria *m);
 	void				use(int idx, ICharacter &target);
+	void				use(int idx, Character &target);
 
 	std::string const	&getName(void) const;
 	unsigned int const	&getHealth(void) const;

@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:40:21 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/08 23:30:21 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:17:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ void	Character::equip(AMateria *m) {
 }
 
 void	Character::use(int idx, ICharacter &target) {
+	if (idx < 0 || idx >= MAX_MATERIA || !this->_materia[idx])
+		return ;
+	this->_materia[idx]->use(target);
+}
+
+void	Character::use(int idx, Character &target) {
 	if (idx < 0 || idx >= MAX_MATERIA || !this->_materia[idx])
 		return ;
 	this->_materia[idx]->use(target);

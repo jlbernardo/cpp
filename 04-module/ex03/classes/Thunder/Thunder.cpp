@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 00:30:53 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:16:09 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ AMateria	*Thunder::clone(void) const {
 }
 
 void	Thunder::use(ICharacter &target) {
+	println(YLW << "* shoots a thunder bolt at " << target.getName() << " *");
+}
+
+void	Thunder::use(Character &target) {
 
 	println(YLW << "* shoots a thunder bolt at " << target.getName() << " *");
-
 	srand(time(NULL));
 	int	amount = rand() % 20 + 20;
 	target.modHealth(-amount);

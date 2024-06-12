@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:09:20 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:39:23 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:34:30 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class IMateriaSource
 {
 public:
 	virtual				~IMateriaSource() {}
-	virtual void		forgetMateria(int idx) = 0;
 	virtual void		learnMateria(AMateria*) = 0;
 	virtual AMateria*	createMateria(std::string const & type) = 0;
 };

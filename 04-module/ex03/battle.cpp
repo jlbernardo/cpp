@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:07:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 16:32:31 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 22:00:12 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	battle(game &game) {
 
-	ICharacter	*enemy[3] = {game.azrael, game.evanora, game.ghidorah};
+	Character	*enemy[3] = {game.azrael, game.evanora, game.ghidorah};
 
 	for (int i = 0; i < 3; i++) {
 		while (!game.victory) {
@@ -25,7 +25,7 @@ void	battle(game &game) {
 	}
 }
 
-void	fight(game &game, ICharacter &player, ICharacter &enemy) {
+void	fight(game &game, Character &player, Character &enemy) {
 
 	std::string	input;
 	int			slot;
@@ -73,7 +73,7 @@ void	fight(game &game, ICharacter &player, ICharacter &enemy) {
 	}
 }
 
-void	retaliation(ICharacter &player, ICharacter &enemy) {
+void	retaliation(Character &player, Character &enemy) {
 	std::string	input;
 	int	choice = rand() % 4;
 
@@ -87,14 +87,14 @@ void	retaliation(ICharacter &player, ICharacter &enemy) {
 	println("");
 }
 
-void	aftermath(game &game, ICharacter &enemy) {
+void	aftermath(game &game, Character &enemy) {
 	if (game.me->getHealth() <= 0)
 		retry(game, enemy);
 	else
 		reward(game, enemy);
 }
 
-void	retry(game &game, ICharacter &enemy) {
+void	retry(game &game, Character &enemy) {
 
 	std::string	input;
 
@@ -119,14 +119,14 @@ void	retry(game &game, ICharacter &enemy) {
 	clear;
 }
 
-void	reward(game &game, ICharacter &enemy) {
+void	reward(game &game, Character &enemy) {
 
 	int			slot;
 	std::string	input = "";
 	AMateria	*temp;
 
 	rewardMessage(game, enemy, input);
-	
+
 	if (input != "S") {
 		slot = std::atoi(input.c_str()) - 1;
 		if (game.me->getMateriaType(slot) != "Empty") {

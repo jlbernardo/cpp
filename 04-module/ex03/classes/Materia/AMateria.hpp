@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:47 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:05:59 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:16:27 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "general.hpp"
 
 class ICharacter;
+class Character;
 
 class AMateria
 {
@@ -30,10 +31,11 @@ public:
 	virtual				~AMateria(void);
 						AMateria(std::string const &type);
 
-	std::string const	&getType() const; //Returns the materia type
-	std::string const	&getGem() const; //Returns the materia gem
+	std::string const	&getType() const;
+	std::string const	&getGem() const;
 	virtual AMateria*	clone() const = 0;
 	virtual void		use(ICharacter &target);
+	virtual void		use(Character &target);
 };
 
 #endif

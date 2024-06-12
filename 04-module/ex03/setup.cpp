@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load.cpp                                           :+:      :+:    :+:   */
+/*   setup.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:35:20 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 15:36:07 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:55:09 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	firstEnemyType(game &game) {
 
 void	equipDark(game &game) {
 
-	game.src->forgetMateria(0);
+	((MateriaSource *)game.src)->forgetMateria(0);
 	game.src->learnMateria(new Dark());
 
 	game.ghidorah->equip(game.src->createMateria("Dark"));

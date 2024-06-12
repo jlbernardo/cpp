@@ -6,13 +6,13 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 16:44:40 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:14:16 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rpg.hpp"
 
-void	enemyScream(ICharacter &enemy) {
+void	enemyScream(Character &enemy) {
 
 	if (enemy.getName() == "Azrael")
 		println(RED << "\n                            YOU'LL NEVER WIN, PEASANT!!! MWAHAHAHAHAHAHAHA\n");
@@ -22,7 +22,7 @@ void	enemyScream(ICharacter &enemy) {
 		println(RED << "\n                            RRRAAAAAAGRRWWWWWRWRWRWWW!!!!!!!!!!!!!!!!!!!!\n");
 }
 
-void	attackMessage(ICharacter &player, ICharacter &enemy, std::string &input) {
+void	attackMessage(Character &player, Character &enemy, std::string &input) {
 
 	battleScreen(player, enemy);
 
@@ -37,7 +37,7 @@ void	attackMessage(ICharacter &player, ICharacter &enemy, std::string &input) {
 	clear;
 }
 
-void	retaliationMessage(ICharacter &player, ICharacter &enemy, std::string &input) {
+void	retaliationMessage(Character &player, Character &enemy, std::string &input) {
 
 	battleScreen(player, enemy);
 
@@ -60,7 +60,7 @@ void	next(void) {
 }
 
 
-void	battleScreen(ICharacter &player, ICharacter &enemy) {
+void	battleScreen(Character &player, Character &enemy) {
 
 	int			enemy_hp = AZRAEL_HP;
 	std::string	color;
@@ -119,7 +119,7 @@ void	retryMessage(game &game, std::string &input) {
 
 }
 
-void	rewardMessage(game &game, ICharacter &enemy, std::string &input) {
+void	rewardMessage(game &game, Character &enemy, std::string &input) {
 
 	println(WHT << "            ╭──────────────────────────────────────────────────────────────────────────╮");
 	println(WHT << "            │                  " << GRN << "You have successfully defeated " << std::left << std::setw(8) << enemy.getName() << WHT << std::setw(17) << " " << "│");

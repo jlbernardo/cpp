@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 15:19:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:16:44 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ AMateria	*Ice::clone(void) const {
 }
 
 void	Ice::use(ICharacter &target) {
+	println(CYN << "* shoots an ice bolt at " << target.getName() << " *");
+}
+
+void	Ice::use(Character &target) {
 
 	println(CYN << "* shoots an ice bolt at " << target.getName() << " *");
-
 	srand(time(NULL));
 	int	amount = rand() % 10 + 10;
 	target.modHealth(-amount);

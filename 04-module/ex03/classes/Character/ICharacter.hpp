@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:26:43 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/09 00:00:22 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:37:47 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ public:
 	virtual void				unequip(int idx) = 0;
 	virtual void				equip(AMateria* m) = 0;
 	virtual std::string const	&getName(void) const = 0;
-	virtual unsigned int const	&getHealth(void) const = 0;
-	virtual AMateria			*getMateria(int idx) const = 0;
-	virtual std::string const	getMateriaGem(int idx) const = 0;
-	virtual std::string const	getMateriaType(int idx) const = 0;
-	virtual void				modHealth(int amount) = 0;
-	virtual void				setHealth(unsigned int amount) = 0;
 	virtual void				use(int idx, ICharacter& target) = 0;
 };
 

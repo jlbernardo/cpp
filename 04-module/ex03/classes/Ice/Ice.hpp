@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:49 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:05:16 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:16:37 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define ICE_HPP
 
 # include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "Character.hpp"
 
 class Ice : public AMateria {
 
@@ -28,6 +28,7 @@ public:
 
 	AMateria	*clone(void) const;
 	void		use(ICharacter &target);
+	void		use(Character &target);
 };
 
 #endif

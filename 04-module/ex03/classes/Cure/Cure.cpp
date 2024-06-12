@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:07 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 00:48:11 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:17:20 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ AMateria	*Cure::clone(void) const {
 }
 
 void	Cure::use(ICharacter &target) {
-
 	println(GRN << "* heals " << target.getName() << "'s wounds *");
+}
 
+void	Cure::use(Character &target) {
+	println(GRN << "* heals " << target.getName() << "'s wounds *");
 	srand(time(NULL));
 	int	amount = rand() % 10 + 10;
 	target.modHealth(amount);

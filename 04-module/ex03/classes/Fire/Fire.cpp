@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:13:39 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 15:21:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:16:54 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ AMateria	*Fire::clone(void) const {
 }
 
 void	Fire::use(ICharacter &target) {
+	println(RED << "* casts a fire ball in " << target.getName() << "'s direction *");
+}
+
+void	Fire::use(Character &target) {
 
 	println(RED << "* casts a fire ball in " << target.getName() << "'s direction *");
-
 	srand(time(NULL));
 	int	amount = rand() % 20 + 5;
 	target.modHealth(-amount);

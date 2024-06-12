@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:37:10 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/07 21:07:07 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:18:02 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ AMateria::~AMateria(void) {
 }
 
 void	AMateria::use(ICharacter &target) {
+	(void)target;
+}
+
+void	AMateria::use(Character &target) {
 	(void)target;
 }
 
