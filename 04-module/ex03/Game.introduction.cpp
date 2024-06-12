@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   introduction.cpp                                   :+:      :+:    :+:   */
+/*   Game.introduction.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:37:45 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:14:50 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:35:08 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rpg.hpp"
+#include "Game.hpp"
 
-void	introduction(game &game) {
+void	Game::introduction() {
 
-	loadGame(game);
-	getName(game);
-	getType(game);
-	giveGift(game);
-	equipDark(game);
+	loadGame();
+	getName();
+	getType();
+	giveGift();
+	equipDark();
 }
 
-void	getName(game &game) {
-	std::string	player;
+void	Game::getName() {
+	std::string	name;
 
 	println("\n                 Finally, you have arrived!!!\n");
 	println("                 We were waiting for the kingdom to send a powerful wizard to help us.");
@@ -33,16 +33,16 @@ void	getName(game &game) {
 	println(WHT << "               ╭──────────────────────────────────────────────────────────────╯")
 	std::cout << WHT << "               ╰─➤ " << DFL;
 
-	while (player.empty())
-		getline(std::cin, player);
+	while (name.empty())
+		getline(std::cin, name);
 	clear;
-	game.me = new Character(player);
+	_player = new Character(name);
 }
 
-void	getType(game &game) {
+void	Game::getType() {
 	std::string	type;
 
-	println("\n                 Great! Nice to meet you, " << game.me->getName() << ".\n");
+	println("\n                 Great! Nice to meet you, " << _player->getName() << ".\n");
 	println("                 I can't tell by your clothes, what kind of mage are you?");
 	println("                 I know Fire magic is stronger, but heard Ice is more consistent...");
 	println("");
@@ -64,22 +64,22 @@ void	getType(game &game) {
 
 	clear;
 	if (type == "E")
-		gameOver(game);
+		gameOver();
 
-	game.me->equip(game.src->createMateria(type));
-	game.me->equip(game.src->createMateria("Cure"));
-	firstEnemyType(game);
+	_player->equip(_src->createMateria(type));
+	_player->equip(_src->createMateria("Cure"));
+	firstEnemyType();
 }
 
-void	giveGift(game &game) {
+void	Game::giveGift() {
 
 	println("                 Ugh, you are perfect for the job!\n");
-	println("                 Azrael uses " << game.azrael->getMateriaType(0) << " magic, so you might have a chance. Before you go,");
+	println("                 Azrael uses " << _azrael->getMateriaType(0) << " magic, so you might have a chance. Before you go,");
 	println("                 take this artifact. It's been protecting our village for centuries.");
-	println("                 You're our best shot, so it's worth giving it to you. Good luck, " << game.me->getName() << "!\n");
+	println("                 You're our best shot, so it's worth giving it to you. Good luck, " << _player->getName() << "!\n");
 	villager();
 	println(WHT << "            ╭──────────────────────────────────────────────────────────────────────────╮");
-	println(WHT << "            │ You have received the life stone " << game.me->getMateriaGem(1) << ", it heals you by 10-20 HP when used. │");
+	println(WHT << "            │ You have received the life stone " << _player->getMateriaGem(1) << ", it heals you by 10-20 HP when used. │");
 	println(WHT << "            │        It was placed on your second Materia slot, use it wisely.         │");
 	println(WHT << "            ╰──────────────────────────────────────────────────────────────────────────╯");
 

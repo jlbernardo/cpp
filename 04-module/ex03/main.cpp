@@ -6,19 +6,19 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:00:23 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 21:55:00 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 22:36:27 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rpg.hpp"
+#include "Game.hpp"
 
 int main(void)
 {
-	game	game;
+	Game	game;
 
-	introduction(game);
-	battle(game);
-	ending(game);
+	game.introduction();
+	game.battle();
+	game.ending();
 
 	return (EXIT_SUCCESS);
 }

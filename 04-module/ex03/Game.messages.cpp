@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   messages.cpp                                       :+:      :+:    :+:   */
+/*   Game.messages.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 20:14:16 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:33:44 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rpg.hpp"
+#include "Game.hpp"
 
-void	enemyScream(Character &enemy) {
+void	Game::enemyScream(Character &enemy) {
 
 	if (enemy.getName() == "Azrael")
 		println(RED << "\n                            YOU'LL NEVER WIN, PEASANT!!! MWAHAHAHAHAHAHAHA\n");
@@ -22,11 +22,11 @@ void	enemyScream(Character &enemy) {
 		println(RED << "\n                            RRRAAAAAAGRRWWWWWRWRWRWWW!!!!!!!!!!!!!!!!!!!!\n");
 }
 
-void	attackMessage(Character &player, Character &enemy, std::string &input) {
+void	Game::attackMessage(Character &enemy, std::string &input) {
 
-	battleScreen(player, enemy);
+	battleScreen(enemy);
 
-	println(WHT << "\n                                 Choose a magic slot to use, " << player.getName() << "!");
+	println(WHT << "\n                                 Choose a magic slot to use, " << _player->getName() << "!");
 	println(WHT << "               ╭────────────────────────────────────────────────────────────────────╯");
 	std::cout << WHT << "               ╰─➤ " << DFL;
 
@@ -37,9 +37,9 @@ void	attackMessage(Character &player, Character &enemy, std::string &input) {
 	clear;
 }
 
-void	retaliationMessage(Character &player, Character &enemy, std::string &input) {
+void	Game::retaliationMessage(Character &enemy, std::string &input) {
 
-	battleScreen(player, enemy);
+	battleScreen(enemy);
 
 	println(RED << "\n                                     " << enemy.getName() << "'s time to act!");
 	println(WHT << "               ╭────────────────────────────────────────────────────────────────────╯");
@@ -53,14 +53,14 @@ void	retaliationMessage(Character &player, Character &enemy, std::string &input)
 	println("");
 }
 
-void	next(void) {
+void	Game::next(void) {
 	println("\n            ᵖʳᵉˢˢ ᵃⁿʸ ᵏᵉʸ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	clear;
 }
 
 
-void	battleScreen(Character &player, Character &enemy) {
+void	Game::battleScreen(Character &enemy) {
 
 	int			enemy_hp = AZRAEL_HP;
 	std::string	color;
@@ -89,22 +89,22 @@ void	battleScreen(Character &player, Character &enemy) {
 
 	println(WHT << "                                                                           HP " << color << enemy.getHealth());
 	println("            ╭─────────────────────────────────────╮");
-	println("            │               " << std::setw(3) << player.getHealth() << "  HP               │");
+	println("            │               " << std::setw(3) << _player->getHealth() << "  HP               │");
 	println("            │                                     │");
-	println("            │ [1] " << player.getMateriaGem(0) << " " << std::left << std::setw(10) << player.getMateriaType(0)
-													<< " [2] " << player.getMateriaGem(1) << " " << std::left << std::setw(10) << player.getMateriaType(1) << " │");
+	println("            │ [1] " << _player->getMateriaGem(0) << " " << std::left << std::setw(10) << _player->getMateriaType(0)
+													<< " [2] " << _player->getMateriaGem(1) << " " << std::left << std::setw(10) << _player->getMateriaType(1) << " │");
 	println("            │                                     │");
-	println("            │ [3] " << player.getMateriaGem(2) << " " << std::left << std::setw(10) << player.getMateriaType(2)
-													<< " [4] " << player.getMateriaGem(3) << " " << std::left << std::setw(10) << player.getMateriaType(3) << " │");
+	println("            │ [3] " << _player->getMateriaGem(2) << " " << std::left << std::setw(10) << _player->getMateriaType(2)
+													<< " [4] " << _player->getMateriaGem(3) << " " << std::left << std::setw(10) << _player->getMateriaType(3) << " │");
 	println("            ╰─────────────────────────────────────╯");
 }
 
-void	retryMessage(game &game, std::string &input) {
+void	Game::retryMessage(std::string &input) {
 
 	println("");
 	println("                 We will perish if you give up, but I understand if you can't take it anymore.");
 	println("                 I think... Here, eat this, it should make you a little stronger for the next try.");
-	println("                 We really need your help, " << game.me->getName() << ". Please, don't give up!\n");
+	println("                 We really need your help, " << _player->getName() << ". Please, don't give up!\n");
 	villager();
 	println(WHT << "                 Your HP was increased greatly. You can [" << GRN << "R" << WHT << "]etry or ["
 										<< RED << "G" << WHT << "]ive up.");
@@ -119,7 +119,7 @@ void	retryMessage(game &game, std::string &input) {
 
 }
 
-void	rewardMessage(game &game, Character &enemy, std::string &input) {
+void	Game::rewardMessage(Character &enemy, std::string &input) {
 
 	println(WHT << "            ╭──────────────────────────────────────────────────────────────────────────╮");
 	println(WHT << "            │                  " << GRN << "You have successfully defeated " << std::left << std::setw(8) << enemy.getName() << WHT << std::setw(17) << " " << "│");
@@ -129,11 +129,11 @@ void	rewardMessage(game &game, Character &enemy, std::string &input) {
 	println(WHT << "            │   be replaced. If you don't want to equip this Materia, you can Skip it  │");
 	println(WHT << "            │                                                                          │");
 	println(WHT << "            │                                                                          │");
-	println(WHT << "            │                    [1] " << game.me->getMateriaGem(0) << " " << std::left << std::setw(15) << game.me->getMateriaType(0)
-													<< " [2] " << game.me->getMateriaGem(1) << " " << std::left << std::setw(15) << game.me->getMateriaType(1) << "         │");
+	println(WHT << "            │                    [1] " << _player->getMateriaGem(0) << " " << std::left << std::setw(15) << _player->getMateriaType(0)
+													<< " [2] " << _player->getMateriaGem(1) << " " << std::left << std::setw(15) << _player->getMateriaType(1) << "         │");
 	println(WHT << "            │                                                                          │");
-	println(WHT << "            │                    [3] " << game.me->getMateriaGem(2) << " " << std::left << std::setw(15) << game.me->getMateriaType(2)
-													<< " [4] " << game.me->getMateriaGem(3) << " " << std::left << std::setw(15) << game.me->getMateriaType(3) << "         │");
+	println(WHT << "            │                    [3] " << _player->getMateriaGem(2) << " " << std::left << std::setw(15) << _player->getMateriaType(2)
+													<< " [4] " << _player->getMateriaGem(3) << " " << std::left << std::setw(15) << _player->getMateriaType(3) << "         │");
 	println(WHT << "            ├──────────────────────────────────────────────────────────────────────────╯");
 	println(WHT << "            │")
 	std::cout << WHT << "            ╰─➤ " << DFL;
@@ -145,10 +145,10 @@ void	rewardMessage(game &game, Character &enemy, std::string &input) {
 	}
 
 	if (input == "E")
-		gameOver(game);
+		gameOver();
 }
 
-void	gemReward(std::string type) {
+void	Game::gemReward(std::string type) {
 
 	if (type == "Ice") {
 		println(WHT << "            │          An ❄️  Ice gem was dropped on the ground. You can equip it       │");

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   finish.cpp                                         :+:      :+:    :+:   */
+/*   Game.finish.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:08:40 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 15:37:03 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:35:08 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rpg.hpp"
+#include "Game.hpp"
 
-void	ending(game &game) {
+void	Game::ending() {
 	println(WHT << "\n            ╭──────────────────────────────────────────────────────────────────────────╮");
 	println(WHT << "            │                         " << GRN << "You've saved the village!" << WHT << "                        │");
 	println(WHT << "            │                                                                          │");
@@ -21,22 +21,22 @@ void	ending(game &game) {
 	println(WHT << "            │      you to take home all the Materia you've gathered on the combats.    │");
 	println(WHT << "            │                        This is your final spoil:                         │");
 	println(WHT << "            │                                                                          │");
-	println(WHT << "            │                    [1] " << game.me->getMateriaGem(0) << " " << std::left << std::setw(15) << game.me->getMateriaType(0)
-													<< " [2] " << game.me->getMateriaGem(1) << " " << std::left << std::setw(15) << game.me->getMateriaType(1) << "         │");
+	println(WHT << "            │                    [1] " << _player->getMateriaGem(0) << " " << std::left << std::setw(15) << _player->getMateriaType(0)
+													<< " [2] " << _player->getMateriaGem(1) << " " << std::left << std::setw(15) << _player->getMateriaType(1) << "         │");
 	println(WHT << "            │                                                                          │");
-	println(WHT << "            │                    [3] " << game.me->getMateriaGem(2) << " " << std::left << std::setw(15) << game.me->getMateriaType(2)
-													<< " [4] " << game.me->getMateriaGem(3) << " " << std::left << std::setw(15) << game.me->getMateriaType(3) << "         │");
+	println(WHT << "            │                    [3] " << _player->getMateriaGem(2) << " " << std::left << std::setw(15) << _player->getMateriaType(2)
+													<< " [4] " << _player->getMateriaGem(3) << " " << std::left << std::setw(15) << _player->getMateriaType(3) << "         │");
 	println(WHT << "            ╰──────────────────────────────────────────────────────────────────────────╯");
 
 	next();
-	gameOver(game);
+	gameOver();
 }
 
-void	gameOver(game &game) {
-	delete game.me;
-	delete game.src;
-	delete game.azrael;
-	delete game.evanora;
-	delete game.ghidorah;
+void	Game::gameOver() {
+	delete _player;
+	delete _src;
+	delete _azrael;
+	delete _evanora;
+	delete _ghidorah;
 	exit(EXIT_SUCCESS);
 }
