@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 20:23:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 18:08:22 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:38:14 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,16 @@ void	testCloning(void) {
 		" So we decided to clone it.");
 		Cat* dolly = new Cat(*biggie);
 
-	println("\n  Original " << biggie->getName() << " was amazing until the very end.");
-		biggie->think("*The proletarians have nothing to lose\n     but "
-		"their chains. They have a world to win.*");
+	println("\n  Original " << biggie->getName() << " was missed dearly.");
 		biggie->makeSound();
 		println("");
 		delete biggie;
 
-	println("\n  The clone was able to keep the core values of its predecessor.");
+	println("\n  But the clone was able to keep the core values of its predecessor.");
 		dolly->print();
 		dolly->makeSound();
 
-	println("\n  But it was also doomed.");
+	println("\n  It lasted while it lasted, anyhow...");
 		delete dolly;
 
 	next();
@@ -100,11 +98,11 @@ void	testAnimalArray(void) {
 		switch (pet) {
 			case 0:
 				zoo[i] = new Cat("Cat");
-				((Cat *)zoo[i])->think("*I'm hungry...*");
+				reinterpret_cast<Cat *>(zoo[i])->think("*I'm hungry...*");
 				break;
 			case 1:
 				zoo[i] = new Dog("Dog");
-				((Dog *)zoo[i])->think("*Hoomans!*");
+				reinterpret_cast<Dog *>(zoo[i])->think("*Hoomans!*");
 				break;
 		}
 		println("");

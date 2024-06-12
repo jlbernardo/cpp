@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 20:23:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 21:28:22 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:32:37 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,11 @@ void	testWrongCatClass(void) {
 	println("  The funniest thing was when this other creature came up.")
 		const WrongAnimal* wrongo = new WrongCat();
 
-	println("\n  Its type was \"" << wrongo->getType() <<
-			"\", but looked wrong and would sound even wronger.");
+	println("\n  It would answer like a generic Wrong Animal when called as such:");
 		wrongo->makeSound();
+
+	println("\n  But when called as a Wrong Cat, it would come up with a random sound:")
+		reinterpret_cast<const WrongCat *>(wrongo)->makeSound();
 
 	println("\n  Luckily, it was put out of its misery before it caused too much trouble.")
 		delete wrongo;
