@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:58:26 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 18:06:16 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:50:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ Cat::~Cat(void) {
 				<< ". Good bye, " << CYN << this->_name << WHT << "!");
 }
 
-void	Cat::operator=(const Cat &copy) {
+Cat	&Cat::operator=(const Cat &copy) {
 	if (this != &copy) {
 		this->_name = copy._name;
 		this->_type = copy._type;
 		this->_brain = new Brain(*copy._brain);
 	}
+	return (*this);
 }
 
 void	Cat::makeSound(void) const {

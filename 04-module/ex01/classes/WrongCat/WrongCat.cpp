@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:58:26 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/05 19:01:52 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:52:38 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ WrongCat::~WrongCat(void) {
 	println(WHT << "     Destructor called for " << CYN << this->_type << WHT << ".");
 }
 
-void	WrongCat::operator=(const WrongCat &copy) {
+WrongCat	&WrongCat::operator=(const WrongCat &copy) {
 	if (this != &copy)
 		this->_type = copy.getType();
+	return (*this);
 }
 
 void	WrongCat::makeSound(void) const {

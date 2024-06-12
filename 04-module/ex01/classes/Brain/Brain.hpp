@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:34:46 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 20:06:29 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:50:26 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ public:
 				 * @param copy The Brain to copy from.
 				 * @return The Brain with the new ideas.
 				 */
-	void		operator=(const Brain &copy);
+	Brain		&operator=(const Brain &copy);
 
 				/**
 				 * @brief Prints the Brain's ideas.

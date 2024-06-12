@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:31 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 19:56:30 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:50:05 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ public:
 						 * @brief Copies everything from the Animal received.
 						 * @param copy The Animal to copy from.
 						 */
-	void				operator=(const Animal &copy);
+	Animal				&operator=(const Animal &copy);
 
 						/**
 						 * @brief Animal makes a sound. It is virtual to allow polymorphism.
