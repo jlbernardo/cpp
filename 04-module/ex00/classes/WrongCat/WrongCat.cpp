@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:58:26 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 13:56:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:21:13 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ WrongCat::WrongCat(void) : WrongAnimal("Wrong Cat") {
 	println(WHT << "     Constructor called for " << CYN << this->_type << WHT << ".");
 }
 
-WrongCat::WrongCat(const WrongCat &copy) {
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy) {
 	println(WHT << "     Copy constructor called for " << CYN << this->_type << WHT << ".");
 	*this = copy;
 }

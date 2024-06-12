@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:24:31 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 13:55:04 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:16:42 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 class Animal {
 
 protected:
-	std::string	_type;	// Animal type.
+	std::string			_type;	// Animal type.
 
 public:
 						/**
