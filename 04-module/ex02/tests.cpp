@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 20:23:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/10 20:30:29 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:55:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,18 @@ void	testCloning(void) {
 
 	println("\n  This " << biggie->getType() << " was unique, but would also perish."
 		" So we decided to clone it.");
-		const Cat* dolly = new Cat(*biggie);
+		Cat* dolly = new Cat(*biggie);
 
-	println("\n  Original " << biggie->getName() << " was amazing until the very end.");
-		biggie->think("*The proletarians have nothing to lose\n     but "
-		"their chains. They have a world to win.*");
+	println("\n  Original " << biggie->getName() << " was missed dearly.");
 		biggie->makeSound();
 		println("");
 		delete biggie;
 
-	println("\n  The clone was able to keep the core values of its predecessor.");
+	println("\n  But the clone was able to keep the core values of its predecessor.");
 		dolly->print();
 		dolly->makeSound();
 
-	println("\n  But it was also doomed.");
+	println("\n  It lasted while it lasted, anyhow...");
 		delete dolly;
 
 	next();
