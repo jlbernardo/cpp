@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:10:51 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/13 15:37:38 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:39:28 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,10 @@ public:
 						 */
 	void				decrementGrade(void);
 
+						/**
+						 * @brief Signs a form.
+						 * @param form Form to sign.
+						 */
 	void				signForm(Form &form);
 
 	/**
