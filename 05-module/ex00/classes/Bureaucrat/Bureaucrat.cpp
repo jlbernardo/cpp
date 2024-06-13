@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:17:30 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/13 13:41:26 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:26:08 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,9 @@ std::ostream	&operator<<(std::ostream &out, const Bureaucrat &rhs) {
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("💢 Grade too high. Maximum grade is 1. 💢");
+	return ("💢 Bureaucrat grade too high. Maximum grade is 1. 💢");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("💢 Grade too low. Minimum grade is 150. 💢");
+	return ("💢 Bureaucrat grade too low. Minimum grade is 150. 💢");
 }
