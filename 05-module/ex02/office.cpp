@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:35:13 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/14 13:49:56 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:06:51 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	testPardon(void) {
 	Bureaucrat	argus("Argus Filch", 6);
 	Bureaucrat	sybill("Sybill Trelawney", 5);
 
-	println(BLD << "   PresidentialPardonForm pardon(\"Narcissa\");\n");
+	println("   PresidentialPardonForm pardon(\"Narcissa\");\n");
 	PresidentialPardonForm	pardon("Narcissa");
 	println(pardon);
 
@@ -85,12 +85,12 @@ void	testRobotomy(void) {
 	Bureaucrat	remus("Remus Lupin", 72);
 	Bureaucrat	tonks("Nymphadora Tonks", 45);
 
-	println(BLD << "   RobotomyRequestForm robotomy(\"Bellatrix\");\n");
+	println("   RobotomyRequestForm robotomy(\"Bellatrix\");\n");
 	RobotomyRequestForm	robotomy("Bellatrix");
 	println(robotomy);
 
 	println(WHT << "\n\n  As this is a very finicky procedure, it only succeeds\n"
-					" 50% of the time when executed. 😬");
+					"  50% of the time when executed. 😬");
 
 	next;
 
@@ -136,7 +136,7 @@ void	testShrubbery(void) {
 	Bureaucrat	ron("Ron Weasley", 145);
 	Bureaucrat	hermione("Hermione Granger", 66);
 
-	println(BLD << "   ShrubberyCreationForm shrubbery(\"Hogwarts\");\n");
+	println("   ShrubberyCreationForm shrubbery(\"Hogwarts\");\n");
 	ShrubberyCreationForm	shrubbery("Hogwarts");
 	println(shrubbery);
 
