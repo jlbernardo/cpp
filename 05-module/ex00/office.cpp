@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:35:13 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/13 13:38:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:38:00 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	testBureaucratCreation(void) {
 				<< RED << "150" << WHT << ", with 1 being the " << GRN << "highest"
 				<< WHT << " and 150 the " << RED << "lowest" << WHT << ".");
 
-	println("");
 	next;
 }
 
@@ -47,7 +46,6 @@ void	testGradeTooHighException(void) {
 		println(e.what());
 	}
 
-	println("");
 	next;
 }
 
@@ -66,7 +64,6 @@ void	testGradeTooLowException(void) {
 		println(e.what());
 	}
 
-	println("");
 	next;
 }
 
@@ -89,7 +86,6 @@ void	testIncrementGrade(void) {
 	std::cout << BLD;
 	bureaucrat++;
 
-	println("");
 	next;
 }
 
@@ -111,5 +107,5 @@ void	testDecrementGrade(void) {
 	std::cout << BLD;
 	bureaucrat--;
 
-	println("");
+	println("\n");
 }

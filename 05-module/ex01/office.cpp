@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:35:13 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/13 16:35:25 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:43:28 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	testFormCreation(void) {
 	println("   Form	form(\"Sign up\", 149, 70);\n");
 	println(form);
 
-	println("");
 	next;
 }
 
@@ -71,7 +70,6 @@ void	testFormGradeException(void) {
 		println(e.what());
 	}
 
-	println("");
 	next;
 }
 
@@ -92,7 +90,6 @@ void	testFormSign(void) {
 	println(bureaucrat1);
 	println(bureaucrat2);
 
-	println("");
 	next;
 
 	println(WHT << "  If their grade is lower than the form's sign"
@@ -100,12 +97,11 @@ void	testFormSign(void) {
 	bureaucrat1.signForm(form);
 	println("\n" << form);
 
-	println("");
 	next;
 
 	println(WHT << "  But if the grade is enough, the form's status is updated.\n");
 	bureaucrat2.signForm(form);
 	println("\n" << form);
 
-	println("");
+	println("\n");
 }

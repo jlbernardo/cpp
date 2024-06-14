@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 21:35:13 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/13 23:02:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:49:56 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	introduction(void) {
 void	testPardon(void) {
 
 	println(WHT << "  First, we have the Presidential Pardon Form.");
-	println(WHT << "  This form is used when someone needs a pardon from the President.\n\n");
+	println(WHT << "  This form is used when someone needs a pardon "
+					"from the President.\n\n");
 	Bureaucrat	argus("Argus Filch", 6);
 	Bureaucrat	sybill("Sybill Trelawney", 5);
 
@@ -40,7 +41,8 @@ void	testPardon(void) {
 
 	next;
 
-	println(WHT << "  If we try to execute it without signing it first, we get an error.\n");
+	println(WHT << "  If we try to execute it without signing it first, "
+					"we get an error.\n");
 	try {
 		argus.executeForm(pardon);
 	}
@@ -52,8 +54,9 @@ void	testPardon(void) {
 
 	next;
 
-	println(WHT << "  To sign this one, we only need a bureaucrat with\n  grade"
-				<< GRN << " 25 or higher" << WHT << ", so any one of these two below can do it.\n");
+	println(WHT << "  To sign this one, we need a bureaucrat with\n  grade"
+				<< GRN << " 25 or higher" << WHT << ", so any one of these "
+					"two below can do it.\n");
 	println(argus);
 	println(sybill);
 
@@ -71,7 +74,6 @@ void	testPardon(void) {
 
 	println(WHT << "\n\n  But Sybill can!\n");
 	sybill.executeForm(pardon);
-	println("");
 
 	next;
 }
@@ -87,8 +89,8 @@ void	testRobotomy(void) {
 	RobotomyRequestForm	robotomy("Bellatrix");
 	println(robotomy);
 
-	println(WHT << "\n\n  The funny thing about this one, though, is that it only \n"
-					"  has a 50% chance of success when executed. 😬");
+	println(WHT << "\n\n  As this is a very finicky procedure, it only succeeds\n"
+					" 50% of the time when executed. 😬");
 
 	next;
 
@@ -115,10 +117,12 @@ void	testRobotomy(void) {
 
 	next;
 
-	println(WHT << "  And again, grades need to be considered when trying to execute it.\n");
+	println(WHT << "  And again, grades need to be considered when trying to "
+					"execute it.\n");
 	remus.executeForm(robotomy);
 
-	println(WHT << "\n\n  For this one, only Tonks is capable to perform the execution.\n");
+	println(WHT << "\n\n  For this one, only Tonks is capable to perform the "
+					"execution.\n");
 	tonks.executeForm(robotomy);
 
 	next;
@@ -127,7 +131,8 @@ void	testRobotomy(void) {
 void	testShrubbery(void) {
 
 	println(WHT << "  At last, we have the Shrubbery Creation Form.");
-	println(WHT << "  This one is used when someone has a garden that needs a touch up.\n\n");
+	println(WHT << "  This one is used when someone has a garden that needs a "
+					"touch up.\n\n");
 	Bureaucrat	ron("Ron Weasley", 145);
 	Bureaucrat	hermione("Hermione Granger", 66);
 
@@ -135,8 +140,8 @@ void	testShrubbery(void) {
 	ShrubberyCreationForm	shrubbery("Hogwarts");
 	println(shrubbery);
 
-	println(WHT << "\n\n  After it is executed, a new file is created, named "
-				<< GRN << "target's name + \"_shrubbery\"" << WHT << ",\n  containing"
+	println(WHT << "\n\n  After it is executed, a new file is created (named "
+				<< GRN << "target's name + _shrubbery" << WHT << ")\n  containing"
 				" a photograph of the brand new tree planted at the location.");
 
 	next;
@@ -153,19 +158,19 @@ void	testShrubbery(void) {
 
 	next;
 
-	println(WHT << "  As trees are not sensitive matter, it can be signed by"
+	println(WHT << "  And as trees are not sensitive matter, it can be signed by"
 				"\n  almost anyone, since it only requires a grade"
 				<< RED << " 145 or higher" << WHT << ".\n");
 	println(ron);
 	println(hermione);
-
 	println("\n");
 	ron.signForm(shrubbery);
 	println("\n\n" << shrubbery);
 
 	next;
 
-	println(WHT << "  If Ron tried to execute this one, he would also get an error.\n");
+	println(WHT << "  If Ron tried to execute this one, though, "
+					"he would also get an error.\n");
 	ron.executeForm(shrubbery);
 
 	println(WHT << "\n\n  But Hermione can do it just fine.\n");
