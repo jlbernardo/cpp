@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 13:58:37 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/13 17:53:02 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/13 23:18:39 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,15 @@ public:
 						 */
 	virtual void		beSigned(const Bureaucrat &bureaucrat);
 
+						/**
+						 * @brief Executes the form.
+						 * @param executor Bureaucrat to execute the form.
+						 */
 	virtual void		execute(const Bureaucrat &executor);
 
+						/**
+						 * @brief Form's action. Pure virtual function to be implemented by each derived class.
+						 */
 	virtual void		action(void) const = 0;
 
 	/**
@@ -146,8 +153,16 @@ public:
 			virtual const char	*what(void) const throw();
 	};
 
+	/**
+	 * #### FormAlreadySignedException class
+	 * Exception thrown when the form is not yet signed.
+	 */
 	class FormNotSignedException : public std::exception {
 		public:
+			/**
+			 * @brief Explains what was the exception.
+			 * @return const char* The exception message.
+			 */
 			virtual const char	*what(void) const throw();
 	};
 };
