@@ -84,8 +84,8 @@
 # define clear std::cout << "\033c" << std::endl;
 
 /**
- * Pauses the program until the user presses any key.
+ * Pauses the program until the user presses enter.
  */
-# define next println("\n\n  ᵖʳᵉˢˢ ᵃⁿʸ ᵏᵉʸ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clear;
+# define next println("\n\n  ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clear;
 
 #endif
