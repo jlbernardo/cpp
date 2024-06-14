@@ -29,6 +29,11 @@
 # define BLD	"\033[1m"
 
 /**
+ * Underlined text.
+ */
+# define UND	"\033[4m"
+
+/**
  * Red bold color.
  */
 # define RED	"\033[31;1m"
@@ -81,6 +86,6 @@
 /**
  * Pauses the program until the user presses any key.
  */
-# define next println("\n  ᵖʳᵉˢˢ ᵃⁿʸ ᵏᵉʸ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clear;
+# define next println("\n\n  ᵖʳᵉˢˢ ᵃⁿʸ ᵏᵉʸ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clear;
 
 #endif
