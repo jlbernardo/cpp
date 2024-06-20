@@ -12,8 +12,9 @@ INCLUDE += $(addprefix -I ./classes/, ScalarConverter/)
 OD		=	obj/
 
 SRC		+=	main.cpp
-SRC		+=	$(addprefix classes/, ScalarConverter/ScalarConverter.cpp \
-						ScalarConverter/validation.cpp)
+SRC		+=	$(addprefix classes/, ScalarConverter/ScalarConverter.base.cpp \
+								ScalarConverter/ScalarConverter.validation.cpp \
+								ScalarConverter/ScalarConverter.print.cpp)
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m

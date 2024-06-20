@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:08:22 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/18 19:57:14 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:48:38 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(void) {
 	while (true) {
 		println("");
 
-		println(WHT << "                     Enter a literal to convert or press " << RED << "CTRL + D" << WHT << " to exit.");
+		println(WHT	<< "                     Enter a literal to convert or press '"
+					<< RED << "CTRL + D" << WHT << "' to exit.");
 		println(WHT << "               ╭──────────────────────────────────────────────────────────────╯")
 		std::cout << WHT << "               ╰─➤ " << DFL;
 
