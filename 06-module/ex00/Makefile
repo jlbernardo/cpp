@@ -5,7 +5,6 @@ NAME	=	scalar
 CC		=	c++
 FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
-INCLUDE	+=	-I .
 INCLUDE	+=	-I ../includes/
 INCLUDE +=	-I ./ScalarConverter/
 
