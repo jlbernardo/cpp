@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:18:34 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/19 22:51:38 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:40:09 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,7 @@ void	ScalarConverter::printDouble(std::string literal) {
 	if (literal.find(".0") != std::string::npos)
 		zero = ".0";
 
-	std::cout << CYN << SPACE << " float: " << WHT << std::flush;
-	if (temp != "inf" && temp != "-inf" && temp != "+inf" && temp != "nan" &&
-		(std::strtold(literal.c_str(), NULL) > MAX_INT || std::strtold(literal.c_str(), NULL) < MIN_INT) &&
-		(d > static_cast<double>(std::numeric_limits<float>::max()) ||
-		d < static_cast<double>(std::numeric_limits<float>::min()))) {
-			println("impossible");
-	}
-	else {
-		println(static_cast<float>(d) << zero << "f");
-	}
-
+	println(CYN << SPACE << " float: " << WHT << static_cast<float>(d) << zero << "f");
 	println(YLW << SPACE << "double: " << WHT << static_cast<double>(d) << zero);
 }
 
