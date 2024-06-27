@@ -7,14 +7,13 @@ FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I .
 INCLUDE	+=	-I ../includes/
-INCLUDE += $(addprefix -I ./classes/, ScalarConverter/)
+INCLUDE +=	-I ./ScalarConverter/
 
 OD		=	obj/
 
 SRC		+=	main.cpp
-SRC		+=	$(addprefix classes/, ScalarConverter/ScalarConverter.base.cpp \
-								ScalarConverter/ScalarConverter.validation.cpp \
-								ScalarConverter/ScalarConverter.print.cpp)
+SRC		+=	$(addprefix ScalarConverter/, ScalarConverter.base.cpp ScalarConverter.validation.cpp \
+											ScalarConverter.print.cpp)
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
