@@ -6,12 +6,11 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 15:46:32 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/27 17:14:23 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:26:11 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-#include <typeinfo>
 
 void	printData(Data data);
 
