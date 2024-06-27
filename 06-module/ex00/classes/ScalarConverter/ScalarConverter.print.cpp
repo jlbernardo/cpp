@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:18:34 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/27 13:40:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:53:16 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ScalarConverter::printChar(std::string literal) {
 		println("non displayable");
 	}
 	else {
-		println("\'" << c << "\'");
+		println("\'" << static_cast<char>(c) << "\'");
 	}
 
 	println(CYN << SPACE << "   int: " << WHT << static_cast<int>(c));

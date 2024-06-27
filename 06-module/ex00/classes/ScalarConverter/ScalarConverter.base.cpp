@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:47:33 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/19 18:32:32 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:50:57 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	ScalarConverter::convert(std::string literal) {
 			&ScalarConverter::printFloat,
 			&ScalarConverter::printDouble
 	};
-
-	// println(getType(literal));
 
 	print[getType(literal)](literal);
 }

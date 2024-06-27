@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 22:51:03 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/19 22:24:40 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:35:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,25 +52,30 @@ bool	ScalarConverter::validInput(std::string literal) {
 	if (dot > 1)
 		return (false);
 
-	//If the number does not contain anything after the dot, it is not valid
+	//If the number ends with a dot, it is not valid
 	if (*literal.rbegin() == '.')
 		return (false);
 
+	//If there's no dot in the number, it is valid
 	if (literal.find('.') == std::string::npos)
 		return (true);
 
+	//If the number is within the limits of an int, it is valid
 	if (std::atol(literal.c_str()) <= static_cast<long int>(std::numeric_limits<int>::max()) ||
 		std::atol(literal.c_str()) >= static_cast<long int>(std::numeric_limits<int>::min()))
 		return (true);
 
+	//If the number is within the limits of a float, it is valid
 	if (std::strtod(literal.c_str(), NULL) <= static_cast<double>(std::numeric_limits<float>::max()) ||
 		std::strtod(literal.c_str(), NULL) >= static_cast<double>(std::numeric_limits<float>::min()))
 		return (true);
 
+	//If the number is within the limits of a double, it is valid
 	if (std::strtold(literal.c_str(), NULL) <= static_cast<long double>(std::numeric_limits<double>::max()) ||
 		std::strtold(literal.c_str(), NULL) >= static_cast<long double>(std::numeric_limits<double>::min()))
 		return (true);
 
+	//If all the checks above fail, the number is not valid
 	return (false);
 }
 
@@ -125,19 +130,22 @@ int	ScalarConverter::getType(std::string literal) {
 	if (validFloat(literal))
 		return (FLOAT);
 
-	//If there is a dor in the string and it is not a single character, it is a double
+	//If there is a dot in the string and it is not a single character, it is a double
 	if (literal.find('.') != std::string::npos && literal.length() > 1)
 		return (DOUBLE);
 
+	//If there's no dot in the string and the number is within the limits of an int, it is an int
 	if (literal.find('.') == std::string::npos &&
 		std::atol(literal.c_str()) <= static_cast<long int>(std::numeric_limits<int>::max()) &&
 		std::atol(literal.c_str()) >= static_cast<long int>(std::numeric_limits<int>::min()))
 		return (INT);
 
+	//If the number is smaller than the maximum float, bigger than the minimum negative float and bigger than the minimum positive float, it is a float
 	if (std::strtod(literal.c_str(), NULL) <= static_cast<double>(std::numeric_limits<float>::max()) &&
 		std::fabs(std::strtod(literal.c_str(), NULL) - static_cast<double>(std::numeric_limits<float>::min())) > 0.0000001 &&
 		std::strtod(literal.c_str(), NULL) >= static_cast<double>(-std::numeric_limits<float>::max()))
 		return (FLOAT);
 
+	//If all the checks fail, it is probably a double
 	return (DOUBLE);
 }
