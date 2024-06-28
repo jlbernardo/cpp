@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:23:53 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/27 19:09:29 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:20:39 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int main (void) {
 
 	println(WHT << "    Identify with reference:");
 	std::cout << "    ";
-	identify(p);
+	identify(*p);
 
 	println(WHT << "\n    Identify with pointer:");
 	std::cout << "    ";
-	identify(*p);
+	identify(p);
 
 	delete p;
 
