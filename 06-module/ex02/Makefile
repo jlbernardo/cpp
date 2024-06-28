@@ -6,11 +6,13 @@ CC		=	c++
 FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I ../includes/
-INCLUDE +=	-I .
+INCLUDE +=	-I ./Identify/
+INCLUDE +=	-I ./Base/
+INCLUDE +=	-I ./Derived/
 
 OD		=	obj/
 
-SRC		+=	main.cpp identify.cpp Base.cpp
+SRC		+=	main.cpp Identify/identify.cpp Base/Base.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
