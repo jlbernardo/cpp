@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:28:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/27 17:29:02 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 22:17:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 # include "Base.hpp"
 
+/**
+ * #### Class B
+ *
+ * Inherits from class Base.
+ */
 class B : public Base {
 };
 

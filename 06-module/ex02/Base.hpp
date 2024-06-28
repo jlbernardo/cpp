@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:20:04 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/27 18:55:35 by julberna         ###   ########.fr       */
+/*   Updated: 2024/06/27 22:16:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@
 
 # include "general.hpp"
 
+/**
+ * #### Base class
+ */
 class Base {
 public:
+				/**
+				 * @brief Virtual destructor.
+				 */
 	virtual		~Base(void);
 };
 
