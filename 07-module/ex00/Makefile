@@ -7,10 +7,11 @@ FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I ../includes/
 INCLUDE	+=	-I .
+INCLUDE	+=	-I ./Fixed/
 
 OD		=	obj/
 
-SRC		+=	main.cpp
+SRC		+=	main.cpp Fixed/Fixed.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
