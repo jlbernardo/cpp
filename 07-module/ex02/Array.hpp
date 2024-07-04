@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 00:43:04 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/03 02:41:23 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:40:56 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+# include "iter.hpp"
 # include "general.hpp"
 # include <exception>
 
@@ -64,8 +65,8 @@ public:
 };
 
 template<typename T>
-std::ostream	&operator<<(std::ostream &o, Array<T> &arr) {
-	for (std::size_t i = 0; i < arr.size(); i++)
+std::ostream	&operator<<(std::ostream &o, const Array<T> &arr) {
+	for (std::size_t i = 0; i < arr.size() - 1; i++)
 		o << static_cast<T>(arr[i]) << " ";
 	return (o);
 }

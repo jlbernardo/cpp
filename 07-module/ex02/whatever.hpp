@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 00:05:52 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/03 19:47:53 by julberna         ###   ########.fr       */
+/*   Created: 2024/07/02 16:08:33 by julberna          #+#    #+#             */
+/*   Updated: 2024/07/02 16:12:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 # include "general.hpp"
 
-template<typename T>
-void iter(T *array, int len, void (*f)(T const &)) {
-	for (int i = 0; i < len; i++)
-		f(array[i]);
+template <typename T>
+void swap(T &a, T &b) {
+	T tmp = a;
+	a = b;
+	b = tmp;
 }
 
-template<typename T>
-void iter(T *array, int len, void (*f)(T &)) {
-	for (int i = 0; i < len; i++)
-		f(array[i]);
+template <typename T>
+T min(T a, T b) {
+	return (a < b ? a : b);
 }
 
-template<typename T>
-void print(T const &i) {
-	std::cout << i << " " << std::flush;
-}
-
-template<typename T>
-void plusFive(T &i) {
-	i = i + 5;
-	print(i);
+template <typename T>
+T max(T a, T b) {
+	return (a > b ? a : b);
 }
 
 #endif
