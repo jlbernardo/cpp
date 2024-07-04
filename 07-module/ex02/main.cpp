@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 01:38:30 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/04 14:53:31 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:10:04 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main(void) {
 
 	println(WHT << "   And we can even use the swap function created before!");
 	println(WHT << "\n  Original: " << GRN << d);
-	for (std::size_t i = 0; i <= size; i++)
+	for (std::size_t i = 0; i < size; i++)
 		::swap(d[i], d[size + size - i - 1]);
 	println(WHT << "   Swapped: " << YLW << d);
 	println("");
