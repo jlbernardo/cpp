@@ -6,14 +6,15 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 13:48:25 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:13:40 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-int rangeStart;
-int rangeEnd;
+int		rangeStart;
+int		rangeEnd;
+bool	single = true;
 
 Span::Span(void) : _sizeLimit(INT_MAX), _sizeCurrent(0),
 	_shortestSpan(INT_MAX), _longestSpan(0),
@@ -47,14 +48,16 @@ void	Span::addNumber(int number) {
 		throw std::overflow_error("Size limit reached! Cannot add any more numbers.");
 	this->_content.push_back(number);
 	this->_sizeCurrent++;
-	if (number != INT_MAX)
+	if (single)
 		calculateSpans();
 }
 
 void	Span::addMany(int size) {
+	single = false;
 	for (int i = 0; i < size; i++)
-		this->addNumber(INT_MAX);
+		this->addNumber(0);
 	this->randomFill(0, size * 100);
+	single = true;
 }
 
 int		rangeRand(void) {
