@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:33:36 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 19:44:43 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 20:09:55 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ int main(void)
 		std::cout << *it << " ";
 		++it;
 	}
-	std::stack<int> s(mstack);
+	std::cout << std::endl;
+	MutantStack<int> s;
+	s = mstack;
+	it = s.begin();
+	ite = s.end();
+	while (it != ite) {
+		std::cout << *it << " ";
+		++it;
+	}
 	return 0;
 }
