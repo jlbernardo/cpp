@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:41:55 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/09 22:35:58 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:44:47 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <experimental/random>
 # include <algorithm>
 # include "general.hpp"
+
+# define INT_MAX std::numeric_limits<int>::max()
+
+typedef std::vector<int>::iterator iterator;
 
 class Span {
 
