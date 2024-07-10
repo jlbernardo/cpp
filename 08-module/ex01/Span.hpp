@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:41:55 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 13:44:47 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:46:46 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ private:
 	unsigned int		_sizeCurrent;
 	int					_shortestSpan;
 	int					_longestSpan;
-	int					_sh1;
-	int					_sh2;
-	int					_lo1;
-	int					_lo2;
+	int					_shortestLowerBound;
+	int					_shortestUpperBound;
+	int					_longestLowerBound;
+	int					_longestUpperBound;
 
 	void				calculateSpans(void);
 

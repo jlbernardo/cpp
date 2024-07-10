@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 14:20:50 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:30:15 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ bool	single = true;	//Specifies if addNumber is being called by addMany or not
 
 Span::Span(void) : _sizeLimit(INT_MAX), _sizeCurrent(0),
 	_shortestSpan(INT_MAX), _longestSpan(0),
-	 _sh1(0), _sh2(0), _lo1(0), _lo2(0) {
+	 _shortestLowerBound(0), _shortestUpperBound(0), _longestLowerBound(0), _longestUpperBound(0) {
 }
 
 Span::Span(int N) : _sizeLimit(N), _sizeCurrent(0),
 	_shortestSpan(INT_MAX), _longestSpan(0),
-	 _sh1(0), _sh2(0), _lo1(0), _lo2(0) {
+	 _shortestLowerBound(0), _shortestUpperBound(0), _longestLowerBound(0), _longestUpperBound(0) {
 }
 
 Span::Span(const Span &copy) {
@@ -80,9 +80,9 @@ void	Span::print(void) {
 	for (iterator it = this->_content.begin(); it != this->_content.end(); it++) {
 		if (it != this->_content.begin())
 			std::cout << ", ";
-		if (*it == this->_lo1 || *it == this->_lo2)
+		if (*it == this->_longestLowerBound || *it == this->_longestUpperBound)
 			std::cout << GRN;
-		if (*it == this->_sh1 || *it == this->_sh2)
+		if (*it == this->_shortestLowerBound || *it == this->_shortestUpperBound)
 			std::cout << RED;
 		std::cout << *it << WHT;
 	}
@@ -97,13 +97,13 @@ void	Span::calculateSpans(void) {
 		int span = this->_content[i + 1] - this->_content[i];
 		if (span > this->_longestSpan) {
 			this->_longestSpan = span;
-			this->_lo1 = this->_content[i];
-			this->_lo2 = this->_content[i + 1];
+			this->_longestLowerBound = this->_content[i];
+			this->_longestUpperBound = this->_content[i + 1];
 		}
 		if (span > 0 && span < this->_shortestSpan) {
 			this->_shortestSpan = span;
-			this->_sh1 = this->_content[i];
-			this->_sh2 = this->_content[i + 1];
+			this->_shortestLowerBound = this->_content[i];
+			this->_shortestUpperBound = this->_content[i + 1];
 		}
 	}
 }
@@ -121,17 +121,17 @@ int		Span::shortestSpan(void) const {
 }
 
 int		Span::lowerShortest(void) const {
-	return (this->_sh1);
+	return (this->_shortestLowerBound);
 }
 
 int		Span::upperShortest(void) const {
-	return (this->_sh2);
+	return (this->_shortestUpperBound);
 }
 
 int		Span::lowerLongest(void) const {
-	return (this->_lo1);
+	return (this->_longestLowerBound);
 }
 
 int		Span::upperLongest(void) const {
-	return (this->_lo2);
+	return (this->_longestUpperBound);
 }
