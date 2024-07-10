@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:27 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/09 22:40:27 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:00:15 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ int	main(void) {
 				<< " (" << many.lowerShortest() << ", " << many.upperShortest() << ")");
 	println(GRN << "   Longest span: " << WHT << many.longestSpan()
 				<< " (" << many.lowerLongest() << ", " << many.upperLongest() << ")");
+
+	next;
+
+	std::cout << WHT << "   ~ ADD BEYOND LIMIT SPAN ~\n" << std::flush;
+
+	many.print();
+	println(" //Trying to add an 11th number to a size 10 span");
+	std::cout << WHT << " span.addNumber(42): "<< std::flush;
+	try {
+		many.addNumber(42);
+		many.print();
+	}
+	catch (std::overflow_error &e) {
+	println(PRP << e.what());
+	}
 
 	next;
 
@@ -86,18 +101,8 @@ int	main(void) {
 	std::cout << WHT << "   ~ GINORMOUS SPAN ~\n" << std::flush;
 	ginormous.addMany(10000);
 	ginormous.print();
-	std::cout << RED << "  Shortest span: ";
-	try {
-		println(ginormous.shortestSpan());
-	}
-	catch (std::range_error &e) {
-		println(PRP << e.what());
-	}
-	std::cout << GRN << "   Longest span: ";
-	try {
-		println(ginormous.longestSpan());
-	}
-	catch (std::range_error &e) {
-		println(PRP << e.what());
-	}
+	println(RED << "  Shortest span: " << WHT << many.shortestSpan()
+				<< " (" << many.lowerShortest() << ", " << many.upperShortest() << ")");
+	println(GRN << "   Longest span: " << WHT << many.longestSpan()
+				<< " (" << many.lowerLongest() << ", " << many.upperLongest() << ")");
 }
