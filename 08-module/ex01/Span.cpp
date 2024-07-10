@@ -6,15 +6,15 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 14:13:40 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:20:50 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-int		rangeStart;
-int		rangeEnd;
-bool	single = true;
+int		rangeStart;		//Beginning of random number generator range
+int		rangeEnd;		//Ending of random number generator range
+bool	single = true;	//Specifies if addNumber is being called by addMany or not
 
 Span::Span(void) : _sizeLimit(INT_MAX), _sizeCurrent(0),
 	_shortestSpan(INT_MAX), _longestSpan(0),
