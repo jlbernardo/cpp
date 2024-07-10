@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/09 22:39:30 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:48:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 int rangeStart;
 int rangeEnd;
 
-Span::Span(void) : _sizeLimit(std::numeric_limits<int>::max()), _sizeCurrent(0),
-	_shortestSpan(std::numeric_limits<int>::max()), _longestSpan(0), _sh1(0), _sh2(0), _lo1(0), _lo2(0) {
+Span::Span(void) : _sizeLimit(INT_MAX), _sizeCurrent(0),
+	_shortestSpan(INT_MAX), _longestSpan(0),
+	 _sh1(0), _sh2(0), _lo1(0), _lo2(0) {
 }
 
 Span::Span(int N) : _sizeLimit(N), _sizeCurrent(0),
-	_shortestSpan(std::numeric_limits<int>::max()), _longestSpan(0), _sh1(0), _sh2(0), _lo1(0), _lo2(0) {
+	_shortestSpan(INT_MAX), _longestSpan(0),
+	 _sh1(0), _sh2(0), _lo1(0), _lo2(0) {
 }
 
 Span::Span(const Span &copy) {
@@ -32,7 +34,8 @@ Span::~Span(void) {
 
 Span	&Span::operator=(const Span &rhs) {
 	if (this != &rhs) {
-		std::copy(rhs._content.begin(), rhs._content.end(), std::back_inserter(this->_content));
+		std::copy(rhs._content.begin(), rhs._content.end(),
+			std::back_inserter(this->_content));
 		this->_sizeLimit = rhs._sizeLimit;
 		this->_sizeCurrent = rhs._sizeCurrent;
 	}
@@ -44,12 +47,13 @@ void	Span::addNumber(int number) {
 		throw std::overflow_error("Size limit reached! Cannot add any more numbers.");
 	this->_content.push_back(number);
 	this->_sizeCurrent++;
-	calculateSpans();
+	if (number != INT_MAX)
+		calculateSpans();
 }
 
 void	Span::addMany(int size) {
 	for (int i = 0; i < size; i++)
-		this->addNumber(0);
+		this->addNumber(INT_MAX);
 	this->randomFill(0, size * 100);
 }
 
@@ -70,7 +74,7 @@ void	Span::randomFill(int start, int end) {
 
 void	Span::print(void) {
 	std::cout << WHT << "\n [";
-	for (std::vector<int>::iterator it = this->_content.begin(); it != this->_content.end(); it++) {
+	for (iterator it = this->_content.begin(); it != this->_content.end(); it++) {
 		if (it != this->_content.begin())
 			std::cout << ", ";
 		if (*it == this->_lo1 || *it == this->_lo2)
