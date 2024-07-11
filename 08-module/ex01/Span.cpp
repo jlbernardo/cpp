@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 14:30:15 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:16:01 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int		rangeEnd;		//Ending of random number generator range
 bool	single = true;	//Specifies if addNumber is being called by addMany or not
 
 Span::Span(void) : _sizeLimit(INT_MAX), _sizeCurrent(0),
-	_shortestSpan(INT_MAX), _longestSpan(0),
-	 _shortestLowerBound(0), _shortestUpperBound(0), _longestLowerBound(0), _longestUpperBound(0) {
+	_shortestSpan(INT_MAX), _longestSpan(0), _shortestLowerBound(0),
+	_shortestUpperBound(0), _longestLowerBound(INT_MAX), _longestUpperBound(INT_MIN) {
 }
 
 Span::Span(int N) : _sizeLimit(N), _sizeCurrent(0),
-	_shortestSpan(INT_MAX), _longestSpan(0),
-	 _shortestLowerBound(0), _shortestUpperBound(0), _longestLowerBound(0), _longestUpperBound(0) {
+	_shortestSpan(INT_MAX), _longestSpan(0),  _shortestLowerBound(0),
+	_shortestUpperBound(0), _longestLowerBound(INT_MAX), _longestUpperBound(INT_MIN) {
 }
 
 Span::Span(const Span &copy) {
@@ -84,6 +84,7 @@ void	Span::print(void) {
 			std::cout << GRN;
 		if (*it == this->_shortestLowerBound || *it == this->_shortestUpperBound)
 			std::cout << RED;
+		if ((*it == this->_longestLowerBound && this->_longestLowerBound))
 		std::cout << *it << WHT;
 	}
 	println("]\n");
@@ -95,17 +96,17 @@ void	Span::calculateSpans(void) {
 
 	for (unsigned int i = 0; i < this->_content.size() - 1; i++) {
 		int span = this->_content[i + 1] - this->_content[i];
-		if (span > this->_longestSpan) {
-			this->_longestSpan = span;
+		if (i == 0)
 			this->_longestLowerBound = this->_content[i];
+		else if (i == this->_content.size() - 2)
 			this->_longestUpperBound = this->_content[i + 1];
-		}
 		if (span > 0 && span < this->_shortestSpan) {
 			this->_shortestSpan = span;
 			this->_shortestLowerBound = this->_content[i];
 			this->_shortestUpperBound = this->_content[i + 1];
 		}
 	}
+	this->_longestSpan = this->_longestUpperBound - this->_longestLowerBound;
 }
 
 int		Span::longestSpan(void) const {

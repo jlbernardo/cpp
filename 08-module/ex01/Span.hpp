@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:41:55 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 14:46:46 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:34:50 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "general.hpp"
 
 # define INT_MAX std::numeric_limits<int>::max()
+# define INT_MIN std::numeric_limits<int>::min()
 
 typedef std::vector<int>::iterator iterator;
 

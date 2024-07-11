@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:27 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/11 00:05:47 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:13:52 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ int	main(void) {
 	std::cout << WHT << "   ~ GINORMOUS SPAN ~\n" << std::flush;
 	ginormous.addMany(10000);
 	ginormous.print();
-	println(RED << "  Shortest span: " << WHT << many.shortestSpan()
-				<< " (" << many.lowerShortest() << ", " << many.upperShortest() << ")");
-	println(GRN << "   Longest span: " << WHT << many.longestSpan()
-				<< " (" << many.lowerLongest() << ", " << many.upperLongest() << ")");
+	println(RED << "  Shortest span: " << WHT << ginormous.shortestSpan()
+				<< " (" << ginormous.lowerShortest() << ", " << ginormous.upperShortest() << ")");
+	println(GRN << "   Longest span: " << WHT << ginormous.longestSpan()
+				<< " (" << ginormous.lowerLongest() << ", " << ginormous.upperLongest() << ")");
 }
