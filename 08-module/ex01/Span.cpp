@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/11 14:16:01 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:22:48 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	Span::print(void) {
 			std::cout << GRN;
 		if (*it == this->_shortestLowerBound || *it == this->_shortestUpperBound)
 			std::cout << RED;
-		if ((*it == this->_longestLowerBound && this->_longestLowerBound))
 		std::cout << *it << WHT;
 	}
 	println("]\n");
