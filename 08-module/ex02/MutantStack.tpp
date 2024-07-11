@@ -6,11 +6,11 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 23:24:57 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/10 23:33:50 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/10 23:36:50 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+# pragma once
 
 template <typename T>
 int				longerNumber(MutantStack<T> &rhs) {
