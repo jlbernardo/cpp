@@ -6,20 +6,24 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 03:01:02 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 05:01:29 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 05:07:21 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 int	main(int argc, char **argv) {
-	if (argc != 2)
-		println(RED << "\n Error: wrong number of arguments!");
+	if (argc == 2) {
+		RPN	rpn(argv[1]);
 
-	RPN	rpn(argv[1]);
+		rpn.calculate();
+		next;
 
-	rpn.calculate();
+		return (EXIT_SUCCESS);
+	}
+
+	println(RED << "\n Error: wrong number of arguments!");
 	next;
-
+	
 	return (EXIT_SUCCESS);
 }

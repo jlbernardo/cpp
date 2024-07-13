@@ -33,6 +33,9 @@ run: all
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "7 7 * 7 -"
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "1 2 * 2 / 2 * 2 4 - +"
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "(1 + 1)"
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "8 6 4 + - *"
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "8 0 /"
 	@rm -rf $(OD)
 	@rm -f $(NAME)
 
