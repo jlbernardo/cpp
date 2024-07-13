@@ -3,7 +3,7 @@
 NAME	=	btc
 
 CC		=	c++
-FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 #-std=c++98
+FLAGS	=	-Werror -Wall -Wextra -Wshadow -g3 -std=c++98
 
 INCLUDE	+=	-I ../includes/
 INCLUDE	+=	-I .
@@ -29,7 +29,7 @@ $(OD)%.o:%.cpp
 
 run: all
 	@clear
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) ./input.txt
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) ./valid.txt
 	@rm -rf $(OD)
 	@rm -f $(NAME)
 

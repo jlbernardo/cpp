@@ -24,9 +24,19 @@
 # define DFL	"\033[0m"
 
 /**
- * Default bold color.
+ * Bold text.
  */
 # define BLD	"\033[1m"
+
+/**
+ * .Dimmed text.
+ */
+# define DIM	"\033[2m"
+
+/**
+ * Italic text.
+ */
+# define ITL	"\033[3m"
 
 /**
  * Underlined text.
@@ -34,39 +44,44 @@
 # define UND	"\033[4m"
 
 /**
+ * Strikethrough text.
+ */
+# define STK	"\033[9m"
+
+/**
  * Red bold color.
  */
-# define RED	"\033[31;1m"
+# define RED	DFL << "\033[31;1m"
 
 /**
  * Green bold color.
  */
-# define GRN	"\033[32;1m"
+# define GRN	DFL << "\033[32;1m"
 
 /**
  * Yellow bold color.
  */
-# define YLW	"\033[33;1m"
+# define YLW	DFL << "\033[33;1m"
 
 /**
  * Blue bold color.
  */
-# define BLU	"\033[34;1m"
+# define BLU	DFL << "\033[34;1m"
 
 /**
  * Purple bold color.
  */
-# define PRP	"\033[35;1m"
+# define PRP	DFL << "\033[35;1m"
 
 /**
  * Cyan bold color.
  */
-# define CYN	"\033[36;1m"
+# define CYN	DFL << "\033[36;1m"
 
 /**
  * White bold color.
  */
-# define WHT	"\033[37;1m"
+# define WHT	DFL << "\033[37;1m"
 
 /**
  * Inserts content into the std::cout and adds a new line at the end.
@@ -79,13 +94,13 @@
 # define errorln(x) std::cerr << RED << x << DFL << std::endl;
 
 /**
- * Clears the terminal.
+ * Cleans the terminal.
  */
-# define clear std::cout << "\033c" << std::endl;
+# define clean std::cout << "\033c" << std::endl;
 
 /**
  * Pauses the program until the user presses enter.
  */
-# define next println("\n\n  ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clear;
+# define next println("\n\n  ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clean;
 
 #endif
