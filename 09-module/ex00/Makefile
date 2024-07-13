@@ -24,12 +24,15 @@ $(NAME): $(OBJ)
 	@echo "$(BLU) All done!$(DFL)"
 
 $(OD)%.o:%.cpp
-	@mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)typename
 	@$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 run: all
 	@clear
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) ./valid.txt
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) ./invalid.txt
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) ./unknown.txt
 	@rm -rf $(OD)
 	@rm -f $(NAME)
 

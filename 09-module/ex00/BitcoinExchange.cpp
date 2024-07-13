@@ -6,18 +6,29 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:17:34 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/12 23:34:15 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 00:02:09 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(void) : _csv("data.csv", std::ifstream::in) {
+
+	if (!this->_csv.good())
+		throw std::ios_base::failure("failed to open data file");
+
 	this->loadCSV();
+	this->_trade.userDate.clear();
 }
 
 BitcoinExchange::BitcoinExchange(char *input) : _csv("data.csv", std::ifstream::in),
 	_input(input, std::ifstream::in) {
+
+	if (!this->_input.good())
+		throw std::ios_base::failure("failed to open input file");
+
+	if (!this->_csv.good())
+		throw std::ios_base::failure("failed to open data file");
 
 	this->loadCSV();
 	this->_trade.userDate.clear();
