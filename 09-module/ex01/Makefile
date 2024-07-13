@@ -28,7 +28,6 @@ $(OD)%.o:%.cpp
 	@$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 run: all
-	@clear
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "8 9 * 9 - 9 - 9 - 4 - 1 +"
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "7 7 * 7 -"
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) "1 2 * 2 / 2 * 2 4 - +"
