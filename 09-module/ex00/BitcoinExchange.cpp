@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:17:34 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 00:02:09 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 02:32:45 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void			BitcoinExchange::loadCSV(void) {
 bool			BitcoinExchange::dateIsValid(void) {
 
 	int					year = -1, month = -1, day = -1;
+	time_t				t = time(0);
+	struct tm			*curr = localtime(&t);
 	struct tm			date = {0, 0, 0, 0, 0, 0, 0, 0, -1, -1, "GMT"};
 	std::string			value;
 	std::stringstream	ss(this->_trade.userDate);
@@ -94,8 +96,15 @@ bool			BitcoinExchange::dateIsValid(void) {
 			else if (day == -1)
 				date.tm_mday = day = std::strtol(value.c_str(), 0, 10);
 			else
-				throw std::length_error("incorrect date format!");
+				throw std::length_error("incorrect date!");
 		}
+		if (year == -1 || month == -1 || day == -1)
+			throw std::invalid_argument("incorrect date!");
+
+		if (year > curr->tm_year || (year == curr->tm_year && month > curr->tm_mon) ||
+			(year == curr->tm_year && month == curr->tm_mon && day > curr->tm_mday))
+			throw std::range_error("invalid date!");
+
 		if (mktime(&date) == -1 || date.tm_year != year ||
 			date.tm_mon != month || date.tm_mday != day)
 			throw std::out_of_range("invalid date!");
@@ -106,9 +115,15 @@ bool			BitcoinExchange::dateIsValid(void) {
 		println("");
 		errorln("           ERROR: " << e.what());
 		errorln("           Entry: " << this->_trade.userDate);
-		errorln("          Expect: " << "'yyyy-mm-dd' format");
-		return (false);
+		errorln("          Expect: " << "'yyyy-mm-dd'");
 	}
+	catch (std::range_error &e) {
+		println("");
+		errorln("           ERROR: " << e.what());
+		errorln("           Entry: " << this->_trade.userDate);
+		errorln("          Expect: " << "date not in the future");
+	}
+	return (false);
 }
 
 bool			BitcoinExchange::valueIsValid(void) {
@@ -134,14 +149,63 @@ bool			BitcoinExchange::valueIsValid(void) {
 
 bool			BitcoinExchange::formatIsValid(std::string entry) {
 
+	int					wordCount = 0;
+	std::string			word;
+	std::stringstream	ss(entry);
+
 	try {
 		if (entry.find('|') == std::string::npos)
-			throw std::invalid_argument("incorrect entry format!");
+			throw std::invalid_argument("incorrect entry!");
+	}
+	catch (std::invalid_argument &e) {
+		println("");
+		errorln("           ERROR: " << e.what());
+		errorln("           Entry: " << entry);
+		errorln("          Expect: " << "'date | value'");
+		return (false);
+	}
 
-		int					wordCount = 0;
-		std::string			word;
-		std::stringstream	ss(entry);
+	if (ss >> word)
+		wordCount++;
 
+	try {
+		if (std::count(word.begin(), word.end(), '-') != 2)
+			throw std::invalid_argument("incorrect date!");
+	}
+	catch (std::invalid_argument &e) {
+		println("");
+		errorln("           ERROR: " << e.what());
+		errorln("           Entry: " << word);
+		errorln("          Expect: " << "'yyyy-mm-dd'");
+		return (false);
+	}
+
+	if (ss >> word) {
+		wordCount++;
+		if (ss >> word)
+			wordCount++;
+	}
+
+	try {
+		if (wordCount == 3 && (std::count(word.begin(), word.end(), '.') > 1 ||
+								std::count(word.begin(), word.end(), '+') > 1 ||
+								std::count(word.begin(), word.end(), '-') > 1))
+			throw std::invalid_argument("incorrect value!");
+
+		for (std::string::iterator it = word.begin(); it != word.end(); it++) {
+			if (!std::isdigit(*it) && *it != '.' && *it != '-' && *it != '+')
+				throw std::invalid_argument("unexpected character on value!");
+		}
+	}
+	catch (std::invalid_argument &e) {
+		println("");
+		errorln("           ERROR: " << e.what());
+		errorln("           Entry: " << word);
+		errorln("          Expect: " << "'42' or '42.2'");
+		return (false);
+	}
+
+	try {
 		while (ss >> word)
 			wordCount++;
 
@@ -154,7 +218,7 @@ bool			BitcoinExchange::formatIsValid(std::string entry) {
 		println("");
 		errorln("           ERROR: " << e.what());
 		errorln("           Entry: " << entry);
-		errorln("          Expect: " << "'date | value' format");
+		errorln("          Expect: " << "'date | value'");
 		return (false);
 	}
 }
@@ -191,11 +255,21 @@ void			BitcoinExchange::calculateExchange(void) {
 	if (search == this->_data.end())
 		search = --this->_data.lower_bound(this->_trade.userDate);
 
-	this->_trade.rateDate = search->first;
-	this->_trade.rateValue = search->second;
-	this->_trade.tradedValue = this->_trade.userValue * this->_trade.rateValue;
+	try {
+		if (search == this->_data.end())
+			throw std::out_of_range("no bitcoin data on this date!");
+		this->_trade.rateDate = search->first;
+		this->_trade.rateValue = search->second;
+		this->_trade.tradedValue = this->_trade.userValue * this->_trade.rateValue;
+		printExchange();
+	}
+	catch (std::out_of_range &e) {
+		println("");
+		errorln("           ERROR: " << e.what());
+		errorln("           Entry: " << this->_trade.userDate);
+		errorln("          Expect: " << "dates from " << this->_data.begin()->first << " onwards");
+	}
 
-	printExchange();
 }
 
 void			BitcoinExchange::printExchange(void) {

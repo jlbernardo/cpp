@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:17:05 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/12 23:32:14 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 01:26:53 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <fstream>
 # include <sstream>
 # include <iostream>
+# include <algorithm>
 # include "general.hpp"
 
 typedef std::map<std::string, float>::const_iterator mapIter;
