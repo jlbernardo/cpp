@@ -96,7 +96,7 @@
 /**
  * Cleans the terminal.
  */
-# define clean std::cout << "\033c" << std::endl;
+# define clean std::cout << "\033c" << std::flush;
 
 /**
  * Pauses the program until the user presses enter.
