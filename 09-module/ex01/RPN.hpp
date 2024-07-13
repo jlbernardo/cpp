@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 03:01:26 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 04:40:36 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 14:32:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # include <stack>
 # include <sstream>
 # include <iomanip>
+# include <algorithm>
 # include "general.hpp"
 
 class RPN {
 
 private:
 	std::string							_input;
+	std::string							_operate;
 	std::stack< int, std::list<int> >	_abacus;
 
 				RPN(void);

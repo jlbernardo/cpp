@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 03:02:02 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 05:23:20 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 14:44:37 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 RPN::RPN(void) {
 }
 
-RPN::RPN(std::string input) : _input(input) {
+RPN::RPN(std::string input) : _input(input), _operate(input) {
+	this->_operate.erase(
+		std::remove_if(this->_operate.begin(), this->_operate.end(), ::isspace),
+						this->_operate.end());
+	this->_input.erase(
+		std::remove_if(this->_input.begin(), this->_input.end(), ::isspace),
+						this->_input.end());
 }
 
 RPN::~RPN(void) {
@@ -33,22 +39,20 @@ RPN	&RPN::operator=(const RPN &rhs) {
 }
 
 void	RPN::calculate(void) {
-	std::string			token;
-	std::stringstream	ss(this->_input);
 
 	this->print();
 	next;
 
-	while (std::getline(ss, token, ' ')) {
+	for (std::string::iterator it = this->_operate.begin(); it != this->_operate.end(); it++) {
 		int			a = 0;
 		int			b = 0;
 		long int	value = 0;
 
-		if (std::isdigit(token[0])) {
-			value = std::strtol(token.c_str(), 0, 10);
+		if (std::isdigit(*it)) {
+			value = static_cast<int>(*it) - '0';
 			this->_abacus.push(value);
 		}
-		else if (token == "+" || token == "-" || token == "*" || token == "/") {
+		else if (*it == '+' || *it == '-' || *it == '*' || *it == '/') {
 			if (this->_abacus.size() > 1) {
 				b = this->_abacus.top();
 				this->_abacus.pop();
@@ -60,7 +64,7 @@ void	RPN::calculate(void) {
 				return ;
 			}
 
-			switch (token.at(0)) {
+			switch (*it) {
 				case '+':
 					this->_abacus.push(a + b);
 					break ;
@@ -88,7 +92,7 @@ void	RPN::calculate(void) {
 			this->_input.clear();
 			break ;
 		}
-		this->_input = this->_input.substr(this->_input.find_first_of(" \t") + 1);
+		this->_input.erase(this->_input.begin(), this->_input.begin() + 1);
 		this->print();
 		next;
 	}
@@ -105,8 +109,12 @@ void	RPN::print(void) {
 	unsigned int						width = this->longestNumber();
 	std::stack< int, std::list<int> >	copy(this->_abacus);
 
-	if (!this->_input.empty())
-		println(PRP << std::endl << "    " << this->_input << std::endl);
+	if (!this->_input.empty()) {
+		std::cout << PRP << std::endl << "    " << std::flush;
+		for (std::string::iterator it = this->_input.begin(); it != this->_input.end(); it++)
+			std::cout << *it << " " << std::flush;
+		println("\n");
+	}
 	println(WHT << "  stack: ╭ " << std::setw(width + 4) << " ╮");
 	while (!copy.empty()) {
 		println(WHT << "         │ " << std::setw(width) << copy.top() << " │");
