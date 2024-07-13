@@ -10,7 +10,10 @@ INCLUDE	+=	-I .
 
 OD		=	obj/
 
-SRC		+=	main.cpp BitcoinExchange.cpp
+SRC		+=	main.cpp \
+			BitcoinExchange.trade.cpp \
+			BitcoinExchange.canonical.cpp \
+			BitcoinExchange.validation.cpp
 OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 
 BLU 	=	\033[1;36m
