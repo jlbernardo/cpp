@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 03:02:02 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 05:01:23 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 05:23:20 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,23 @@ void	RPN::calculate(void) {
 				return ;
 			}
 
-			if (token == "+") {
-				this->_abacus.push(a + b);
-			}
-			else if (token == "-") {
-				this->_abacus.push(a - b);
-			}
-			else if (token == "*") {
-				this->_abacus.push(a * b);
-			}
-			else if (token == "/") {
-				if (b == 0) {
-					println(RED << "\n Error: cannot divide by zero!");
-					return ;
-				}
-				this->_abacus.push(a / b);
+			switch (token.at(0)) {
+				case '+':
+					this->_abacus.push(a + b);
+					break ;
+				case '-':
+					this->_abacus.push(a - b);
+					break ;
+				case '*':
+					this->_abacus.push(a * b);
+					break ;
+				case '/':
+					if (b == 0) {
+						println(RED << "\n Error: cannot divide by zero!");
+						return ;
+					}
+					this->_abacus.push(a / b);
+					break ;
 			}
 		}
 		else {
