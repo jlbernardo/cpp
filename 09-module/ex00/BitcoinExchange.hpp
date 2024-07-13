@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:17:05 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 01:26:53 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/13 17:31:10 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <map>
-# include <list>
 # include <time.h>
 # include <iomanip>
 # include <cstring>
