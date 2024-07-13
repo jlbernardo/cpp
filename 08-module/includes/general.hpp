@@ -81,11 +81,11 @@
 /**
  * Clears the terminal.
  */
-# define clear std::cout << "\033c" << std::endl;
+# define clean std::cout << "\033c" << std::endl;
 
 /**
  * Pauses the program until the user presses enter.
  */
-# define next println("\n\n  ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clear;
+# define next println("\n\n  ᵖʳᵉˢˢ ᵉⁿᵗᵉʳ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ"); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); clean;
 
 #endif

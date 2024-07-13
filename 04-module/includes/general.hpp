@@ -69,6 +69,6 @@
 /**
  * Clears the terminal.
  */
-# define clear std::cout << "\033c" << std::endl;
+# define clean std::cout << "\033c" << std::endl;
 
 #endif

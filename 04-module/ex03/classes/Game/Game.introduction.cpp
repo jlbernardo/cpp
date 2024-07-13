@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:37:45 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 13:35:37 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:06:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	Game::getName(void) {
 
 	while (name.empty())
 		getline(std::cin, name);
-	clear;
+	clean;
 	_player = new Character(name);
 }
 
@@ -53,7 +53,7 @@ void	Game::getType(void) {
 		}
 	}
 
-	clear;
+	clean;
 	if (type == "E")
 		gameOver();
 

@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 20:23:41 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 15:32:37 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:06:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,5 @@ void	testWrongCatClass(void) {
 void	next(void) {
 	println("\n  ᵖʳᵉˢˢ ᵃⁿʸ ᵏᵉʸ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	clear;
+	clean;
 }

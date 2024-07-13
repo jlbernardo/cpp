@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:59 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/11 21:33:44 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:06:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Game::attackMessage(Character &enemy, std::string &input) {
 	for (std::string::iterator it = input.begin(); it != input.end(); it++)
 		*it = (char)toupper(*it);
 
-	clear;
+	clean;
 }
 
 void	Game::retaliationMessage(Character &enemy, std::string &input) {
@@ -49,14 +49,14 @@ void	Game::retaliationMessage(Character &enemy, std::string &input) {
 	for (std::string::iterator it = input.begin(); it != input.end(); it++)
 		*it = (char)toupper(*it);
 
-	clear;
+	clean;
 	println("");
 }
 
 void	Game::next(void) {
 	println("\n            ᵖʳᵉˢˢ ᵃⁿʸ ᵏᵉʸ ᵗᵒ ᶜᵒⁿᵗⁱⁿᵘᵉ");
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	clear;
+	clean;
 }
 
 

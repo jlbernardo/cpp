@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:07:11 by julberna          #+#    #+#             */
-/*   Updated: 2024/06/12 15:13:43 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:06:36 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Game::fight(Character &enemy) {
 		else
 			println(RED << "                               Invalid input.");
 		if (enemy.getHealth() <= 0) {
-			clear;
+			clean;
 			println("");
 			break ;
 		}
@@ -64,7 +64,7 @@ void	Game::fight(Character &enemy) {
 			gameOver();
 		retaliation(enemy);
 		if (_player->getHealth() <= 0) {
-			clear;
+			clean;
 			println("");
 			println(RED << "                               Ouch! "
 						<< enemy.getName() << " hit you pretty bad...");
@@ -116,7 +116,7 @@ void	Game::retry(Character &enemy) {
 		enemy.setHealth(GHIDORAH_HP);
 	}
 
-	clear;
+	clean;
 }
 
 void	Game::reward(Character &enemy) {
@@ -145,5 +145,5 @@ void	Game::reward(Character &enemy) {
 		_player->setHealth(PHASE3_HP);
 
 	_victory = true;
-	clear;
+	clean;
 }
