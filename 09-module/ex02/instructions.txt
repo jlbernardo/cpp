@@ -1,0 +1,33 @@
+validate the input
+	check if they are all numbers
+	check if there are negative numbers
+	check if they are already sorted
+if the size is odd, save the last element somewhere and pop it
+pair the numbers and place them on the structure
+sort the pairs by the highest number
+sort the list of pairs by the first element (higher)
+create two structures: sorted, with the first elements of each pair,
+	and pend, with the second elements plus the last odd one saved
+calculate the jacobsthal list:
+	start with 0 and 1
+	sum the last number with twice the second to last
+	check if the new number is bigger than the size of the pend list
+		if it is, stop and store, if not, keep going
+use the jacobsthal list as index for the pend list
+	insert the lowest jacosthal number at its correct position
+	check if there are lower indexes and add them from larger to smallest
+	use binary seaarch to find the correct place
+	repeat until list is sorted
+
+example:
+	jacosthal: 0 1 1 3 5 11 21
+	insert index 0*
+	insert index 1*
+	insert index 3*
+	insert index 2
+	insert index 5*
+	insert index 4
+	insert index 11*
+	insert index 10, 9, 8, 7, 6 - in this order
+	insert index 21*
+	insert index 20, 19, 18, 17, 16, 15, 14, 13, 12, 11
