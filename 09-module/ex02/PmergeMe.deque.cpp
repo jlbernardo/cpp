@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:28:03 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 04:01:18 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 04:44:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ void	PmergeMe::dequeSort(void) {
 
 	std::deque<intPair>	pairs;
 	int						straggler = -1;
-
-	// std::cout << RED << std::endl << "   Original: " << std::flush;
-	// for (dIter it = this->_deque.c.begin(); it != this->_deque.c.end(); it++)
-	// 	std::cout << *it << " ";
-	// println("");
 
 	if (this->_deque.c.size() % 2 != 0) {
 		straggler = this->_deque.c.back();
@@ -94,11 +89,5 @@ void	PmergeMe::dequeSort(void) {
 		this->_deque.main.insert(position, value);
 	}
 
-	// std::cout << YLW << std::endl << "     Sorted? " << std::flush;
-	// for (dIter it = this->_deque.main.begin(); it != this->_deque.main.end(); it++)
-	// 	std::cout << *it << " ";
-	// println("\n");
-
-	// this->_deque.time = (clock() - this->_deque.time) * 1000000.0 / CLOCKS_PER_SEC;
-	// println(GRN << "       Time: " << std::fixed << std::setprecision(4) << this->_deque.time << "μs");
+	this->_deque.time = (clock() - this->_deque.time) * 1000000.0 / CLOCKS_PER_SEC;
 }

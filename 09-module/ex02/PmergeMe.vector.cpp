@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 17:40:03 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 04:01:24 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 04:44:04 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ void	PmergeMe::vectorSort(void) {
 
 	std::vector<intPair>	pairs;
 	int						straggler = -1;
-
-	// std::cout << RED << std::endl << "   Original: " << std::flush;
-	// for (vIter it = this->_vector.c.begin(); it != this->_vector.c.end(); it++)
-	// 	std::cout << *it << " ";
-	// println("");
 
 	if (this->_vector.c.size() % 2 != 0) {
 		straggler = this->_vector.c.back();
@@ -94,11 +89,5 @@ void	PmergeMe::vectorSort(void) {
 		this->_vector.main.insert(position, value);
 	}
 
-	// std::cout << YLW << std::endl << "     Sorted? " << std::flush;
-	// for (vIter it = this->_vector.main.begin(); it != this->_vector.main.end(); it++)
-	// 	std::cout << *it << " ";
-	// println("\n");
-
-	// this->_vector.time = (clock() - this->_vector.time) * 1000000.0 / CLOCKS_PER_SEC;
-	// println(GRN << "       Time: " << std::fixed << std::setprecision(4) << this->_vector.time << "μs");
+	this->_vector.time = (clock() - this->_vector.time) * 1000000.0 / CLOCKS_PER_SEC;
 }
