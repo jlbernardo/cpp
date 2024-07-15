@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:17 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/11 16:22:48 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:10:11 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,19 @@ void	Span::addMany(int size) {
 	for (int i = 0; i < size; i++)
 		this->addNumber(0);
 	this->randomFill(0, size * 100);
+	single = true;
+}
+
+void	Span::addMany(int values[]) {
+	single = false;
+	try {
+		for (int i = 0; i < INT_MAX; i++)
+			this->addNumber(values[i]);
+	}
+	catch (std::overflow_error &e) {
+		;
+	}
+	calculateSpans();
 	single = true;
 }
 
