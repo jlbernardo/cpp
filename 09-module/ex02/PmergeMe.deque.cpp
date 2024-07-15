@@ -5,25 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 20:28:03 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 04:44:25 by julberna         ###   ########.fr       */
+/*   setd: 2024/07/13 20:28:03 by julberna          #+#    #+#             */
+/*   Updated: 2024/07/15 06:42:49 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 void	PmergeMe::dequeSort(void) {
-	this->_deque.time = clock();
 
 	std::deque<intPair>	pairs;
-	int						straggler = -1;
 
-	if (this->_deque.c.size() % 2 != 0) {
-		straggler = this->_deque.c.back();
-		this->_deque.c.pop_back();
+	_deque.time = clock();
+
+	setOddElement();
+	setSortedPairs(pairs);
+	setMainAndPend(pairs);
+	setJacobsthalNumbers();
+	setInsertionOrder();
+	placeInOrder();
+
+	_deque.time = (clock() - _deque.time) * 1000000.0 / CLOCKS_PER_SEC;
+}
+
+void	PmergeMe::setOddElement(void) {
+	_deque.odd = -1;
+
+	if (_deque.c.size() % 2 != 0) {
+		_deque.odd = _deque.c.back();
+		_deque.c.pop_back();
 	}
+}
 
-	for (dIter it = this->_deque.c.begin(); it < this->_deque.c.end(); it += 2) {
+void	PmergeMe::setSortedPairs(dPair &pairs) {
+
+	for (dIter it = _deque.c.begin(); it < _deque.c.end(); it += 2) {
 
 		intPair		pair(*it, *(it + 1));
 
@@ -34,60 +50,75 @@ void	PmergeMe::dequeSort(void) {
 	}
 
 	std::sort(pairs.begin(), pairs.end());
+}
+
+void	PmergeMe::setMainAndPend(dPair &pairs) {
 
 	for (dPairIter it = pairs.begin(); it != pairs.end(); it++)
-		this->_deque.main.push_back(it->first);
+		_deque.main.push_back(it->first);
 
 	for (dPairIter it = pairs.begin(); it != pairs.end(); it++)
-		this->_deque.pend.push_back(it->second);
+		_deque.pend.push_back(it->second);
 
-	if (straggler != -1)
-		this->_deque.pend.push_back(straggler);
+	if (_deque.odd != -1)
+		_deque.pend.push_back(_deque.odd);
+}
 
-	std::deque<int>	jacobsthal;
+void	PmergeMe::setJacobsthalNumbers(void) {
 
-	jacobsthal.push_back(0);
-	jacobsthal.push_back(1);
-	int j = *(jacobsthal.end() - 2) * 2 + jacobsthal.back();
-	while (j < static_cast<int>(this->_deque.pend.size() - 1)) {
-		jacobsthal.push_back(j);
-		j = *(jacobsthal.end() - 2) * 2 + jacobsthal.back();
+	_deque.jacobsthal.push_back(0);
+	_deque.jacobsthal.push_back(1);
+
+	int nextNumber = *(_deque.jacobsthal.end() - 2) * 2 + _deque.jacobsthal.back();
+
+	while (nextNumber < static_cast<int>(_deque.pend.size() - 1)) {
+		_deque.jacobsthal.push_back(nextNumber);
+		nextNumber = *(_deque.jacobsthal.end() - 2) * 2 + _deque.jacobsthal.back();
 	}
 
-	jacobsthal.erase(jacobsthal.begin() + 1);
+	_deque.jacobsthal.erase(_deque.jacobsthal.begin() + 1);
+}
 
-	std::deque<int>	insertionOrder;
-	insertionOrder.push_back(jacobsthal.front());
+void	PmergeMe::setInsertionOrder(void) {
 
-	while (insertionOrder.size() < this->_deque.pend.size()) {
-		jacobsthal.erase(jacobsthal.begin());
+	_deque.insertionOrder.push_back(_deque.jacobsthal.front());
 
-		if (!jacobsthal.empty()) {
-			int	last = insertionOrder.back();
-			int	jacob  = jacobsthal.front();
+	while (_deque.insertionOrder.size() < _deque.pend.size()) {
+		_deque.jacobsthal.erase(_deque.jacobsthal.begin());
 
-			insertionOrder.push_back(jacob--);
-			while (jacob > last && insertionOrder.size() < this->_deque.pend.size()) {
-				if (std::find(insertionOrder.begin(), insertionOrder.end(), jacob) == insertionOrder.end())
-					insertionOrder.push_back(jacob);
+		if (!_deque.jacobsthal.empty()) {
+			int	last = _deque.insertionOrder.back();
+			int	jacob  = _deque.jacobsthal.front();
+
+			_deque.insertionOrder.push_back(jacob--);
+			while (jacob > last && _deque.insertionOrder.size() < _deque.pend.size()) {
+				dIter	insertBegin = _deque.insertionOrder.begin();
+				dIter	insertEnd = _deque.insertionOrder.end();
+
+				if (std::find(insertBegin, insertEnd, jacob) == insertEnd)
+					_deque.insertionOrder.push_back(jacob);
+
 				jacob--;
 			}
 		}
 		else {
-			int missing = this->_deque.pend.size() - 1;
+			int missing = _deque.pend.size() - 1;
 
-			while (insertionOrder.size() < this->_deque.pend.size())
-				insertionOrder.push_back(missing--);
+			while (_deque.insertionOrder.size() < _deque.pend.size())
+				_deque.insertionOrder.push_back(missing--);
 		}
 
 	}
+}
 
-	for (dIter it = insertionOrder.begin(); it != insertionOrder.end(); it++) {
-		int		value = this->_deque.pend[*it];
-		dIter	position = std::upper_bound(this->_deque.main.begin(), this->_deque.main.end(), value);
+void	PmergeMe::placeInOrder(void) {
+	dIter	insertBegin = _deque.insertionOrder.begin();
+	dIter	insertEnd = _deque.insertionOrder.end();
 
-		this->_deque.main.insert(position, value);
+	for (dIter it = insertBegin; it != insertEnd; it++) {
+		int		value = _deque.pend[*it];
+		dIter	position = std::upper_bound(_deque.main.begin(), _deque.main.end(), value);
+
+		_deque.main.insert(position, value);
 	}
-
-	this->_deque.time = (clock() - this->_deque.time) * 1000000.0 / CLOCKS_PER_SEC;
 }

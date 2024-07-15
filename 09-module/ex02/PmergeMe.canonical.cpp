@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 17:18:27 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 04:43:27 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 05:07:25 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &rhs) {
 }
 
 void	PmergeMe::calculate(void) {
+	std::vector<int> copy(this->_input);
+
+	std::sort(copy.begin(), copy.end());
+	if (copy == this->_input) {
+		this->_vector.main = this->_input;
+		return ;
+	}
 	vectorSort();
 	dequeSort();
 }
@@ -55,9 +62,8 @@ void	PmergeMe::print(void) {
 	println("");
 
 	println(std::fixed);
-
-	println(WHT << " Time to process a range of " << this->_size << " elements with std::vector: " <<
-			(this->_vector.time < this->_deque.time ? GRN : RED) << this->_vector.time << "μs");
-	println(WHT << " Time to process a range of " << this->_size << " elements with std::deque : " <<
-			(this->_deque.time < this->_vector.time ? GRN : RED) << this->_deque.time << "μs");
+	println(WHT << " Time to process this range of " << this->_size << " elements with std::vector: " <<
+			(this->_vector.time <= this->_deque.time ? GRN : RED) << this->_vector.time << "μs");
+	println(WHT << " Time to process this range of " << this->_size << " elements with std::deque : " <<
+			(this->_deque.time <= this->_vector.time ? GRN : RED) << this->_deque.time << "μs");
 }

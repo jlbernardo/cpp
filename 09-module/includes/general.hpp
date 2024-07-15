@@ -51,37 +51,37 @@
 /**
  * Red bold color.
  */
-# define RED	DFL << "\033[31;1m"
+# define RED	"\033[31;1m"
 
 /**
  * Green bold color.
  */
-# define GRN	DFL << "\033[32;1m"
+# define GRN	"\033[32;1m"
 
 /**
  * Yellow bold color.
  */
-# define YLW	DFL << "\033[33;1m"
+# define YLW	"\033[33;1m"
 
 /**
  * Blue bold color.
  */
-# define BLU	DFL << "\033[34;1m"
+# define BLU	"\033[34;1m"
 
 /**
  * Purple bold color.
  */
-# define PRP	DFL << "\033[35;1m"
+# define PRP	"\033[35;1m"
 
 /**
  * Cyan bold color.
  */
-# define CYN	DFL << "\033[36;1m"
+# define CYN	"\033[36;1m"
 
 /**
  * White bold color.
  */
-# define WHT	DFL << "\033[37;1m"
+# define WHT	"\033[37;1m"
 
 /**
  * Inserts content into the std::cout and adds a new line at the end.

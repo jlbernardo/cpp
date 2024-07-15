@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:57 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 04:00:16 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 05:05:51 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	PmergeMe::validateUniqueness(void) {
 }
 
 void	PmergeMe::populateContainers(void) {
+
+	this->_deque.time = 0;
+	this->_vector.time = 0;
 
 	for (vIter it = this->_input.begin(); it != this->_input.end(); it++) {
 		this->_deque.c.push_back(*it);

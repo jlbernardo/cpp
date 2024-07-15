@@ -20,11 +20,6 @@ BLU 	=	\033[1;36m
 DFL 	=	\033[0m
 
 
-	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 -9 7 4
-	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 5 7 4
-	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 b 7 4
-	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3
-	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
 
 all: $(NAME)
 
@@ -39,6 +34,11 @@ $(OD)%.o:%.cpp
 
 run: all
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 2 4 3 6 1 0 5 9 7 8
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 1 2 3 4 5 6 7 8 9
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 -9 7 4
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 5 7 4
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 b 7 4
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
 	@rm -rf $(OD)
 	@rm -f $(NAME)
 
