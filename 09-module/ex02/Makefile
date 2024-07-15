@@ -19,6 +19,13 @@ OBJ		=	$(SRC:%.cpp=$(OD)%.o)
 BLU 	=	\033[1;36m
 DFL 	=	\033[0m
 
+
+	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 -9 7 4
+	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 5 7 4
+	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 b 7 4
+	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3
+	# @valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -31,12 +38,7 @@ $(OD)%.o:%.cpp
 	@$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 run: all
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 9 7 4
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 -9 7 4
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 5 7 4
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 b 7 4
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3
-	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 2 4 3 6 1 0 5 9 7 8
 	@rm -rf $(OD)
 	@rm -f $(NAME)
 
