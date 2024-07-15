@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 02:44:10 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/13 02:46:51 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 04:36:09 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ void			BitcoinExchange::printExchange(void) {
 	println(WHT << "   Exchange rate:" << DFL << BLD << " $"
 				<< this->_trade.rateValue << "/btc on " << this->_trade.rateDate);
 
-	println(WHT << "  Original value:" << DFL << BLD << " $"
+	println(WHT << "         Bitcoin:" << DFL << BLD << " ₿ "
 				<< this->_trade.userValue);
 
-	println(WHT << " Exchanged value:" << GRN << " $"
+	println(WHT << " Converted value:" << GRN << " $ "
 				<< this->_trade.tradedValue);
 }
