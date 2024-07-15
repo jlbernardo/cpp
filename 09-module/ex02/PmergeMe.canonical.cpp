@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 17:18:27 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 05:07:25 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 06:54:18 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,6 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &rhs) {
 }
 
 void	PmergeMe::calculate(void) {
-	std::vector<int> copy(this->_input);
-
-	std::sort(copy.begin(), copy.end());
-	if (copy == this->_input) {
-		this->_vector.main = this->_input;
-		return ;
-	}
 	vectorSort();
 	dequeSort();
 }
