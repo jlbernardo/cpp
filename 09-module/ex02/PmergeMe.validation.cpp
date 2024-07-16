@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:57 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 06:54:47 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/16 20:44:33 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	PmergeMe::validateInput(char **argv) {
 void	PmergeMe::validateUniqueness(void) {
 
 	std::vector<int>	check(this->_input);
-	
+
 
 	std::sort(check.begin(), check.end());
 	for (vIter it = check.begin() + 1; it != check.end(); it++) {
@@ -51,4 +51,17 @@ void	PmergeMe::populateContainers(void) {
 		this->_vector.c.push_back(*it);
 		this->_size++;
 	}
+}
+
+bool	PmergeMe::notSorted(void) {
+	std::vector<int>	check(this->_input);
+
+	std::sort(check.begin(), check.end());
+	if (check == this->_input) {
+		this->_deque.time = 0;
+		this->_vector.time = 0;
+		this->_vector.main = this->_input;
+		return (false);
+	}
+	return (true);
 }

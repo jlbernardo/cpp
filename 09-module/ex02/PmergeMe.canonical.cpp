@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 17:18:27 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 06:54:18 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/16 20:39:02 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &rhs) {
 }
 
 void	PmergeMe::calculate(void) {
-	vectorSort();
-	dequeSort();
+	if (notSorted()) {
+		vectorSort();
+		dequeSort();
+	}
 }
 
 void	PmergeMe::print(void) {

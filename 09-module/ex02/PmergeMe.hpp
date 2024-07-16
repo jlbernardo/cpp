@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:52:00 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/15 06:44:34 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/16 20:41:09 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ private:
 				PmergeMe(const PmergeMe &copy);
 	PmergeMe	&operator=(const PmergeMe &rhs);
 
+	bool		notSorted(void);
 	void		validateInput(char **argv);
 	void		validateUniqueness(void);
 	void		populateContainers(void);
