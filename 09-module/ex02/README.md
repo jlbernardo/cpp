@@ -162,11 +162,7 @@ jacobsthal.erase(jacobsthal.begin() + 1);
 ```
 
 <br>
-
-2.2) Create a vector of integers that will store our insertion order list. To create this one, we will add one Jacobsthal number, then look back at our list and see if, between this jacobsthal number and the last number added to the list, there is any other number missing. If there is, we will add the missing numbers in descending order.
-
-<br>
-Example:
+2.2) Create a vector of integers that will store our insertion order list. To create this one, we will add one Jacobsthal number, then look back at our list and see if, between this jacobsthal number and the last number added to the list, there is any other number missing. If there is, we will add the missing numbers in descending order. For example:
 
 
 ```cpp
