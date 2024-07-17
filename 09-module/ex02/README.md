@@ -1,10 +1,10 @@
 # `Ford-Johnson Algorithm`, aka merge-insertion sort
 
-The Ford-Johnson algorithm is a [comparison sorting algorithm](https://en.wikipedia.org/wiki/Merge-insertion_sort) that combines the merge sort and insertion sort algorithms. At École 42, where recreating this algo is a mandatory step in the curriculum, it got quite the fame for being diabolical. However, from the way I see it, the algorithm is easy to implement, ok to understand, but very very hard to find information about.
+The Ford-Johnson is a [comparison sorting algorithm](https://en.wikipedia.org/wiki/Merge-insertion_sort) that combines the merge sort and insertion sort algorithms. At École 42, where recreating this algo is a mandatory step in the curriculum, it got quite the fame for being diabolical. However, from the way I see it, the algorithm is easy to implement, ok to understand, but very very hard to find information about.
 
 So, inspired by the great guide created by [Carol Daniel](https://github.com/caroldaniel/42sp-cursus-cpp/blob/main/cpp_module_09/ex02/README.md), I want to have my take on trying to explain how it works. After all, you can only confidently say you've learned something after you are able to explain it to someone else.
 
-*Note: **[this](https://warwick.ac.uk/fac/sci/dcs/teaching/material-archive/cs341/fj.pdf)** is where the logic is explained officially, I believe, and guided me through some clarifications of what to do, when and in which order. I, of course, may have understood everything wrong, so please, if you see any mistakes, let me know.*
+*Note: **[this](https://warwick.ac.uk/fac/sci/dcs/teaching/material-archive/cs341/fj.pdf)** is where the logic is explained officially, I believe, and guided me through some clarifications of what to do, when to do it and in which order. I, of course, may have misunderstood everything, so please, if you see any mistakes, let me know.*
 
 <br>
 
@@ -16,14 +16,14 @@ So, inspired by the great guide created by [Carol Daniel](https://github.com/car
 
 ## So what's the general idea?
 
-You'll use a logic similar to merge sort in the sense that you'll divide you list/array/container into smaller parts to aid in the sorting process. The insertion sort comes in the end, as you'll use this algorithm to place each element on your sorted list. In between these two well known steps comes the "chaos".
+You'll use a logic similar to merge sort in the sense that you'll divide you list/array/container into smaller parts to aid in the sorting process. The insertion sort comes at the end, as you'll use this algorithm to place each element on your sorted list. In between these two well known steps comes the "chaos".
 
 
 ### The Jacobsthal Sequence
 
-Do you remember [Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_sequence)? The infinite sequence that starts with 0 and 1 and each following number is created by the sum of the last two? Ye, the Jacobsthal sequence is much like that one. The difference is that each new number is created by the sum of the last one and the one before that multiplied by two.
+Do you remember [Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_sequence)? The infinite sequence that starts with 0 and 1 and each following number is created by the sum of the last two? Ye, the Jacobsthal sequence is much like this one. The difference is that each new number is created by the sum of the last one and the one before that multiplied by two.
 
-So, if Fibonacci is `n = x + (x - 1)`, Jacobsthal is `n = x + 2 * (x- 1)`.
+So, if Fibonacci is `n = x + (x - 1)`, Jacobsthal is `n = x + 2 * (x - 1)`.
 
 ### Cool, but [**for why**](https://www.youtube.com/watch?v=ftKq2aQl5Wg)?
 
@@ -101,7 +101,7 @@ std::sort(pairs.begin(), pairs.end());
 ```
 
 <br>
-1.5) Finally, create two new vectors, one for the first element of each pair and another for the second element of each pair.
+1.5) Create two new vectors, one for the first element of each pair and another for the second element of each pair.
 
 ```cpp
 std::vector<int>	main;
@@ -122,13 +122,15 @@ for (pairVectorIter it = pairs.begin(); it < pairs.end(); it++) {
 ```cpp
 if (odd != -1)
 	pend.push_back(odd);
+
+//pend = [1, 5, 2, 6, 4, 7, 13];
 ```
 
 Cool, we are 33% done ~~or something like that heh~~!
 
 <br>
 
-### Phase 2) Who daheck was Jacobsthal?
+### Phase 2) Who daheck was [Jacobsthal](https://en.wikipedia.org/wiki/Ernst_Jacobsthal)?
 
 *The main objective of this part is to generate a list of indexes. This list will tell you on which elements to use the insertion sort from pend to main each time.*
 
@@ -152,24 +154,24 @@ while (nextNumber < pend.size()) {
 //delete the duplicated 1 from the sequence, as we only need unique indexes
 jacobsthal.erase(jacobsthal.begin() + 1);
 
-//jacobsthal = [0, 1, 3, 5]
+//jacobsthal = [0, 1, 3, 5];
 ```
 
 <br>
-2.2) Create a vector of integers that will store our insertion order list. To create this one, we will add one Jacobsthal number, then look back at our list and see if between this jacobsthal number and the last number added to the list there is any other number missing. If there is, we will add the missing numbers in descending order.
+2.2) Create a vector of integers that will store our insertion order list. To create this one, we will add one Jacobsthal number, then look back at our list and see if, between this jacobsthal number and the last number added to the list, there is any other number missing. If there is, we will add the missing numbers in descending order.
 
 <br>
 Example:
 <br>
 
 ```cpp
-//insertion = [0, 1, 3, 2, 5, 4]
+//insertion = [0, 1, 3, 2, 5, 4];
 
 //next jacobsthal number is 11, so we add it to the vector
-//insertion = [0, 1, 3, 2, 5, 4, 11]
+//insertion = [0, 1, 3, 2, 5, 4, 11];
 
 //now, we add the numbers missing between 4 and 11 in descending order
-//insertion = [0, 1, 3, 2, 5, 4, 11, 10, 9, 8, 7, 6]
+//insertion = [0, 1, 3, 2, 5, 4, 11, 10, 9, 8, 7, 6];
 
 //repeat this until we are done with every jacobsthal number and
 //the insertion order vector has the same size as our pend vector
@@ -182,13 +184,13 @@ To the code:
 ```cpp
 std::vector<int>	insertion;
 
-//put the first jacobsthal number in the insertion vector: 0
+//put the first jacobsthal number (0) in the insertion vector
 insertion.push_back(jacobsthal.front());
 
 //run this loop until the insertion length is reached
 while (insertion.size() < pend.size()) {
 
-	//pop the first element of jacobsthal vector, as we've already added it
+	//pop the first element of the jacobsthal vector, as we've already added it
 	jacobsthal.erase(jacobsthal.begin());
 
 	//if there are still elements in the jacobsthal vector
@@ -243,16 +245,20 @@ Oof! You made it through the hardest part. Are you still following along? Don't 
 
 <br>
 
-3.1) Run a loop through the insertion order vector and use that number as index to the pend list. Use the function [`std::upper_bound`](https://en.cppreference.com/w/cpp/algorithm/upper_bound) to find the position, in the sorted vector, of the first element greater than your current pend value. Use [`std::insert`](https://en.cppreference.com/w/cpp/container/vector/insert) to place the value right before that position.
+3.1) Run a loop through the insertion order vector and use that number as index to the pend list. Use the function [`std::upper_bound`](https://en.cppreference.com/w/cpp/algorithm/upper_bound) to find the position of the first element greater than your current pend value in the sorted vector. Use [`std::insert`](https://en.cppreference.com/w/cpp/container/vector/insert) to place the value right before that position.
 
 ```cpp
 for (std::vector<int>::iterator it = insertion.begin(); it != insertion.end(); it++) {
 	int							value;
 	std::vector<int>::iterator	position;
 
+	//value is the pend element at the insertion value index
 	value = pend[*it];
+
+	//position is the first element greater than value in the main vector
 	position = std::upper_bound(main.begin(), main.end(), value);
 
+	//insert the value before the position found
 	main.insert(position, value);
 }
 
@@ -269,6 +275,6 @@ That's it. You now have a sorted list, made with one of the most obscure sorting
 
 This algo is important because it finds a way to be unique. It makes fewer comparisons in the worst case scenario than the best previously know algorithms, binary insertion sort and merge sort. It has the minimum possible comparisons for lists up to 22 elements and has the fewest comparisons known for lists up to 46 elements.
 
-For 20 years, it kept the podium as the sorting algorithm with the fewest comparisons known for all input lengths. It is something pretty cool and that, indeed, most people should have at least heard about. Kudos to Lester and Selmer ~~and maybe Stanisław and Czen~~ for the achievement and kudos to 42 as well for adding it to the curriculum.
+For 20 years, it kept the podium as the sorting algorithm with the fewest comparisons known for all input lengths. It is something pretty cool that, indeed, most programmers should have at least heard about. Kudos to Lester and Selmer ~~and maybe Stanisław and Czen~~ for the achievement and kudos to 42 as well for adding it to the curriculum.
 
 
