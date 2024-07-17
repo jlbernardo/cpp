@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:41:55 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/11 13:34:50 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:04:32 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ public:
 	Span				&operator=(const Span &rhs);
 
 	void				addMany(int size);
+	void				addMany(int values[]);
 	void				addNumber(int number);
 	int					longestSpan(void) const;
 	int					shortestSpan(void) const;

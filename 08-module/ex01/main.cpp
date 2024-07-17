@@ -6,7 +6,7 @@
 /*   By: julberna <julberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 17:42:27 by julberna          #+#    #+#             */
-/*   Updated: 2024/07/11 14:13:52 by julberna         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:08:14 by julberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,39 @@ int	main(void) {
 
 	next;
 
-	Span	many(10);
+	Span	listMany(10);
+	int		values[] = {1, 87, 66, 3, 12, 42, 98, 2537, 5, 11};
 
-	many.addMany(10);
-	std::cout << WHT << "   ~ ADD MANY SPAN ~\n" << std::flush;
-	many.print();
-	println(RED << "  Shortest span: " << WHT << many.shortestSpan()
-				<< " (" << many.lowerShortest() << ", " << many.upperShortest() << ")");
-	println(GRN << "   Longest span: " << WHT << many.longestSpan()
-				<< " (" << many.lowerLongest() << ", " << many.upperLongest() << ")");
+	listMany.addMany(values);
+	std::cout << WHT << "   ~ ADD MANY FROM INT LIST ~\n" << std::flush;
+	listMany.print();
+	println(RED << "  Shortest span: " << WHT << listMany.shortestSpan()
+				<< " (" << listMany.lowerShortest() << ", " << listMany.upperShortest() << ")");
+	println(GRN << "   Longest span: " << WHT << listMany.longestSpan()
+				<< " (" << listMany.lowerLongest() << ", " << listMany.upperLongest() << ")");
+
+	next;
+
+	Span	randomMany(10);
+
+	randomMany.addMany(10);
+	std::cout << WHT << "   ~ ADD MANY RANDOM FILL ~\n" << std::flush;
+	randomMany.print();
+	println(RED << "  Shortest span: " << WHT << randomMany.shortestSpan()
+				<< " (" << randomMany.lowerShortest() << ", " << randomMany.upperShortest() << ")");
+	println(GRN << "   Longest span: " << WHT << randomMany.longestSpan()
+				<< " (" << randomMany.lowerLongest() << ", " << randomMany.upperLongest() << ")");
 
 	next;
 
 	std::cout << WHT << "   ~ ADD BEYOND LIMIT SPAN ~\n" << std::flush;
 
-	many.print();
+	randomMany.print();
 	println(" //Trying to add an 11th number to a size 10 span");
 	std::cout << WHT << " span.addNumber(42): "<< std::flush;
 	try {
-		many.addNumber(42);
-		many.print();
+		randomMany.addNumber(42);
+		randomMany.print();
 	}
 	catch (std::overflow_error &e) {
 	println(PRP << e.what());

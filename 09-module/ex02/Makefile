@@ -39,6 +39,7 @@ run: all
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 5 7 4
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) 3 5 b 7 4
 	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME)
+	@valgrind --show-leak-kinds=all --leak-check=full -q ./$(NAME) `shuf -i 1-3000 -n 3000 | tr "\n" " " `
 	@rm -rf $(OD)
 	@rm -f $(NAME)
 
