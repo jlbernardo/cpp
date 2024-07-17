@@ -8,6 +8,12 @@ So, inspired by the great guide created by [Carol Daniel](https://github.com/car
 
 <br>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84cfff6e-6197-451d-9736-23238161ad70" />
+</p>
+
+<br>
+
 ## So what's the general idea?
 
 You'll use a logic similar to merge sort in the sense that you'll divide you list/array/container into smaller parts to aid in the sorting process. The insertion sort comes in the end, as you'll use this algorithm to place each element on your sorted list. In between these two well known steps comes the "chaos".
@@ -22,6 +28,12 @@ So, if Fibonacci is `n = x + (x - 1)`, Jacobsthal is `n = x + 2 * (x- 1)`.
 ### Cool, but [**for why**](https://www.youtube.com/watch?v=ftKq2aQl5Wg)?
 
 After applying the merge sort idea and dividing the unsorted list into two parts, we will use this sequence to know the order in which we will insert the elements from the unsorted half into the sorted half. It is the glue that connects both algorithms. It's the hiphen between "Merge" and "Insertion" in the title! **ദ്ദി（• ˕ •マ.ᐟ**
+
+<br>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/016aa199-1e59-43ec-9561-c0eeff996015" />
+</p>
 
 <br>
 
