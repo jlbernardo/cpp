@@ -16,7 +16,7 @@ So, inspired by the great guide created by [Carol Daniel](https://github.com/car
 
 ## So what's the general idea?
 
-You'll use a logic similar to merge sort in the sense that you'll divide you list/array/container into smaller parts to aid in the sorting process. The insertion sort comes at the end, as you'll use this algorithm to place each element on your sorted list. In between these two well known steps comes the "chaos".
+You'll use a logic similar to merge sort in the sense that you'll divide your list/array/container into smaller parts to aid in the sorting process. The insertion sort comes at the end, as you'll use this algorithm to place each element on your sorted list. In between these two well known steps comes the "chaos".
 
 
 ### The Jacobsthal Sequence
