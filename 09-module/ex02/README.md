@@ -53,7 +53,7 @@ Now that you understand the general idea behind the algorithm, we can talk speci
 1.1) First, check if the size of our vector is odd or even. If it is odd, take the last element out and keep it somewhere safe.
 
 ```cpp
-int					odd = -1;
+int			odd = -1;
 std::vector<int>	input = {3, 1, 4, 11, 8, 5, 9, 2, 6, 10, 12, 7, 13};
 
 if (input.size() % 2) {
@@ -249,7 +249,7 @@ Oof! You made it through the hardest part. Are you still following along? Don't 
 
 ```cpp
 for (std::vector<int>::iterator it = insertion.begin(); it != insertion.end(); it++) {
-	int							value;
+	int				value;
 	std::vector<int>::iterator	position;
 
 	//value is the pend element at the insertion value index
