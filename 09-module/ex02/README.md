@@ -136,7 +136,7 @@ Cool, we are 33% done ~~or something like that heh~~!
 
 <br>
 
-2.1) Create a vector of integers that will store the Jacobsthal sequence up to the size of the pend vector. So, if pend size is `8` and the sequence goes `[0, 1, 1, 3, 2, 5, 4, 11]`, you'll go up to `5`. Remember that the sequence starts with `0` and `1`.
+2.1) Create a vector of integers that will store the Jacobsthal sequence up to the size of the pend vector. So, if pend size is `8` and the sequence goes `[0, 1, 1, 3, 5, 11]`, you'll go up to `5`. Remember that the sequence starts with `0` and `1`.
 
 <br>
 On the code:
