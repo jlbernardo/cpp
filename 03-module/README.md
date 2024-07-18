@@ -5,7 +5,7 @@ Multiple inheritance is a feature of some object-oriented programming languages 
 The "**[diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)**" (sometimes referred to as the "Deadly Diamond of Death") is an ambiguity that arises when two classes B and C inherit from A, and class D inherits from both B and C. If there is a method in A that B and C have inherited and passed over to D, which version of the method does D uses: that of B, or that of C?
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/819418940987670558/1247399108231299123/diamond_problem_1.png?ex=665fe272&is=665e90f2&hm=e0318fb3bb5b2a0d3d9ad2aee0a3eae1ddbb8827d3b421fc71d1d6f143037da3&" />
+  <img src="https://github.com/user-attachments/assets/0aa44681-4bbf-4c69-916b-902c4ae498df" />
 </p>
 
 Different languages ​​solve this problem in different ways. Python, for example, follows a specific order to traverse the class hierarchy - the [Method Resolution Order (MRO)](https://medium.com/@suryansaravanan/method-resolution-order-mro-in-python-25f82af58c49).
@@ -24,7 +24,7 @@ Diamond is able to access the members of both Frag and Scav classes, as well as 
 
 <br>
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/819418940987670558/1247418513258188871/ezgif.com-video-to-gif-converter_2.gif?ex=665ff485&is=665ea305&hm=676ee7dcc8ae423c780ec94079707adc5ed658143bfafaf1a9c28fbd79ec2580&" />
+  <img src="https://github.com/user-attachments/assets/8f95049e-b722-47ef-9c59-b8e61c0a75f1" />
 </p>
 
 <br><br>
