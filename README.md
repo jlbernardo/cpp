@@ -1,10 +1,14 @@
-# CPP piscine, a journey
+# CPP piscine, a journey *:･ﾟ✧ 
+
+<br>
 
 This project is a collection of C++ exercises that aim to teach not just a new language, but the whole [Object-Oriented Programmimg](https://en.wikipedia.org/wiki/Object-oriented_programming) paradigm. It limits the use of the language by only allowing the use of **C++98** throughout the whole project and limiting the use of containers and [Standard Template Library](https://en.cppreference.com/w/cpp/container) functions to the last two modules.
 
 As with any project developed at 42, the exercises are not obvious and bland, but require a lot of thinking, good logic and organization. The lists are built in a way that each new challenge builds up on the previous one, so you are never really lost, but never truly comfortable either.
 
 I've tried to make the exercises as fun and interactive as possible. Not only because it helps me stay motivated and engaged, but also makes the evaluations enjoyable for our peers at 42. It was also a conscious effort to try and make the code as clean and readable as I could, creating visually appealing tests and outputs, and separating the blocks to be as inteligible as possible.
+
+<br>
 
 ```cpp
 // Each Makefile contains a test rule that compiles the code and runs it
@@ -13,15 +17,19 @@ I've tried to make the exercises as fun and interactive as possible. Not only be
 
 $> make run
 ```
+<br>
 
 It is important to note, however, that the programmer that started this project is not the same that finished it, because I've learned and evolved a lot during the process. My code will, then, reflect this evolution and act as a piece of history of my journey as a developer. If the code you see can be improved, maybe it was in the next exercise or maybe I would do it differently nowadays, but at that point in time, it was the best I could produce **and I think that's beautiful**. **(づ ᴗ _ᴗ)づ ♡**
 
-##### *As of 2024, only a few modules or exercises have dedicated READMEs (the ones with an asterisk). It is my wish to write them all, as well as for all other 42's projects, but life happens and I may not be able to get to it. If you want to know more about a particular exercise, feel free to reach out and I might turn the explanation I give you into a cool README too!*
+##### *As of 2024, only a few modules or exercises have dedicated READMEs (the ones with an asterisk). It is my wish to write them all, as well as for all other 42 projects, but life happens and I may not be able to get to it. If you want to know more about a particular exercise, feel free to reach out and I might turn the explanation I give you into a cool README too!*
 
+<br>
 
 ##
 
-<h3> Module | <h3> Topic | <h3> Exercises
+<br>
+
+Module | Topic | Exercises
 --- | --- | ---
 |||
 [Module 00](https://github.com/jlbernardo/cpp/tree/main/00-module) | Getting used to the language | [ex00](https://github.com/jlbernardo/cpp/tree/main/00-module/ex00): 'Hello, world!' (42 style)
